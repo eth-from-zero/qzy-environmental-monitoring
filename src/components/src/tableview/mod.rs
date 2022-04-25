@@ -10,13 +10,18 @@ type WRenderer = crate::WgpuRenderer;
 
 use iced_native::widget::Widget;
 
-struct TableWidget<W> {
+struct TableWidget<W, F>
+where
+    F: FnMut(&W, &Event),
+{
     w: W,
+    on_event: F,
 }
 
-impl<Message, W> Widget<Message, WRenderer> for TableWidget<W>
+impl<Message, W, F> Widget<Message, WRenderer> for TableWidget<W, F>
 where
     W: Widget<Message, WRenderer>,
+    F: FnMut(&W, &Event),
 {
     fn width(&self) -> Length {
         Widget::<Message, WRenderer>::width(&self.w)
@@ -65,17 +70,21 @@ where
     }
 }
 
-impl<W> TableWidget<W> {
-    pub fn new(w: W) -> Self {
-        Self { w: w }
+impl<W, F> TableWidget<W, F>
+where
+    F: FnMut(&W, &Event),
+{
+    pub fn new(w: W, f: F) -> Self {
+        Self { w: w, on_event: f }
     }
 }
 
-impl<'a, Message, W: 'a> From<TableWidget<W>> for Element<'a, Message, WRenderer>
+impl<'a, Message, W: 'a, F: 'a> From<TableWidget<W, F>> for Element<'a, Message, WRenderer>
 where
     W: Widget<Message, WRenderer>,
+    F: FnMut(&W, &Event),
 {
-    fn from(w: TableWidget<W>) -> Element<'a, Message, WRenderer> {
+    fn from(w: TableWidget<W, F>) -> Element<'a, Message, WRenderer> {
         Element::new(w)
     }
 }
@@ -101,13 +110,14 @@ where
         }
     }
 
-    fn build_view<'a, W: 'a>(
+    fn build_view<'a, W: 'a, F: 'a>(
         &'a mut self,
-        children: impl IntoIterator<Item = TableWidget<W>>,
+        children: impl IntoIterator<Item = TableWidget<W, F>>,
     ) -> iced::Element<Message>
     where
         // E: Into<Element<'a, Message, WRenderer>>,
         W: Widget<Message, WRenderer>,
+        F: FnMut(&W, &Event),
         // E: TableWidget<W>,
     {
         let scrollable_row = Row::with_children(vec![{
