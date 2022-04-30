@@ -5,23 +5,23 @@ use iced_native::{
 };
 use std::marker::PhantomData;
 
-type WRenderer = crate::WgpuRenderer;
+type WRenderer = crate::WRenderer;
 // trait Widget<Message> = crate::Widget<Message>;
 
 use iced_native::widget::Widget;
 
-struct TableWidget<W, F>
+pub struct TableWidget<W, F>
 where
-    F: FnMut(&W, &Event),
+    F: FnMut(&mut W, &Event),
 {
     w: W,
-    on_event: F,
+    on_event_fn: F,
 }
 
 impl<Message, W, F> Widget<Message, WRenderer> for TableWidget<W, F>
 where
     W: Widget<Message, WRenderer>,
-    F: FnMut(&W, &Event),
+    F: FnMut(&mut W, &Event),
 {
     fn width(&self) -> Length {
         Widget::<Message, WRenderer>::width(&self.w)
@@ -44,6 +44,8 @@ where
         _clipboard: &mut dyn Clipboard,
         _messages: &mut Vec<Message>,
     ) -> event::Status {
+        (self.on_event_fn)(&mut self.w, &event);
+
         event::Status::Captured
     }
 
@@ -72,17 +74,20 @@ where
 
 impl<W, F> TableWidget<W, F>
 where
-    F: FnMut(&W, &Event),
+    F: FnMut(&mut W, &Event),
 {
     pub fn new(w: W, f: F) -> Self {
-        Self { w: w, on_event: f }
+        Self {
+            w: w,
+            on_event_fn: f,
+        }
     }
 }
 
 impl<'a, Message, W: 'a, F: 'a> From<TableWidget<W, F>> for Element<'a, Message, WRenderer>
 where
     W: Widget<Message, WRenderer>,
-    F: FnMut(&W, &Event),
+    F: FnMut(&mut W, &Event),
 {
     fn from(w: TableWidget<W, F>) -> Element<'a, Message, WRenderer> {
         Element::new(w)
@@ -94,7 +99,7 @@ use iced::{
     Scrollable, Settings, Space,
 };
 
-struct TableView<Message> {
+pub struct TableView<Message> {
     scrollable: iced::scrollable::State,
     _msg: PhantomData<Message>,
 }
@@ -103,21 +108,21 @@ impl<Message> TableView<Message>
 where
     Message: Send + std::fmt::Debug,
 {
-    fn new() -> Self {
+    pub fn new() -> Self {
         TableView {
             scrollable: scrollable::State::new(),
             _msg: PhantomData,
         }
     }
 
-    fn build_view<'a, W: 'a, F: 'a>(
+    pub fn build_view<'a, W: 'a, F: 'a>(
         &'a mut self,
         children: impl IntoIterator<Item = TableWidget<W, F>>,
     ) -> iced::Element<Message>
     where
         // E: Into<Element<'a, Message, WRenderer>>,
         W: Widget<Message, WRenderer>,
-        F: FnMut(&W, &Event),
+        F: FnMut(&mut W, &Event),
         // E: TableWidget<W>,
     {
         let scrollable_row = Row::with_children(vec![{
@@ -184,7 +189,7 @@ mod test {
 
         fn view(&mut self) -> Element<Message, WRenderer> {
             self.table_view
-                .build_view(vec![TableWidget::new(Text::new("hello"))])
+                .build_view(vec![TableWidget::new(Text::new("hello"), |w, e| {})])
         }
     }
 }

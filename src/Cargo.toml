@@ -1,4 +1,6 @@
 [workspace]
 members = [
-    "components"
+    "components",
+
+    "examples/tableview_example"
 ]
