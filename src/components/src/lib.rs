@@ -7,4 +7,5 @@ trait Widget<Message> = iced_native::widget::Widget<Message, iced_wgpu::Renderer
 
 pub type WRenderer = iced_wgpu::Renderer;
 
-pub use tableview::{TableView, TableWidget};
+pub use tableview::{TableView, TableView2, TableWidget};
+pub use widgets::EventWidget;

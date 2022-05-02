@@ -10,9 +10,9 @@ type WRenderer = crate::WRenderer;
 
 use iced_native::widget::Widget;
 
-struct EventWidget<W, F>
+pub struct EventWidget<W, F>
 where
-    F: FnMut(&mut W, &Event),
+    F: FnMut(&mut W, &Event) -> bool,
 {
     w: W,
     on_event_fn: F,
@@ -21,7 +21,7 @@ where
 impl<Message, W, F> Widget<Message, WRenderer> for EventWidget<W, F>
 where
     W: Widget<Message, WRenderer>,
-    F: FnMut(&mut W, &Event),
+    F: FnMut(&mut W, &Event) -> bool,
 {
     fn width(&self) -> Length {
         Widget::<Message, WRenderer>::width(&self.w)
@@ -40,13 +40,27 @@ where
         event: Event,
         layout: Layout<'_>,
         cursor_position: Point,
-        _renderer: &WRenderer,
-        _clipboard: &mut dyn Clipboard,
-        _messages: &mut Vec<Message>,
+        renderer: &WRenderer,
+        clipboard: &mut dyn Clipboard,
+        messages: &mut Vec<Message>,
     ) -> event::Status {
-        (self.on_event_fn)(&mut self.w, &event);
+        if (self.on_event_fn)(&mut self.w, &event) {
+            event::Status::Captured
+        } else {
+            event::Status::Ignored
+        }
 
-        event::Status::Captured
+        // Widget::<Message, WRenderer>::on_event(
+        //     self,
+        //     event,
+        //     layout,
+        //     cursor_position,
+        //     renderer,
+        //     clipboard,
+        //     messages,
+        // );
+
+        // event::Status::Captured
     }
 
     fn draw(
@@ -74,7 +88,7 @@ where
 
 impl<W, F> EventWidget<W, F>
 where
-    F: FnMut(&mut W, &Event),
+    F: FnMut(&mut W, &Event) -> bool,
 {
     pub fn new(w: W, f: F) -> Self {
         Self {
@@ -87,7 +101,7 @@ where
 impl<'a, Message, W: 'a, F: 'a> From<EventWidget<W, F>> for Element<'a, Message, WRenderer>
 where
     W: Widget<Message, WRenderer>,
-    F: FnMut(&mut W, &Event),
+    F: FnMut(&mut W, &Event) -> bool,
 {
     fn from(w: EventWidget<W, F>) -> Element<'a, Message, WRenderer> {
         Element::new(w)

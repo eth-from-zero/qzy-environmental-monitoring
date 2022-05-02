@@ -161,35 +161,117 @@ where
     }
 }
 
-#[cfg(test)]
-mod test {
-    use super::*;
+pub struct TableView2<'a, Message: 'a> {
+    container: Container<'a, Message>,
+}
 
-    pub struct TestView {
-        table_view: TableView<Message>,
+impl<'a, Message: 'a> TableView2<'a, Message>
+where
+    Message: Send + std::fmt::Debug,
+{
+    pub fn new<W: 'a, F: 'a>(
+        scrollable_state: &'a mut iced::scrollable::State,
+        children: impl IntoIterator<Item = TableWidget<W, F>>,
+    ) -> Self
+    where
+        // E: Into<Element<'a, Message, WRenderer>>,
+        W: Widget<Message, WRenderer>,
+        F: FnMut(&mut W, &Event),
+        // E: TableWidget<W>,
+    {
+        let scrollable_row = Row::with_children(vec![{
+            let mut scrollable = Scrollable::new(scrollable_state)
+                // .padding(10)
+                // .spacing(10)
+                .width(Length::Fill)
+                .height(Length::Fill);
+            for child in children.into_iter() {
+                scrollable = scrollable.push(child);
+            }
+
+            Column::new()
+                .width(Length::Fill)
+                .height(Length::Units(10))
+                // .spacing(10)
+                .push(
+                    Container::new(scrollable)
+                        .width(Length::Fill)
+                        .height(Length::Fill),
+                )
+                .into()
+        }])
+        // .spacing(20)
+        .width(Length::Fill)
+        .height(Length::Fill);
+
+        let content = Column::new().spacing(20).padding(20).push(scrollable_row);
+
+        Self {
+            container: Container::new(content)
+                .width(Length::Fill)
+                .height(Length::Fill)
+                .center_x()
+                .center_y(),
+        }
+    }
+}
+
+impl<'a, Message: 'a> Widget<Message, WRenderer> for TableView2<'a, Message> {
+    fn width(&self) -> Length {
+        Widget::<Message, WRenderer>::width(&self.container)
     }
 
-    #[derive(Debug, Clone)]
-    pub enum Message {}
+    fn height(&self) -> Length {
+        Widget::<Message, WRenderer>::height(&self.container)
+    }
 
-    impl Sandbox for TestView {
-        type Message = Message;
+    fn layout(&self, renderer: &WRenderer, limits: &layout::Limits) -> layout::Node {
+        Widget::<Message, WRenderer>::layout(&self.container, renderer, limits)
+    }
 
-        fn new() -> Self {
-            Self {
-                table_view: TableView::new(),
-            }
-        }
+    fn on_event(
+        &mut self,
+        event: Event,
+        layout: Layout<'_>,
+        cursor_position: Point,
+        _renderer: &WRenderer,
+        _clipboard: &mut dyn Clipboard,
+        _messages: &mut Vec<Message>,
+    ) -> event::Status {
+        println!("tableview2, {:?}", event);
 
-        fn title(&self) -> String {
-            String::from("TableView")
-        }
+        // Widget::<Message, WRenderer>::on_event(
+        //     &mut self.container,
+        //     event,
+        //     layout,
+        //     cursor_position,
+        //     _renderer,
+        //     _clipboard,
+        //     _messages,
+        // )
 
-        fn update(&mut self, message: Message) {}
+        event::Status::Captured
+    }
 
-        fn view(&mut self) -> Element<Message, WRenderer> {
-            self.table_view
-                .build_view(vec![TableWidget::new(Text::new("hello"), |w, e| {})])
-        }
+    fn draw(
+        &self,
+        renderer: &mut WRenderer,
+        defaults: &<WRenderer as iced_native::renderer::Renderer>::Defaults,
+        layout: Layout<'_>,
+        cursor_position: Point,
+        viewport: &Rectangle,
+    ) -> <WRenderer as iced_native::renderer::Renderer>::Output {
+        Widget::<Message, WRenderer>::draw(
+            &self.container,
+            renderer,
+            defaults,
+            layout,
+            cursor_position,
+            viewport,
+        )
+    }
+
+    fn hash_layout(&self, state: &mut Hasher) {
+        Widget::<Message, WRenderer>::hash_layout(&self.container, state);
     }
 }

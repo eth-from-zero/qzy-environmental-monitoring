@@ -2,5 +2,7 @@
 members = [
     "components",
 
-    "examples/tableview_example"
+    "examples/tableview_example",
+    "examples/tableview2_example",
+    "examples/eventwidget_example",
 ]
