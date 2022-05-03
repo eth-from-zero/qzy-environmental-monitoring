@@ -6,6 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-iced = "0.3"
-iced_native = "0.4"
-iced_wgpu = "0.4"
+slint = "0.2"
+# slint = { version = "0.2.0", default-features = false, features = [ "compat-0-2-0" ] }
+# slint = { git = "https://github.com/slint-ui/slint" }
