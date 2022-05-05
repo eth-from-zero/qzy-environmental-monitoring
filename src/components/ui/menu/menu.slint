@@ -1,0 +1,43 @@
+import { StandardListView, ListView, Button } from "std-widgets.slint";
+
+export struct MenuItem := {
+    text: string
+}
+
+export Menu := Rectangle {
+    // property <length> menu_x;
+    // property <length> menu_y;
+    property <length> item_width: 80px;
+    property <length> item_height: 30px;
+    property <[MenuItem]> items: [{text: "add"}, {text: "delete"}];
+    callback on_clicked(int);
+
+    width: item_width;
+    height: item_height * items.length;
+    // x <=> lv.x;
+    // y <=> lv.y;
+
+    lv := StandardListView {
+        for item[index] in items: Rectangle {
+            x: 0px;
+            y: index * item_height;
+
+            Rectangle {
+                height: item_height;
+
+                Button {
+                    width: item_width;
+                    height: item_height;
+                    text: item.text;
+                    clicked => { root.on_clicked(index); }
+                }
+            }
+        }
+    }
+
+    fs := FocusScope{
+        enabled: true;
+    }
+}
+
+

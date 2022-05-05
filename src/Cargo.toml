@@ -5,4 +5,5 @@ members = [
     "examples/tableview_example",
     "examples/tableview2_example",
     "examples/eventwidget_example",
+    "examples/menu_example",
 ]
