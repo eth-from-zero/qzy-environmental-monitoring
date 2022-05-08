@@ -1,5 +1,6 @@
 import { ListView, ScrollView } from "std-widgets.slint";
 import { MenuItem, Menu } from "../../ui/menu/menu.slint";
+import { MenuArea } from "../../ui/menu/menu_area.slint";
 
 Pane := Rectangle {
     // callback right_click_on_the_item(int, length, length);
@@ -30,12 +31,10 @@ export TableView := Pane {
     width: 500px;
     height: 500px;
 
-    property <length> mx;
-    property <length> my;
     property <int> current_index;
     property <length> item_height: 100px;
-    property <bool> showed: false;
     property <[Row]> rows: [{text: "1"}, {text: "2"}, {text: "3"}, {text: "4"}, {text: "5"}, {text: "6"}];
+    property <[MenuItem]> menu_items: [{text: "edit"}, {text: "delete"}];
     // property <[Row]> rows: [{cols: [{text: "hello"}]}];
     // property <[{cols: [{text: string}]}]> rows: [{cols: [{text: "hello"}]}];
     // property <[Row]> rows: [{text: "hello"}];
@@ -43,7 +42,12 @@ export TableView := Pane {
     // callback right_click_on_the_item(int, length, length) <=> self.right_click_on_the_item(int, length, length);
     callback right_click_on_the_item(int, length, length);
     callback right_click_on_the_view(int, length, length, string);
-    callback menu_on_clicked(int);
+    callback right_click_view(length, length);
+    right_click_view(mx, my) => {
+        current_index = my/item_height;
+        root.right_click_on_the_view(current_index, mx, my, rows[current_index].text);
+    }
+    callback menu_on_clicked(int, string);
 
     lv := ScrollView {
         viewport-height: rows.length * root.item_height;
@@ -72,27 +76,39 @@ export TableView := Pane {
 
             // if showed: Rectangle { x: mx; y: my; height:20px; width: 20px; background: yellow; }
             TouchArea {
-                if showed: menu := Menu {
-                    x: mx;
-                    y: my + 1px;
-                    items: [{text: "add"}, {text: "delete"}];
-                    on_clicked(int) => {root.menu_on_clicked(int)}
-                }
-
-                pointer-event(pe) => {
-                    if (pe.kind == PointerEventKind.down &&
-                        // (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-                        // (pe.button == PointerEventButton.right)) {
-                        (pe.button == PointerEventButton.left)) {
-                        current_index = self.mouse-y/item_height;
-                        root.right_click_on_the_view(current_index, self.mouse-x, self.mouse-y, rows[current_index].text);
-
-                        mx = self.mouse-x;
-                        my = self.mouse-y;
-                        showed = true;
-                    }
-                }
+            MenuArea {
+                right_click_view(length, length) => {root.right_click_view(length, length)}
+                on_clicked(int, string) => {root.menu_on_clicked(int, string)}
             }
+            }
+            // ta := TouchArea {
+            //     property <length> mx;
+            //     property <length> my;
+            //     property <bool> showed: false;
+            //     callback right_click_view(length, length);
+
+            //     if showed: menu := Menu {
+            //         menu_x: ta.mx;
+            //         menu_y: ta.my;
+            //         items <=> root.menu_items;
+            //         on_clicked(int, string) => {root.menu_on_clicked(int, string)}
+            //     }
+
+            //     pointer-event(pe) => {
+            //         if (pe.kind == PointerEventKind.down &&
+            //             // (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
+            //             // (pe.button == PointerEventButton.right)) {
+            //             (pe.button == PointerEventButton.left)) {
+            //             // current_index = self.mouse-y/item_height;
+            //             // root.right_click_view(current_index, self.mouse-x, self.mouse-y, rows[current_index].text);
+            //             ta.right_click_view(self.mouse-x, self.mouse-y);
+
+            //             mx = self.mouse-x;
+            //             my = self.mouse-y;
+            //             showed = true;
+            //         }
+            //     }
+            // }
         }
 
         // TouchArea {

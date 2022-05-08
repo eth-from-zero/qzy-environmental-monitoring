@@ -5,17 +5,17 @@ export struct MenuItem := {
 }
 
 export Menu := Rectangle {
-    // property <length> menu_x;
-    // property <length> menu_y;
+    property <length> menu_x;
+    property <length> menu_y;
     property <length> item_width: 80px;
     property <length> item_height: 30px;
-    property <[MenuItem]> items: [{text: "add"}, {text: "delete"}];
-    callback on_clicked(int);
+    property <[MenuItem]> items;
+    callback on_clicked(int, string);
 
     width: item_width;
     height: item_height * items.length;
-    // x <=> lv.x;
-    // y <=> lv.y;
+    x: menu_x + 1px;
+    y: menu_y;
 
     lv := StandardListView {
         for item[index] in items: Rectangle {
@@ -29,15 +29,16 @@ export Menu := Rectangle {
                     width: item_width;
                     height: item_height;
                     text: item.text;
-                    clicked => { root.on_clicked(index); }
+                    enabled: true;
+                    clicked => { root.on_clicked(index, item.text); }
                 }
             }
         }
     }
 
-    fs := FocusScope{
-        enabled: true;
-    }
+    // fs := FocusScope{
+    //     enabled: true;
+    // }
 }
 
 

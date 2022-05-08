@@ -1,0 +1,36 @@
+import { ListView, ScrollView } from "std-widgets.slint";
+import { MenuItem, Menu } from "../../ui/menu/menu.slint";
+
+// if showed: Rectangle { x: mx; y: my; height:20px; width: 20px; background: yellow; }
+MenuArea := TouchArea {
+    property <length> mx;
+    property <length> my;
+    property <bool> showed: false;
+    property <[MenuItem]> menu_items;
+    callback right_click_view(length, length);
+    callback on_clicked(int, string);
+
+    enabled: true;
+
+    if showed: menu := Menu {
+        menu_x: root.mx;
+        menu_y: root.my;
+        items <=> root.menu_items;
+        on_clicked(int, string) => {root.on_clicked(int, string)}
+    }
+
+    pointer-event(pe) => {
+        if (pe.kind == PointerEventKind.down &&
+            // (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
+            // (pe.button == PointerEventButton.right)) {
+            (pe.button == PointerEventButton.left)) {
+            // current_index = self.mouse-y/item_height;
+            // root.right_click_view(current_index, self.mouse-x, self.mouse-y, rows[current_index].text);
+            root.right_click_view(self.mouse-x, self.mouse-y);
+
+            mx = self.mouse-x;
+            my = self.mouse-y;
+            showed = true;
+        }
+    }
+}

@@ -15,8 +15,8 @@ fn main() {
         println!("view: index={}, x={}, y={}, text={}", index, x, y, t);
     });
 
-    view.on_menu_on_clicked(|index| {
-        println!("menu index = {}", index);
+    view.on_menu_on_clicked(|index, value| {
+        println!("menu index = {}, value = {}", index, value);
     });
 
     view.run();
