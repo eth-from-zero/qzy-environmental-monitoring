@@ -3,18 +3,6 @@ import { MenuItem, Menu } from "../../ui/menu/menu.slint";
 import { MenuArea } from "../../ui/menu/menu_area.slint";
 
 Pane := Rectangle {
-    // callback right_click_on_the_item(int, length, length);
-
-    // // capture all clicks
-    // TouchArea {
-    //     pointer-event(pe) => {
-    //         if (pe.kind == PointerEventKind.down &&
-    //             (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-    //             root.right_click_on_the_item(index, self.mouse-x, self.mouse-y);
-    //         }
-    //     }
-    // }
-
     TouchArea {}
 }
 
@@ -35,12 +23,6 @@ export TableView := Pane {
     property <length> item_height: 100px;
     property <[Row]> rows: [{text: "1"}, {text: "2"}, {text: "3"}, {text: "4"}, {text: "5"}, {text: "6"}];
     property <[MenuItem]> menu_items: [{text: "edit"}, {text: "delete"}];
-    // property <[Row]> rows: [{cols: [{text: "hello"}]}];
-    // property <[{cols: [{text: string}]}]> rows: [{cols: [{text: "hello"}]}];
-    // property <[Row]> rows: [{text: "hello"}];
-    // property <[{cols: [{text: string}]}]> rows;
-    // callback right_click_on_the_item(int, length, length) <=> self.right_click_on_the_item(int, length, length);
-    callback right_click_on_the_item(int, length, length);
     callback right_click_on_the_view(int, length, length, string);
     callback right_click_view(length, length);
     right_click_view(mx, my) => {
@@ -61,64 +43,14 @@ export TableView := Pane {
                 Text{
                     text: r.text;
                 }
-
-                // TouchArea {
-                //     pointer-event(pe) => {
-                //         if (pe.kind == PointerEventKind.down &&
-                //             (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-                //             // root.right_click_on_the_item(index, self.mouse-x, self.mouse-y);
-                //             root.right_click_on_the_item(index, lv.viewport-height, lv.viewport-y);
-                //             showed = true;
-                //         }
-                //     }
-                // }
             }
 
-            // if showed: Rectangle { x: mx; y: my; height:20px; width: 20px; background: yellow; }
-            TouchArea {
             MenuArea {
-                right_click_view(length, length) => {root.right_click_view(length, length)}
+                menu_items <=> root.menu_items;
+                right_click_view(x, y) => {root.right_click_view(x, y)}
                 on_clicked(int, string) => {root.menu_on_clicked(int, string)}
             }
-            }
-            // ta := TouchArea {
-            //     property <length> mx;
-            //     property <length> my;
-            //     property <bool> showed: false;
-            //     callback right_click_view(length, length);
-
-            //     if showed: menu := Menu {
-            //         menu_x: ta.mx;
-            //         menu_y: ta.my;
-            //         items <=> root.menu_items;
-            //         on_clicked(int, string) => {root.menu_on_clicked(int, string)}
-            //     }
-
-            //     pointer-event(pe) => {
-            //         if (pe.kind == PointerEventKind.down &&
-            //             // (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-            //             // (pe.button == PointerEventButton.right)) {
-            //             (pe.button == PointerEventButton.left)) {
-            //             // current_index = self.mouse-y/item_height;
-            //             // root.right_click_view(current_index, self.mouse-x, self.mouse-y, rows[current_index].text);
-            //             ta.right_click_view(self.mouse-x, self.mouse-y);
-
-            //             mx = self.mouse-x;
-            //             my = self.mouse-y;
-            //             showed = true;
-            //         }
-            //     }
-            // }
         }
-
-        // TouchArea {
-        //     // pointer-event(pe) => {
-        //     //     if (pe.kind == PointerEventKind.down &&
-        //     //         (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-        //     //         root.right_click_on_the_view(self.mouse-x, self.mouse-y);
-        //     //     }
-        //     // }
-        // }
     }
 }
 
