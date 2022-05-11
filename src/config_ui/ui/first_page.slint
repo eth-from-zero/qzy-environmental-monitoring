@@ -1,0 +1,17 @@
+FirstPage := Rectangle {
+    width: 500px;
+    height: 500px;
+
+    visiable: true;
+
+    VerticalLayout {
+        Rectangle {
+            width: 300px;
+            height: 300px;
+        }
+    }
+}
+
+Main := Window {
+    first_page := FirstPage {}
+}
