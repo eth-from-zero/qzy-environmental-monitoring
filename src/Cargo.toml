@@ -6,4 +6,6 @@ members = [
     "examples/tableview2_example",
     "examples/eventwidget_example",
     "examples/menu_example",
+
+    "config_ui",
 ]

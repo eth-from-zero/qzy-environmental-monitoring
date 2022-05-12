@@ -1,17 +1,41 @@
-FirstPage := Rectangle {
-    width: 500px;
-    height: 500px;
+import {Button} from "std-widgets.slint";
 
-    visiable: true;
+FirstPage := VerticalLayout {
+    visible: true;
 
-    VerticalLayout {
+    HorizontalLayout {
+        Image {
+            // width: 100px;
+            // height: 400px;
+            source: @image-url("https://slint-ui.com/logo/slint-logo-full-light.svg");
+        }
+
         Rectangle {
             width: 300px;
-            height: 300px;
+            height: 400px;
+        }
+    }
+
+    HorizontalLayout {
+        padding-top: 50px;
+        padding-right: 50px;
+        alignment: end;
+
+        Button {
+            text: "下一步";
+            width: 80px;
+            height: 30px;
+        }
+
+        Rectangle {
+            width: 30px;
+        }
+
+        Button {
+            text: "退出";
+            width: 80px;
+            height: 30px;
         }
     }
 }
 
-Main := Window {
-    first_page := FirstPage {}
-}

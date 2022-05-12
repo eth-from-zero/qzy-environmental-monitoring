@@ -1,29 +1,9 @@
-import {Button} from "std-widgets.slint";
+import {FirstPage} from "ui/first_page.slint";
 
-FirstPage := Rectangle {
+Main := Window {
     width: 500px;
     height: 500px;
 
-    visible: true;
-
-    VerticalLayout {
-        Rectangle {
-            width: 300px;
-            height: 300px;
-        }
-
-        HorizontalLayout {
-            Button {
-                text: "下一步";
-            }
-            Button {
-                text: "退出";
-            }
-        }
-    }
-}
-
-Main := Window {
     first_page := FirstPage {}
 }
 
