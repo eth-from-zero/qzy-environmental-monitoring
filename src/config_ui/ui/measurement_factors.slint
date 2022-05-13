@@ -1,6 +1,6 @@
 import {Button} from "std-widgets.slint";
 
-FirstPage := VerticalLayout {
+MeasurementFactorsPage := VerticalLayout {
     visible: true;
 
     property <length> ph;
@@ -11,6 +11,7 @@ FirstPage := VerticalLayout {
 
         Image {
             width: 250px;
+            // width: length(root.pw/4);
             height: parent.h;
             source: @image-url("images/config1.png");
         }
