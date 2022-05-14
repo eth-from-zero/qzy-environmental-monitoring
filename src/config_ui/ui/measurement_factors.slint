@@ -1,4 +1,6 @@
-import {Button} from "std-widgets.slint";
+import {Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {ListContainingCheckbox} from "../common/ui/list_containing_checkbox.slint";
+import {VerticalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
 MeasurementFactorsPage := VerticalLayout {
     visible: true;
@@ -6,7 +8,7 @@ MeasurementFactorsPage := VerticalLayout {
     property <length> ph;
     property <length> pw;
 
-    HorizontalLayout {
+    hl1 := HorizontalBox {
         property <length> h: 720px;
 
         Image {
@@ -16,10 +18,58 @@ MeasurementFactorsPage := VerticalLayout {
             source: @image-url("images/config1.png");
         }
 
-        Image {
-            width: 750px;
-            height: parent.h;
-            source: @image-url("images/config1-right.png");
+        GroupBox {
+            title: "测量因子配置";
+
+            VerticalLayout {
+                VerticalLayout {
+                    vertical-stretch: 15;
+
+                    ListContainingCheckbox {
+                        rows: [
+                              {text: "水温"},
+                              {text: "pH值"},
+                              {text: "硫酸盐"},
+                              {text: "氯化物"},
+                              {text: "硝酸盐"},
+                              {text: "氨氮"},
+                              {text: "总磷"},
+                              {text: "高锰酸钾指数"},
+                              {text: "溶解氧"},
+                              {text: "化学需氧量"},
+                              {text: "生化需氧量"},
+                              {text: "氟化物"},
+                              {text: "硒"},
+                              {text: "砷"},
+                              {text: "六价铬"},
+                              {text: "氰化物"},
+                              {text: "挥发酚"},
+                              {text: "石油类"},
+                              {text: "总铁"},
+                              {text: "锰"},
+                              {text: "镉"},
+                        ];
+                        // height: hl1.h - 150px;
+                        // width: 750px;
+                    }
+                }
+
+                VerticalLayout {
+                    vertical-stretch: 1;
+
+                    VerticalDividingLine{ value: 2px; }
+                }
+
+                VerticalLayout {
+                    vertical-stretch: 1;
+
+                    Text {
+                        font-size: 20px;
+                        color: blue;
+                        text: "提示: 右键可编辑测量项";
+                    }
+                }
+            }
         }
     }
 
@@ -27,6 +77,16 @@ MeasurementFactorsPage := VerticalLayout {
         padding-top: 30px;
         padding-right: 30px;
         alignment: end;
+
+        Button {
+            text: "上一步(P)";
+            width: 80px;
+            height: 30px;
+        }
+
+        Rectangle {
+            width: 30px;
+        }
 
         Button {
             text: "下一步";

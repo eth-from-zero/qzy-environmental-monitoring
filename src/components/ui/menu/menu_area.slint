@@ -22,8 +22,8 @@ MenuArea := TouchArea {
     pointer-event(pe) => {
         if (pe.kind == PointerEventKind.down &&
             // (pe.button == PointerEventButton.left || pe.button == PointerEventButton.left)) {
-            // (pe.button == PointerEventButton.right)) {
-            (pe.button == PointerEventButton.left)) {
+            (pe.button == PointerEventButton.right)) {
+            // (pe.button == PointerEventButton.left)) {
             // current_index = self.mouse-y/item_height;
             // root.right_click_view(current_index, self.mouse-x, self.mouse-y, rows[current_index].text);
             root.right_click_view(self.mouse-x, self.mouse-y);
