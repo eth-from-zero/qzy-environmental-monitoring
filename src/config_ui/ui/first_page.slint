@@ -6,6 +6,8 @@ FirstPage := VerticalLayout {
     property <length> ph;
     property <length> pw;
 
+    callback next_clicked;
+
     HorizontalLayout {
         property <length> h: 720px;
 
@@ -31,6 +33,10 @@ FirstPage := VerticalLayout {
             text: "下一步";
             width: 80px;
             height: 30px;
+
+            clicked => {
+                root.next_clicked()
+            }
         }
 
         Rectangle {

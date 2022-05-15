@@ -5,6 +5,8 @@ export struct MenuItem := {
 }
 
 export Menu := Rectangle {
+    property <bool> enabled;
+
     property <length> menu_x;
     property <length> menu_y;
     property <length> item_width: 80px;
@@ -29,7 +31,7 @@ export Menu := Rectangle {
                     width: item_width;
                     height: item_height;
                     text: item.text;
-                    enabled: true;
+                    enabled <=> root.enabled;
                     clicked => { root.on_clicked(index, item.text); }
                 }
             }

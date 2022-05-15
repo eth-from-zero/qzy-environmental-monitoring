@@ -2,19 +2,51 @@ import {FirstPage} from "first_page.slint";
 import {MeasurementFactorsPage} from "measurement_factors.slint";
 
 Main := Window {
+    property <[bool]> page_visibled: [
+        true,
+        false,
+    ];
+    property <int> current_page_index: 0;
+
+
+    // util functions
+    callback to_next_page;
+    to_next_page() => {
+        if (current_page_index == page_visibled.length - 1) {
+            return;
+        }
+        page_visibled[current_page_index] = false;
+        current_page_index += 1;
+        page_visibled[current_page_index] = true;
+    }
+    callback to_prev_page;
+    to_prev_page() => {
+        if (current_page_index == 0) {
+            return;
+        }
+        page_visibled[current_page_index] = false;
+        current_page_index -= 1;
+        page_visibled[current_page_index] = true;
+    }
+
     width: 1000px;
     height: 800px;
 
     first_page := FirstPage {
         pw: parent.width;
         ph: parent.height;
-        visible: false;
+        visible: page_visibled[0];
+
+        next_clicked => { to_next_page() }
     }
 
     measurement_factors_page := MeasurementFactorsPage {
         pw: parent.width;
         ph: parent.height;
-        visible: true;
+        visible: page_visibled[1];
+
+        prev_clicked => { to_prev_page() }
+        next_clicked => { to_next_page() }
     }
 }
 

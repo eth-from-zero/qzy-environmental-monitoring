@@ -1,3 +1,11 @@
-VerticalDividingLine := Rectangle {
-    property <length> value: 10px;
+export VerticalDividingLine := Rectangle {
+    property <length> value;
+
+    height: value;
+}
+
+export HorizontalDividingLine := Rectangle {
+    property <length> value;
+
+    width: value;
 }

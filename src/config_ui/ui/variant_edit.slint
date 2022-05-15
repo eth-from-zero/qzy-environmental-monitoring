@@ -1,0 +1,66 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+VariantEditDialog := Rectangle {
+    x: 200px;
+    y: 100px;
+    width: 600px;
+    height: 600px;
+    background: white;
+
+    VerticalBox {
+        HorizontalLayout {
+            padding-top: 10px;
+            vertical-stretch: 1;
+
+            Text {
+                text: "⌨️  变量编辑";
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 10;
+
+            TabWidget {
+                Tab {
+                    title: "基本项";
+
+                    // BasicEntries {
+                    // }
+                }
+
+                Tab {
+                    title: "扩展项";
+                }
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                width: 80px;
+                height: 30px;
+
+                // clicked => {
+                // }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                width: 80px;
+                height: 30px;
+
+                // clicked => {
+                // }
+            }
+        }
+    }
+}
+

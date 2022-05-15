@@ -1,12 +1,17 @@
-import {Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {ListContainingCheckbox} from "../common/ui/list_containing_checkbox.slint";
-import {VerticalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {VariantEditDialog} from "variant_edit.slint";
 
 MeasurementFactorsPage := VerticalLayout {
-    visible: true;
-
     property <length> ph;
     property <length> pw;
+
+    callback prev_clicked;
+    callback next_clicked;
+
+    // private variants
+    property <bool> show_edit_dialog: false;
 
     hl1 := HorizontalBox {
         property <length> h: 720px;
@@ -51,6 +56,14 @@ MeasurementFactorsPage := VerticalLayout {
                         ];
                         // height: hl1.h - 150px;
                         // width: 750px;
+
+                        menu_on_clicked(index, t) => {
+                            // show_edit_dialog = true;
+                            edit_dialog.show();
+                            self.menu_enabled = false;
+                        }
+
+                        menu_enabled: true;
                     }
                 }
 
@@ -74,7 +87,6 @@ MeasurementFactorsPage := VerticalLayout {
     }
 
     HorizontalLayout {
-        padding-top: 30px;
         padding-right: 30px;
         alignment: end;
 
@@ -82,26 +94,35 @@ MeasurementFactorsPage := VerticalLayout {
             text: "上一步(P)";
             width: 80px;
             height: 30px;
+
+            clicked => {
+                root.prev_clicked()
+            }
         }
 
-        Rectangle {
-            width: 30px;
-        }
+        HorizontalDividingLine{ value: 30px; }
 
         Button {
             text: "下一步";
             width: 80px;
             height: 30px;
+
+            clicked => {
+                root.next_clicked()
+            }
         }
 
-        Rectangle {
-            width: 30px;
-        }
+        HorizontalDividingLine{ value: 30px; }
 
         Button {
             text: "退出(C)";
             width: 80px;
             height: 30px;
+        }
+    }
+
+    edit_dialog := PopupWindow {
+        VariantEditDialog {
         }
     }
 }

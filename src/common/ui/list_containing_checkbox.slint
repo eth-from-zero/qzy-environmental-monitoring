@@ -3,22 +3,27 @@ import { MenuItem, Menu } from "../../components/ui/menu/menu.slint";
 import { MenuArea } from "../../components/ui/menu/menu_area.slint";
 
 Pane := Rectangle {
-    TouchArea {}
+    // TouchArea {}
 }
 
 export struct Row := {
-    text: string
+    text: string,
+    checkbox_state: bool,
 }
 
 export ListContainingCheckbox := Pane {
+    property <bool> menu_enabled: true;
     property <int> current_index;
     property <length> item_height: 30px;
     property <[Row]> rows: [{text: "1"}, {text: "2"}, {text: "3"}, {text: "4"}, {text: "5"}, {text: "6"}];
-    property <[MenuItem]> menu_items: [{text: "edit"}, {text: "delete"}];
+    property <[MenuItem]> menu_items: [{text: "⌨️  编辑"}/*, {text: "❌ 删除"}*/];
     callback right_click_on_the_view(int, length, length, string);
+
+    // private functions
     callback right_click_view(length, length);
     right_click_view(mx, my) => {
         current_index = my/item_height;
+        rows[current_index].checkbox_state = !rows[current_index].checkbox_state;
         root.right_click_on_the_view(current_index, mx, my, rows[current_index].text);
     }
     callback menu_on_clicked(int, string);
@@ -37,11 +42,13 @@ export ListContainingCheckbox := Pane {
 
                 CheckBox {
                     text: r.text;
-                    checked: true;
+                    checked: r.checkbox_state;
+                    // enabled: false;
                 }
             }
 
             MenuArea {
+                enabled <=> root.menu_enabled;
                 menu_items <=> root.menu_items;
                 right_click_view(x, y) => {root.right_click_view(x, y)}
                 on_clicked(int, string) => {root.menu_on_clicked(int, string)}
