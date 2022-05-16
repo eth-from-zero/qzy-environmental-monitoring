@@ -58,9 +58,7 @@ MeasurementFactorsPage := VerticalLayout {
                         // width: 750px;
 
                         menu_on_clicked(index, t) => {
-                            // show_edit_dialog = true;
-                            edit_dialog.show();
-                            self.menu_enabled = false;
+                            show_edit_dialog = true;
                         }
 
                         menu_enabled: true;
@@ -121,8 +119,15 @@ MeasurementFactorsPage := VerticalLayout {
         }
     }
 
-    edit_dialog := PopupWindow {
+    // edit_dialog := PopupWindow {
+    if show_edit_dialog: Window {
         VariantEditDialog {
+            on_ok_clicked => {
+                show_edit_dialog = false;
+            }
+            on_cancel_clicked => {
+                show_edit_dialog = false;
+            }
         }
     }
 }

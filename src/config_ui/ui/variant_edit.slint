@@ -1,12 +1,24 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
-VariantEditDialog := Rectangle {
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+VariantEditDialog := Pane {
+   callback on_ok_clicked;
+   callback on_cancel_clicked;
+
     x: 200px;
     y: 100px;
     width: 600px;
     height: 600px;
     background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
 
     VerticalBox {
         HorizontalLayout {
@@ -46,8 +58,9 @@ VariantEditDialog := Rectangle {
                 width: 80px;
                 height: 30px;
 
-                // clicked => {
-                // }
+                clicked => {
+                    root.on_ok_clicked()
+                }
             }
 
             HorizontalDividingLine{ value: 30px; }
@@ -57,8 +70,9 @@ VariantEditDialog := Rectangle {
                 width: 80px;
                 height: 30px;
 
-                // clicked => {
-                // }
+                clicked => {
+                    root.on_cancel_clicked()
+                }
             }
         }
     }
