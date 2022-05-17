@@ -1,5 +1,6 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {BasicEntries} from "./variant_edit_dialogs/basic_entries.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -37,8 +38,8 @@ VariantEditDialog := Pane {
                 Tab {
                     title: "基本项";
 
-                    // BasicEntries {
-                    // }
+                    BasicEntries {
+                    }
                 }
 
                 Tab {
