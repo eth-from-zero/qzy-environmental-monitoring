@@ -1,8 +1,10 @@
 import {FirstPage} from "first_page.slint";
 import {MeasurementFactorsPage} from "measurement_factors.slint";
+import {SwitchingFactorsPage} from "switching_factors.slint";
 
 Main := Window {
     property <[bool]> page_visibled: [
+        false,
         false,
         true,
     ];
@@ -44,6 +46,15 @@ Main := Window {
         pw: parent.width;
         ph: parent.height;
         visible: page_visibled[1];
+
+        prev_clicked => { to_prev_page() }
+        next_clicked => { to_next_page() }
+    }
+
+    switching_factors_page := SwitchingFactorsPage {
+        pw: parent.width;
+        ph: parent.height;
+        visible: page_visibled[2];
 
         prev_clicked => { to_prev_page() }
         next_clicked => { to_next_page() }

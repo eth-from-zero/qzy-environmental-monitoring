@@ -1,0 +1,104 @@
+import {CheckBox, LineEdit, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+
+BasicEntries := VerticalBox {
+
+    alignment: stretch;
+
+    Rectangle {
+        height: 50px;
+        width: 450px;
+
+        GridLayout {
+            spacing: 20px;
+
+            Row {
+                Text {
+                    text: "变量编号";
+                    vertical-alignment: center;
+                }
+
+                LineEdit {
+                    text: "031";
+                    placeholder-text: "fixed";
+                    enabled: false;
+                }
+            }
+
+            Row {
+                Text {
+                    text: "变量命名";
+                    vertical-alignment: center;
+                }
+
+                LineEdit {
+                    placeholder-text: "please input name";
+                }
+            }
+
+            Row {
+                Text {
+                    text: "有效时间";
+                    vertical-alignment: center;
+                }
+
+                LineEdit {
+                    placeholder-text: "";
+                }
+            }
+
+            Row {
+                GroupBox {
+                    title: "输入处理器";
+
+                    HorizontalBox {
+                        CheckBox {
+                            text: "启用";
+                            width: 50px;
+                            toggled => {
+                                in_le.enabled = !in_le.enabled;
+                            }
+                        }
+
+                        in_le := LineEdit {
+                            enabled: false;
+                            width: 200px;
+                        }
+
+                        Button {
+                            text: "📁";
+                            width: 50px;
+                        }
+                    }
+                }
+            }
+
+            Row {
+                GroupBox {
+                    title: "输出处理器";
+
+                    HorizontalBox {
+                        CheckBox {
+                            text: "启用";
+                            width: 50px;
+                            toggled => {
+                                out_le.enabled = !out_le.enabled;
+                            }
+                        }
+
+                        out_le := LineEdit {
+                            enabled: false;
+                            width: 200px;
+                        }
+
+                        Button {
+                            text: "📁";
+                            width: 50px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
