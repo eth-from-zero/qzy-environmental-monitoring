@@ -1,0 +1,120 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {ListContainingCheckbox} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {VariantEditDialog} from "variant_edit.slint";
+
+DevicePage := VerticalLayout {
+    property <length> ph;
+    property <length> pw;
+
+    callback prev_clicked;
+    callback next_clicked;
+
+    // private variants
+    property <bool> show_edit_dialog: true;
+
+    hl1 := HorizontalBox {
+        property <length> h: 720px;
+
+        Image {
+            width: 250px;
+            // width: length(root.pw/4);
+            height: parent.h;
+            source: @image-url("images/config1.png");
+        }
+
+        GroupBox {
+            title: "设备";
+
+            VerticalLayout {
+                VerticalLayout {
+                    vertical-stretch: 15;
+
+                    TableWithNumber {
+                        rows: [
+                              {text: "采水泵PU1"},
+                              {text: "采水泵PU2"},
+                              {text: "清水泵PU1"},
+                              {text: "沉淀池后增压泵PU3"},
+                              {text: "隔膜泵PU2"},
+                              {text: "内管路清洗"},
+                        ];
+                        // height: hl1.h - 150px;
+                        // width: 750px;
+
+                        menu_on_clicked(index, t) => {
+                            show_edit_dialog = true;
+                        }
+
+                        menu_enabled: true;
+                    }
+                }
+
+                VerticalLayout {
+                    vertical-stretch: 1;
+
+                    VerticalDividingLine{ value: 2px; }
+                }
+
+                VerticalLayout {
+                    vertical-stretch: 1;
+
+                    Text {
+                        font-size: 20px;
+                        color: blue;
+                        text: "提示: 右键可编辑测量项";
+                    }
+                }
+            }
+        }
+    }
+
+    HorizontalLayout {
+        padding-right: 30px;
+        alignment: end;
+
+        Button {
+            text: "上一步(P)";
+            width: 80px;
+            height: 30px;
+
+            clicked => {
+                root.prev_clicked()
+            }
+        }
+
+        HorizontalDividingLine{ value: 30px; }
+
+        Button {
+            text: "下一步";
+            width: 80px;
+            height: 30px;
+
+            clicked => {
+                root.next_clicked()
+            }
+        }
+
+        HorizontalDividingLine{ value: 30px; }
+
+        Button {
+            text: "退出(C)";
+            width: 80px;
+            height: 30px;
+        }
+    }
+
+    // edit_dialog := PopupWindow {
+    if show_edit_dialog: Window {
+        VariantEditDialog {
+            on_ok_clicked => {
+                show_edit_dialog = false;
+            }
+            on_cancel_clicked => {
+                show_edit_dialog = false;
+            }
+        }
+    }
+}
+
+
