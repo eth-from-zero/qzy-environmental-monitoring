@@ -7,6 +7,7 @@ Main := Window {
     property <[bool]> page_visibled: [
         false,
         false,
+        false,
         true,
     ];
     property <int> current_page_index: 0;
@@ -56,6 +57,15 @@ Main := Window {
         pw: parent.width;
         ph: parent.height;
         visible: page_visibled[2];
+
+        prev_clicked => { to_prev_page() }
+        next_clicked => { to_next_page() }
+    }
+
+    device_page := DevicePage {
+        pw: parent.width;
+        ph: parent.height;
+        visible: page_visibled[3];
 
         prev_clicked => { to_prev_page() }
         next_clicked => { to_next_page() }
