@@ -11,7 +11,7 @@ DevicePage := VerticalLayout {
     callback next_clicked;
 
     // private variants
-    property <bool> show_edit_dialog: true;
+    property <bool> show_edit_dialog: false;
 
     hl1 := HorizontalBox {
         property <length> h: 720px;
@@ -32,7 +32,8 @@ DevicePage := VerticalLayout {
 
                     TableWithNumber {
                         rows: [
-                              {text: "和利时PLC_2012版本"},
+                              {cols: [{text: "序号"}, {text: "设备名称"}]},
+                              {cols: [{text: "1"}, {text: "和利时PLC_2012版本"}]},
                         ];
                         // height: hl1.h - 150px;
                         // width: 750px;

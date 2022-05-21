@@ -6,8 +6,12 @@ Pane := Rectangle {
     // TouchArea {}
 }
 
-export struct Row := {
+export struct TableWithNumberCol := {
     text: string,
+}
+
+export struct TableWithNumberRow := {
+    cols: [{text: string}],
     checkbox_state: bool,
 }
 
@@ -15,16 +19,16 @@ export TableWithNumber := Pane {
     property <bool> menu_enabled: false;
     property <int> current_index;
     property <length> item_height: 30px;
-    property <[Row]> rows: [{text: "1"}, {text: "2"}, {text: "3"}, {text: "4"}, {text: "5"}, {text: "6"}];
+    property <[TableWithNumberRow]> rows;
     property <[MenuItem]> menu_items: [{text: "⌨️  编辑"}/*, {text: "❌ 删除"}*/];
-    callback right_click_on_the_view(int, length, length, string);
+    callback right_click_on_the_view(int, length, length, [{text: string}]);
 
     // private functions
     callback right_click_view(length, length);
     right_click_view(mx, my) => {
         current_index = my/item_height;
         rows[current_index].checkbox_state = !rows[current_index].checkbox_state;
-        root.right_click_on_the_view(current_index, mx, my, rows[current_index].text);
+        root.right_click_on_the_view(current_index, mx, my, rows[current_index].cols);
     }
     callback menu_on_clicked(int, string);
 
@@ -32,30 +36,45 @@ export TableWithNumber := Pane {
         viewport-height: rows.length * root.item_height;
         // height: 600px;
 
-        Rectangle {
-            x: 5px;
-            y: 0;
-            height: root.item_height;
-            HorizontalLayout {
-                Text {
-                    horizontal-stretch: 1;
-                    text: "序号";
+        for r[index] in rows: Rectangle {
+            // header
+            if index == 0: Rectangle {
+                x: 5px;
+                y: 0;
+                height: root.item_height;
+                HorizontalLayout {
+                    Text {
+                        vertical-alignment: center;
+                        horizontal-stretch: 1;
+                        text: r.cols[0].text;
+                    }
+                    Text {
+                        vertical-alignment: center;
+                        horizontal-stretch: 4;
+                        text: r.cols[1].text;
+                    }
                 }
             }
-        }
 
-        for r[index] in rows: Rectangle {
-            Rectangle {
+            if index > 0: Rectangle {
                 // padding-left: 10px;
 
                 x: 5px;
-                y: (index + 1) * self.height;
+                y: index * self.height;
                 height: root.item_height;
 
-                CheckBox {
-                    text: r.text;
-                    checked: r.checkbox_state;
-                    // enabled: false;
+                HorizontalLayout {
+                    CheckBox {
+                        horizontal-stretch: 1;
+                        text: r.cols[0].text;
+                        checked: r.checkbox_state;
+                        // enabled: false;
+                    }
+                    Text {
+                        horizontal-stretch: 4;
+                        vertical-alignment: center;
+                        text: r.cols[1].text;
+                    }
                 }
             }
 
