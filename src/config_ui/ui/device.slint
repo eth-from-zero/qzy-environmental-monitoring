@@ -1,7 +1,7 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
-import {VariantEditDialog} from "variant_edit.slint";
+import {DeviceEditDialog} from "device_edit.slint";
 
 DevicePage := VerticalLayout {
     property <length> ph;
@@ -42,6 +42,7 @@ DevicePage := VerticalLayout {
                             show_edit_dialog = true;
                         }
 
+                        menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
                         menu_enabled: true;
                     }
                 }
@@ -102,7 +103,7 @@ DevicePage := VerticalLayout {
 
     // edit_dialog := PopupWindow {
     if show_edit_dialog: Window {
-        VariantEditDialog {
+        DeviceEditDialog {
             on_ok_clicked => {
                 show_edit_dialog = false;
             }

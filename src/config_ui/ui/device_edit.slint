@@ -1,0 +1,197 @@
+import {
+    LineEdit, ComboBox, TabWidget, Button,
+    GroupBox, VerticalBox, HorizontalBox, SpinBox,
+    TextEdit
+} from "std-widgets.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+// import {BasicEntries} from "./device_edit_dialogs/.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+DeviceEditDialog := Pane {
+    property <string> device_no;
+    property <string> device_name;
+    property <string> device_alarm_group_no;
+
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
+
+    x: 200px;
+    y: 0px;
+    width: 600px;
+    height: 800px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+        max-height: parent.height;
+
+        GroupBox {
+            vertical-stretch: 2;
+            title: "设备基本信息";
+
+            VerticalBox {
+                HorizontalBox {
+                    Text {
+                        horizontal-stretch: 1;
+                        text: "设备实现类选择";
+                    }
+
+                    ComboBox {
+                        horizontal-stretch: 4;
+                        model: ["1.dll", "2.dll", "3.dll"];
+                        current-index: 0;
+                    }
+                }
+
+                HorizontalBox {
+                    HorizontalBox {
+                        Text {
+                            horizontal-stretch: 1;
+                            text: "设备编号";
+                        }
+
+                        LineEdit {
+                            horizontal-stretch: 4;
+                            text: root.device_no;
+                        }
+                    }
+
+                    HorizontalBox {
+                        Text {
+                            text: "设备名称";
+                        }
+
+                        LineEdit {
+                            text: root.device_name;
+                        }
+                    }
+                }
+            }
+        }
+
+        HorizontalBox {
+            vertical-stretch: 5;
+
+            GroupBox {
+                title: "设备通道配置";
+
+                HorizontalBox {
+                    Text {
+                        text: "数值输入通道";
+                    }
+
+                    SpinBox {
+                        value: 0;
+                        minimum: 0;
+                        maximum: 100;
+                    }
+                }
+            }
+
+            GroupBox {
+                title: "设备报警相关配置";
+
+                HorizontalBox {
+                    Text {
+                        text: "设备报警组编号";
+                    }
+
+                    LineEdit {
+                        text: root.device_alarm_group_no;
+                    }
+                }
+            }
+        }
+
+        GroupBox {
+            vertical-stretch: 5;
+            title: "设备通道详细配置";
+
+            HorizontalBox {
+                Button {
+                    text: "数值输入通道";
+                }
+                Button {
+                    text: "数值输出通道";
+                    enabled: false;
+                }
+                Button {
+                    text: "开关量输入通道";
+                }
+                Button {
+                    text: "开关量输出通道";
+                    enabled: false;
+                }
+            }
+        }
+
+        GroupBox {
+            vertical-stretch: 2;
+            title: "设备通信默认参数配置";
+
+            VerticalBox {
+                HorizontalBox {
+                    Text {
+                        text: "通信类型选择";
+                    }
+                }
+                HorizontalBox {
+                    Text {
+                        text: "串口号";
+                    }
+                }
+                HorizontalBox {
+                    Text {
+                        text: "数据位";
+                    }
+                }
+            }
+        }
+
+        GroupBox {
+            vertical-stretch: 2;
+            title: "设备描述信息";
+
+            TextEdit {
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+    }
+
+}
+
