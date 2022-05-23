@@ -1,0 +1,18 @@
+import {
+    HorizontalBox, SpinBox
+} from "std-widgets.slint";
+
+TextSpinBox := HorizontalBox {
+    property <string> text;
+
+    Text {
+        text: root.text;
+    }
+
+    SpinBox {
+        value: 0;
+        minimum: 0;
+        maximum: 100;
+    }
+}
+

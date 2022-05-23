@@ -5,6 +5,8 @@ import {
 } from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 // import {BasicEntries} from "./device_edit_dialogs/.slint";
+import {TextSpinBox} from "../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../common/ui/text_lineedit.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -82,30 +84,26 @@ DeviceEditDialog := Pane {
             GroupBox {
                 title: "设备通道配置";
 
-                HorizontalBox {
-                    Text {
-                        text: "数值输入通道";
-                    }
-
-                    SpinBox {
-                        value: 0;
-                        minimum: 0;
-                        maximum: 100;
-                    }
+                TextSpinBox {
+                    text: "数值输入通道";
+                }
+                TextSpinBox {
+                    text: "数值输出通道";
+                }
+                TextSpinBox {
+                    text: "开关量输入通道";
+                }
+                TextSpinBox {
+                    text: "开关量输出通道";
                 }
             }
 
             GroupBox {
                 title: "设备报警相关配置";
 
-                HorizontalBox {
-                    Text {
-                        text: "设备报警组编号";
-                    }
-
-                    LineEdit {
-                        text: root.device_alarm_group_no;
-                    }
+                TextLineEdit {
+                    text_text: "设备报警组编号";
+                    line_edit_text: root.device_alarm_group_no;
                 }
             }
         }

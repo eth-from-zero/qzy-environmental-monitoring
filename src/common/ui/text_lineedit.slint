@@ -1,0 +1,17 @@
+import {
+    HorizontalBox, LineEdit
+} from "std-widgets.slint";
+
+TextLineEdit := HorizontalBox {
+    property <string> text_text;
+    property <string> line_edit_text;
+
+    Text {
+        text: root.text_text;
+    }
+
+    LineEdit {
+        text: root.line_edit_text;
+    }
+}
+
