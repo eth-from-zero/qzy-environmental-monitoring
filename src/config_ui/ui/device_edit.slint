@@ -31,15 +31,18 @@ DeviceEditDialog := Pane {
     border-color: grey;
     border-radius: 3px;
 
-    VerticalBox {
+    // VerticalBox {
+    VerticalLayout {
         max-height: parent.height;
 
         GroupBox {
             vertical-stretch: 2;
             title: "设备基本信息";
 
-            VerticalBox {
-                HorizontalBox {
+            // VerticalBox {
+            VerticalLayout {
+                // HorizontalBox {
+                HorizontalLayout {
                     Text {
                         horizontal-stretch: 1;
                         text: "设备实现类选择";
@@ -52,8 +55,10 @@ DeviceEditDialog := Pane {
                     }
                 }
 
-                HorizontalBox {
-                    HorizontalBox {
+                // HorizontalBox {
+                HorizontalLayout {
+                    // HorizontalBox {
+                    HorizontalLayout {
                         Text {
                             horizontal-stretch: 1;
                             text: "设备编号";
@@ -65,7 +70,7 @@ DeviceEditDialog := Pane {
                         }
                     }
 
-                    HorizontalBox {
+                    HorizontalLayout {
                         Text {
                             text: "设备名称";
                         }
@@ -78,32 +83,36 @@ DeviceEditDialog := Pane {
             }
         }
 
-        HorizontalBox {
+        HorizontalLayout {
             vertical-stretch: 5;
 
             GroupBox {
                 title: "设备通道配置";
 
-                TextSpinBox {
-                    text: "数值输入通道";
-                }
-                TextSpinBox {
-                    text: "数值输出通道";
-                }
-                TextSpinBox {
-                    text: "开关量输入通道";
-                }
-                TextSpinBox {
-                    text: "开关量输出通道";
+                VerticalLayout {
+                    TextSpinBox {
+                        text: "数值输入通道";
+                    }
+                    TextSpinBox {
+                        text: "数值输出通道";
+                    }
+                    TextSpinBox {
+                        text: "开关量输入通道";
+                    }
+                    TextSpinBox {
+                        text: "开关量输出通道";
+                    }
                 }
             }
 
             GroupBox {
                 title: "设备报警相关配置";
 
-                TextLineEdit {
-                    text_text: "设备报警组编号";
-                    line_edit_text: root.device_alarm_group_no;
+                VerticalLayout {
+                    TextLineEdit {
+                        text_text: "设备报警组编号";
+                        line_edit_text: root.device_alarm_group_no;
+                    }
                 }
             }
         }
@@ -112,7 +121,7 @@ DeviceEditDialog := Pane {
             vertical-stretch: 5;
             title: "设备通道详细配置";
 
-            HorizontalBox {
+            HorizontalLayout {
                 Button {
                     text: "数值输入通道";
                 }
@@ -134,18 +143,18 @@ DeviceEditDialog := Pane {
             vertical-stretch: 2;
             title: "设备通信默认参数配置";
 
-            VerticalBox {
-                HorizontalBox {
+            VerticalLayout {
+                HorizontalLayout {
                     Text {
                         text: "通信类型选择";
                     }
                 }
-                HorizontalBox {
+                HorizontalLayout {
                     Text {
                         text: "串口号";
                     }
                 }
-                HorizontalBox {
+                HorizontalLayout {
                     Text {
                         text: "数据位";
                     }
