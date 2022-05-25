@@ -1,0 +1,21 @@
+import {
+    HorizontalBox, ComboBox
+} from "std-widgets.slint";
+
+TextComboBox := HorizontalLayout {
+    property <string> text;
+    property <[string]> model;
+
+    Text {
+        horizontal-stretch: 1;
+        text: root.text;
+    }
+
+    ComboBox {
+        horizontal-stretch: root.model.length;
+        model: root.model;
+        current-index: 0;
+    }
+}
+
+
