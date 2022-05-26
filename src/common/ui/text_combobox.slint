@@ -6,12 +6,13 @@ TextComboBox := HorizontalLayout {
     property <string> text;
     property <[string]> model;
 
-    Text {
+    t := Text {
         horizontal-stretch: 1;
         text: root.text;
     }
 
     ComboBox {
+        height: t.height;
         horizontal-stretch: root.model.length;
         model: root.model;
         current-index: 0;
