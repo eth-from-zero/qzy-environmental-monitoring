@@ -2,7 +2,7 @@ import {
     HorizontalBox, ComboBox
 } from "std-widgets.slint";
 
-TextComboBox := HorizontalLayout {
+TextComboBox := HorizontalBox {
     property <string> text;
     property <[string]> model;
 
@@ -12,7 +12,7 @@ TextComboBox := HorizontalLayout {
     }
 
     ComboBox {
-        height: t.height;
+        // height: t.height;
         horizontal-stretch: root.model.length;
         model: root.model;
         current-index: 0;
