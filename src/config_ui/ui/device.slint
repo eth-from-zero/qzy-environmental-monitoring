@@ -102,14 +102,12 @@ DevicePage := VerticalLayout {
     }
 
     // edit_dialog := PopupWindow {
-    if show_edit_dialog: Window {
-        DeviceEditDialog {
-            on_ok_clicked => {
-                show_edit_dialog = false;
-            }
-            on_cancel_clicked => {
-                show_edit_dialog = false;
-            }
+    if show_edit_dialog: DeviceEditDialog {
+        on_ok_clicked => {
+            show_edit_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_edit_dialog = false;
         }
     }
 }

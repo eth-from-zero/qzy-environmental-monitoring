@@ -15,7 +15,7 @@ Pane := Rectangle {
     }
 }
 
-DeviceEditDialog := Pane {
+export DeviceEditDialog := Window {
     property <string> device_no;
     property <string> device_name;
     property <string> device_alarm_group_no;
@@ -23,6 +23,7 @@ DeviceEditDialog := Pane {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
+    Pane {
     x: 200px;
     y: 0px;
     width: 600px;
@@ -178,6 +179,6 @@ DeviceEditDialog := Pane {
             }
         }
     }
-
+    }
 }
 
