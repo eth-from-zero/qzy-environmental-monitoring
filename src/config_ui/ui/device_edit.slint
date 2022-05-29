@@ -125,13 +125,15 @@ export DeviceEditDialog := Window {
 
             VerticalLayout {
                 HorizontalLayout {
-                    Text {
+                    TextComboBox {
                         text: "通信类型选择";
+                        model: ["COM1"];
                     }
                 }
                 HorizontalLayout {
-                    Text {
+                    TextComboBox {
                         text: "串口号";
+                        model: [];
                     }
                 }
                 HorizontalLayout {
