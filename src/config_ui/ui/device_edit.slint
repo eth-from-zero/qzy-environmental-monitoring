@@ -1,7 +1,7 @@
 import {
     LineEdit, ComboBox, TabWidget, Button,
     GroupBox, VerticalBox, HorizontalBox, SpinBox,
-    TextEdit
+    TextEdit, CheckBox
 } from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 // import {BasicEntries} from "./device_edit_dialogs/.slint";
@@ -18,15 +18,16 @@ Pane := Rectangle {
 export DeviceEditDialog := Window {
     property <string> device_no;
     property <string> device_name;
+    property <string> device_address;
     property <string> device_alarm_group_no;
 
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
     Pane {
-    x: 200px;
+    x: 100px;
     y: 0px;
-    width: 600px;
+    width: 800px;
     height: 800px;
     background: white;
     border-width: 2px;
@@ -38,7 +39,7 @@ export DeviceEditDialog := Window {
         max-height: parent.height;
 
         GroupBox {
-            vertical-stretch: 2;
+            // vertical-stretch: 2;
             title: "设备基本信息";
 
             // VerticalBox {
@@ -64,7 +65,7 @@ export DeviceEditDialog := Window {
         }
 
         HorizontalLayout {
-            vertical-stretch: 5;
+            // vertical-stretch: 4;
 
             GroupBox {
                 title: "设备通道配置";
@@ -98,7 +99,7 @@ export DeviceEditDialog := Window {
         }
 
         GroupBox {
-            vertical-stretch: 3;
+            // vertical-stretch: 3;
             title: "设备通道详细配置";
 
             HorizontalLayout {
@@ -120,32 +121,58 @@ export DeviceEditDialog := Window {
         }
 
         GroupBox {
-            vertical-stretch: 2;
+            // vertical-stretch: 2;
             title: "设备通信默认参数配置";
 
             VerticalLayout {
-                HorizontalLayout {
+                HorizontalBox {
                     TextComboBox {
+                        horizontal-stretch: 3;
                         text: "通信类型选择";
                         model: ["COM1"];
                     }
-                }
-                HorizontalLayout {
-                    TextComboBox {
-                        text: "串口号";
-                        model: [];
+                    TextLineEdit {
+                        horizontal-stretch: 2;
+                        text_text: "设备地址(HEX)";
+                        line_edit_text: root.device_address;
+                    }
+                    CheckBox {
+                        horizontal-stretch: 2;
+                        text: "是否启用设备";
+                        checked: false;
                     }
                 }
                 HorizontalLayout {
-                    Text {
+                    TextComboBox {
+                        horizontal-stretch: 1;
+                        text: "串口号";
+                        model: [];
+                    }
+                    TextComboBox {
+                        horizontal-stretch: 1;
+                        text: "波特率";
+                        model: ["9600"];
+                    }
+                }
+                HorizontalLayout {
+                    TextComboBox {
                         text: "数据位";
+                        model: ["8"];
+                    }
+                    TextComboBox {
+                        text: "停止位";
+                        model: ["1"];
+                    }
+                    TextComboBox {
+                        text: "校验位";
+                        model: ["None"];
                     }
                 }
             }
         }
 
         GroupBox {
-            vertical-stretch: 2;
+            // vertical-stretch: 2;
             title: "设备描述信息";
 
             TextEdit {
@@ -153,10 +180,10 @@ export DeviceEditDialog := Window {
         }
 
         HorizontalLayout {
-            vertical-stretch: 1;
+            // vertical-stretch: 1;
 
-            padding-right: 30px;
-            alignment: end;
+            // padding-right: 30px;
+            // alignment: end;
 
             Button {
                 text: "确定";
