@@ -3,28 +3,13 @@ import {
     GroupBox, VerticalBox, HorizontalBox, SpinBox,
     TextEdit, CheckBox
 } from "std-widgets.slint";
-import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../../components/ui/dividing_line/dividing_line.slint";
 // import {BasicEntries} from "./device_edit_dialogs/.slint";
-import {TextSpinBox} from "../common/ui/text_spinbox.slint";
-import {TextLineEdit} from "../common/ui/text_lineedit.slint";
-import {TextComboBox} from "../common/ui/text_combobox.slint";
+import {TextSpinBox} from "../../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../../common/ui/text_lineedit.slint";
+import {TextComboBox} from "../../common/ui/text_combobox.slint";
 
-Pane := Rectangle {
-    TouchArea {
-        enabled: true;
-    }
-}
-
-export DeviceEditDialog := Window {
-    property <string> device_no;
-    property <string> device_name;
-    property <string> device_address;
-    property <string> device_alarm_group_no;
-
-    callback on_ok_clicked;
-    callback on_cancel_clicked;
-
-    Pane {
+export TimerDialog := Window {
     x: 100px;
     y: 0px;
     width: 800px;
@@ -39,28 +24,12 @@ export DeviceEditDialog := Window {
         // max-height: parent.height;
 
         GroupBox {
-            vertical-stretch: 2;
-            title: "设备基本信息";
+            vertical-stretch: 1;
+            title: "定时器基本信息";
 
-            // VerticalBox {
-            VerticalLayout {
-                TextComboBox {
-                    text: "设备实现类选择";
-                    model: ["1.dll", "2.dll", "3.dll"];
-                }
-
-                // HorizontalBox {
-                HorizontalLayout {
-                    // HorizontalBox {
-                    TextLineEdit {
-                        text_text: "设备编号";
-                        line_edit_text: root.device_no;
-                    }
-                    TextLineEdit {
-                        text_text: "设备名称";
-                        line_edit_text: root.device_name;
-                    }
-                }
+            TextLineEdit {
+                text_text: "设备编号";
+                line_edit_text: root.device_no;
             }
         }
 
@@ -195,7 +164,7 @@ export DeviceEditDialog := Window {
                 }
             }
 
-            HorizontalDividingLine{ value: 30px; }
+            // HorizontalDividingLine{ value: 30px; }
 
             Button {
                 text: "取消";
