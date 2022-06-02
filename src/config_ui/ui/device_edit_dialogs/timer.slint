@@ -33,146 +33,31 @@ export TimerDialog := Window {
             }
         }
 
-        HorizontalLayout {
-            vertical-stretch: 4;
-
-            GroupBox {
-                title: "设备通道配置";
-
-                VerticalLayout {
-                    TextSpinBox {
-                        text: "数值输入通道";
-                    }
-                    TextSpinBox {
-                        text: "数值输出通道";
-                    }
-                    TextSpinBox {
-                        text: "开关量输入通道";
-                    }
-                    TextSpinBox {
-                        text: "开关量输出通道";
-                    }
-                }
-            }
-
-            GroupBox {
-                title: "设备报警相关配置";
-
-                VerticalLayout {
-                    TextLineEdit {
-                        text_text: "设备报警组编号";
-                        line_edit_text: root.device_alarm_group_no;
-                    }
-                }
-            }
-        }
-
         GroupBox {
-            vertical-stretch: 3;
-            title: "设备通道详细配置";
+            vertical-stretch: 1;
+            title: "定时器运行模式";
 
-            HorizontalLayout {
-                Button {
-                    text: "数值输入通道";
+            VerticalBox {
+                CheckBox {
+                    text: "周期性任务模式";
+                    checked: true;
                 }
-                Button {
-                    text: "数值输出通道";
-                    enabled: false;
-                }
-                Button {
-                    text: "开关量输入通道";
-                }
-                Button {
-                    text: "开关量输出通道";
-                    enabled: false;
-                }
-            }
-        }
+                GroupBox {
+                    // vertical-stretch: 1;
+                    // title: "定时器基本信息";
 
-        GroupBox {
-            vertical-stretch: 2;
-            title: "设备通信默认参数配置";
-
-            VerticalLayout {
-                HorizontalLayout {
-                    TextComboBox {
-                        horizontal-stretch: 3;
-                        text: "通信类型选择";
-                        model: ["COM1"];
+                    TextSpinBox {
+                        text: "周期(秒)";
                     }
-                    TextLineEdit {
-                        horizontal-stretch: 2;
-                        text_text: "设备地址(HEX)";
-                        line_edit_text: root.device_address;
+
+                    CheckBox {
+                        text: "启动定时器";
+                        checked: true;
                     }
                     CheckBox {
-                        horizontal-stretch: 2;
-                        text: "是否启用设备";
-                        checked: false;
+                        text: "立即触发定时任务";
+                        checked: true;
                     }
-                }
-                HorizontalLayout {
-                    TextComboBox {
-                        horizontal-stretch: 1;
-                        text: "串口号";
-                        model: [];
-                    }
-                    TextComboBox {
-                        horizontal-stretch: 1;
-                        text: "波特率";
-                        model: ["9600"];
-                    }
-                }
-                HorizontalLayout {
-                    TextComboBox {
-                        text: "数据位";
-                        model: ["8"];
-                    }
-                    TextComboBox {
-                        text: "停止位";
-                        model: ["1"];
-                    }
-                    TextComboBox {
-                        text: "校验位";
-                        model: ["None"];
-                    }
-                }
-            }
-        }
-
-        GroupBox {
-            vertical-stretch: 2;
-            title: "设备描述信息";
-
-            TextEdit {
-            }
-        }
-
-        HorizontalLayout {
-            vertical-stretch: 1;
-
-            padding-right: 30px;
-            alignment: end;
-
-            Button {
-                text: "确定";
-                // width: 80px;
-                // height: 30px;
-
-                clicked => {
-                    root.on_ok_clicked()
-                }
-            }
-
-            // HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "取消";
-                // width: 80px;
-                // height: 30px;
-
-                clicked => {
-                    root.on_cancel_clicked()
                 }
             }
         }
