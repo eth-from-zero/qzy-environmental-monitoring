@@ -25,6 +25,9 @@ export DeviceEditDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
+    // private
+    property <bool> show_timer_dialog: true;
+
     x: 100px;
     y: 0px;
     width: 800px;
@@ -211,10 +214,10 @@ export DeviceEditDialog := Window {
 
     if show_timer_dialog: TimerDialog {
         on_ok_clicked => {
-            show_edit_dialog = false;
+            show_timer_dialog = false;
         }
         on_cancel_clicked => {
-            show_edit_dialog = false;
+            show_timer_dialog = false;
         }
     }
 }
