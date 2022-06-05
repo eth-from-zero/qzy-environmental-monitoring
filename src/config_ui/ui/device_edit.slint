@@ -28,6 +28,7 @@ export DeviceEditDialog := Window {
     // private
     property <bool> show_timer_dialog: true;
 
+    Pane {
     x: 100px;
     y: 0px;
     width: 800px;
@@ -210,6 +211,7 @@ export DeviceEditDialog := Window {
                 }
             }
         }
+    }
     }
 
     if show_timer_dialog: TimerDialog {
