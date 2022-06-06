@@ -33,7 +33,7 @@ export TimerDialog := Window {
 
     VerticalBox {
         GroupBox {
-            vertical-stretch: 1;
+            vertical-stretch: 2;
             title: "定时器基本信息";
 
             TextLineEdit {
@@ -43,29 +43,61 @@ export TimerDialog := Window {
         }
 
         GroupBox {
-            vertical-stretch: 1;
+            vertical-stretch: 5;
             title: "定时器运行模式";
 
-            VerticalBox {
-                CheckBox {
-                    text: "周期性任务模式";
-                    checked: true;
+            HorizontalBox {
+                VerticalBox {
+                    timer_run_mode_cb := CheckBox {
+                        text: "周期性任务模式";
+                        checked: true;
+                    }
+                    GroupBox {
+                        // vertical-stretch: 1;
+                        // title: "定时器基本信息";
+                        enabled: timer_run_mode_cb.checked;
+
+                        VerticalBox {
+                            TextSpinBox {
+                                text: "周期(秒)";
+                            }
+
+                            CheckBox {
+                                text: "启动定时器";
+                                checked: true;
+                            }
+                            CheckBox {
+                                text: "立即触发定时任务";
+                                checked: true;
+                            }
+                        }
+                    }
                 }
-                GroupBox {
-                    // vertical-stretch: 1;
-                    // title: "定时器基本信息";
 
-                    TextSpinBox {
-                        text: "周期(秒)";
+                VerticalBox {
+                    cb := CheckBox {
+                        text: "定点任务模式";
+                        checked: false;
                     }
+                    GroupBox {
+                        // vertical-stretch: 1;
+                        // title: "定时器基本信息";
+                        enabled: cb.checked;
 
-                    CheckBox {
-                        text: "启动定时器";
-                        checked: true;
-                    }
-                    CheckBox {
-                        text: "立即触发定时任务";
-                        checked: true;
+                        VerticalBox {
+                            TextComboBox {
+                                text: "定点模式";
+                                model: ["周模式", "月模式"];
+                            }
+
+                            TextSpinBox {
+                                text: "定点精度(秒)";
+                            }
+
+                            Button {
+                                text: "定点计划...";
+                            }
+                        }
                     }
                 }
             }
