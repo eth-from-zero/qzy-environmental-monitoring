@@ -4,15 +4,18 @@ import {
 
 TextSpinBox := HorizontalBox {
     property <string> text;
+    property <bool> enabled;
 
     Text {
         text: root.text;
+        // enabled: root.enabled;
     }
 
     SpinBox {
         value: 0;
         minimum: 0;
         maximum: 100;
+        enabled: root.enabled;
     }
 }
 

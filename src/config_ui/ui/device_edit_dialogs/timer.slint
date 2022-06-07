@@ -51,24 +51,30 @@ export TimerDialog := Window {
                     timer_run_mode_cb := CheckBox {
                         text: "周期性任务模式";
                         checked: true;
+                        toggled => {
+                            timer_run_mode_gb.enabled = !timer_run_mode_gb.enabled;
+                        }
                     }
-                    GroupBox {
+                    timer_run_mode_gb := GroupBox {
                         // vertical-stretch: 1;
                         // title: "定时器基本信息";
-                        enabled: timer_run_mode_cb.checked;
+                        // enabled: timer_run_mode_cb.checked;
 
                         VerticalBox {
                             TextSpinBox {
                                 text: "周期(秒)";
+                                enabled: timer_run_mode_gb.enabled;
                             }
 
                             CheckBox {
                                 text: "启动定时器";
                                 checked: true;
+                                enabled: timer_run_mode_gb.enabled;
                             }
                             CheckBox {
                                 text: "立即触发定时任务";
                                 checked: true;
+                                enabled: timer_run_mode_gb.enabled;
                             }
                         }
                     }
