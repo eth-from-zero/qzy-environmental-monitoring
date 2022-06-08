@@ -61,20 +61,22 @@ export TimerDialog := Window {
                         // enabled: timer_run_mode_cb.checked;
 
                         VerticalBox {
+                            // enabled <=> timer_run_mode_gb.enabled;
+                            
                             TextSpinBox {
                                 text: "周期(秒)";
-                                enabled: timer_run_mode_gb.enabled;
+                                enabled <=> timer_run_mode_gb.enabled;
                             }
 
                             CheckBox {
                                 text: "启动定时器";
                                 checked: true;
-                                enabled: timer_run_mode_gb.enabled;
+                                enabled <=> timer_run_mode_gb.enabled;
                             }
                             CheckBox {
                                 text: "立即触发定时任务";
                                 checked: true;
-                                enabled: timer_run_mode_gb.enabled;
+                                enabled <=> timer_run_mode_gb.enabled;
                             }
                         }
                     }
