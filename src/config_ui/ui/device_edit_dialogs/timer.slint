@@ -58,18 +58,12 @@ export TimerDialog := Window {
                     timer_run_mode_gb := GroupBox {
                         // vertical-stretch: 1;
                         // title: "定时器基本信息";
-                        // enabled: timer_run_mode_cb.checked;
-                        callback set_enabled(bool);
-                        set_enabled(enabled) => {
-                            debug(enabled);
-                            trm_one.set_enabled(enabled);
-                        }
+                        // enabled <=> timer_run_mode_gb.enabled;
 
                         VerticalBox {
-                            // enabled <=> timer_run_mode_gb.enabled;
-                            
-                            trm_one := TextSpinBox {
+                            TextSpinBox {
                                 text: "周期(秒)";
+                                enabled <=> timer_run_mode_gb.enabled;
                             }
 
                             CheckBox {

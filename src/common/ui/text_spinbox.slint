@@ -5,11 +5,6 @@ import {
 TextSpinBox := HorizontalBox {
     property <string> text;
     property <bool> enabled;
-    callback set_enabled(bool);
-    set_enabled(enabled) => {
-        // t.enabled = enabled;
-        sb.enabled = enabled;
-    }
 
     t := Text {
         text: root.text;
@@ -19,6 +14,7 @@ TextSpinBox := HorizontalBox {
         value: 0;
         minimum: 0;
         maximum: 100;
+        enabled <=> root.enabled;
     }
 }
 
