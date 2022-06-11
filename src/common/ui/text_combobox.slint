@@ -5,6 +5,7 @@ import {
 TextComboBox := HorizontalBox {
     property <string> text;
     property <[string]> model;
+    property <bool> enabled;
 
     t := Text {
         horizontal-stretch: 1;
@@ -16,6 +17,7 @@ TextComboBox := HorizontalBox {
         horizontal-stretch: root.model.length;
         model: root.model;
         current-index: 0;
+        enabled <=> root.enabled;
     }
 }
 
