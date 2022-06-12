@@ -52,17 +52,16 @@ export TimerDialog := Window {
                 VerticalBox {
                     cycle_run_mode_cb := CheckBox {
                         text: "周期性任务模式";
-                        checked: !timer_run_mode_gb.cb_state;
+                        checked: true;
                         toggled => {
-                            // cycle_run_mode_gb.enabled = !cycle_run_mode_gb.enabled;
-                            timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
-                            cycle_run_mode_gb.enabled = !timer_run_mode_gb.cb_state;
+                            cycle_run_mode_gb.enabled = !cycle_run_mode_gb.enabled;
+                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
                         }
                     }
                     cycle_run_mode_gb := GroupBox {
                         // vertical-stretch: 1;
                         // title: "定时器基本信息";
-                        // enabled <=> cycle_run_mode_gb.enabled;
+                        enabled: true;
 
                         VerticalBox {
                             TextSpinBox {
@@ -87,17 +86,16 @@ export TimerDialog := Window {
                 VerticalBox {
                     timer_task_mode_cb := CheckBox {
                         text: "定点任务模式";
-                        checked: timer_run_mode_gb.cb_state;
+                        checked: false;
                         toggled => {
-                            // timer_task_mode_gb.enabled = !timer_task_mode_gb.enabled;
-                            timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
-                            timer_task_mode_gb.enabled = timer_run_mode_gb.cb_state;
+                            timer_task_mode_gb.enabled = !timer_task_mode_gb.enabled;
+                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
                         }
                     }
                     timer_task_mode_gb := GroupBox {
                         // vertical-stretch: 1;
                         // title: "定时器基本信息";
-                        // enabled: cb.checked;
+                        enabled: false;
 
                         VerticalBox {
                             TextComboBox {
