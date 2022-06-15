@@ -1,0 +1,38 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {DeviceEditDialog} from "device_edit.slint";
+
+DeviceChannelPage := VerticalLayout {
+    VerticalBox {
+        TableWithNumber {
+            rows: [
+                  {cols: [{text: "通道编号"}, {text: "通道名称"}, {text: "对应数值变量"}, {text: "源单位"}]},
+                  {cols: [{text: "InValueChannel_1"}, {text: "数值输入通道1"}, {text: ""}, {text: ""}]},
+            ];
+            // height: hl1.h - 150px;
+            // width: 750px;
+
+            menu_on_clicked(index, t) => {
+                show_edit_dialog = true;
+            }
+
+            menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+            menu_enabled: true;
+        }
+
+        HorizontalLayout {
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                width: 80px;
+                height: 30px;
+            }
+        }
+    }
+}
+
+
+
