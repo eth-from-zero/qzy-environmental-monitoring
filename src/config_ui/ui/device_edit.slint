@@ -27,6 +27,7 @@ export DeviceEditDialog := Window {
 
     // private
     property <bool> show_timer_dialog: true;
+    property <bool> show_device_channel_dialog: true;
 
     Pane {
     x: 100px;
@@ -220,6 +221,15 @@ export DeviceEditDialog := Window {
         }
         on_cancel_clicked => {
             show_timer_dialog = false;
+        }
+    }
+
+    if show_device_channel_dialog: DeviceChannelDialog {
+        on_ok_clicked => {
+            show_device_channel_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_device_channel_dialog = false;
         }
     }
 }
