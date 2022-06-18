@@ -1,9 +1,11 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
-import {DeviceEditDialog} from "device_edit.slint";
 
-DeviceChannelPage := VerticalLayout {
+DeviceChannelDialog := VerticalLayout {
+    // callback on_ok_clicked;
+    // callback on_cancel_clicked;
+
     VerticalBox {
         TableWithNumber {
             rows: [
@@ -13,9 +15,9 @@ DeviceChannelPage := VerticalLayout {
             // height: hl1.h - 150px;
             // width: 750px;
 
-            menu_on_clicked(index, t) => {
-                show_edit_dialog = true;
-            }
+            // menu_on_clicked(index, t) => {
+            //     show_edit_dialog = true;
+            // }
 
             menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
             menu_enabled: true;
