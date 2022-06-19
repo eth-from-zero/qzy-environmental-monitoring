@@ -3,8 +3,8 @@ import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
 DeviceChannelDialog := VerticalLayout {
-    // callback on_ok_clicked;
-    // callback on_cancel_clicked;
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
 
     VerticalBox {
         TableWithNumber {
@@ -24,13 +24,31 @@ DeviceChannelDialog := VerticalLayout {
         }
 
         HorizontalLayout {
+            vertical-stretch: 1;
+
             padding-right: 30px;
             alignment: end;
 
             Button {
                 text: "确定";
-                width: 80px;
-                height: 30px;
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
             }
         }
     }
