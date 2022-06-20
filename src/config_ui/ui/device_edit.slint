@@ -22,13 +22,15 @@ export DeviceEditDialog := Window {
     property <string> device_name;
     property <string> device_address;
     property <string> device_alarm_group_no;
+    property <string> device_alarm_source_no;
+    property <string> device_type_desc;
 
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
     // private
-    property <bool> show_timer_dialog: true;
-    property <bool> show_device_channel_dialog: true;
+    property <bool> show_timer_dialog: false;
+    property <bool> show_device_channel_dialog: false;
 
     Pane {
     x: 100px;
@@ -92,13 +94,34 @@ export DeviceEditDialog := Window {
                 }
             }
 
-            GroupBox {
-                title: "设备报警相关配置";
+            VerticalLayout {
+                GroupBox {
+                    title: "设备报警相关配置";
 
-                VerticalLayout {
-                    TextLineEdit {
-                        text_text: "设备报警组编号";
-                        line_edit_text: root.device_alarm_group_no;
+                    VerticalLayout {
+                        TextLineEdit {
+                            text_text: "设备报警组编号";
+                            line_edit_text: root.device_alarm_group_no;
+                        }
+                        TextLineEdit {
+                            text_text: "设备报警源编号";
+                            line_edit_text: root.device_alarm_source_no;
+                        }
+                        TextLineEdit {
+                            text_text: "设备类型描述";
+                            line_edit_text: root.device_type_desc;
+                        }
+                    }
+                }
+
+                GroupBox {
+                    title: "设备定时器配置";
+
+                    Button {
+                        text: "设备定时器配置";
+                        clicked => {
+                            show_timer_dialog = true;
+                        }
                     }
                 }
             }
