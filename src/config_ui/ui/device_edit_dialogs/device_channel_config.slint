@@ -2,9 +2,25 @@ import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widge
 import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
-DeviceChannelDialog := VerticalLayout {
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+DeviceChannelDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
+
+    Pane {
+    x: 200px;
+    y: 100px;
+    width: 600px;
+    height: 600px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
 
     VerticalBox {
         TableWithNumber {
@@ -51,6 +67,7 @@ DeviceChannelDialog := VerticalLayout {
                 }
             }
         }
+    }
     }
 }
 
