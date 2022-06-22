@@ -24,6 +24,8 @@ DeviceChannelDialog := Window {
 
     VerticalBox {
         TableWithNumber {
+            vertical-stretch: 6;
+
             rows: [
                   {cols: [{text: "通道编号"}, {text: "通道名称"}, {text: "对应数值变量"}, {text: "源单位"}]},
                   {cols: [{text: "InValueChannel_1"}, {text: "数值输入通道1"}, {text: ""}, {text: ""}]},
@@ -47,8 +49,8 @@ DeviceChannelDialog := Window {
 
             Button {
                 text: "确定";
-                // width: 80px;
-                // height: 30px;
+                width: 80px;
+                height: 30px;
 
                 clicked => {
                     root.on_ok_clicked()
@@ -59,8 +61,8 @@ DeviceChannelDialog := Window {
 
             Button {
                 text: "取消";
-                // width: 80px;
-                // height: 30px;
+                width: 80px;
+                height: 30px;
 
                 clicked => {
                     root.on_cancel_clicked()
