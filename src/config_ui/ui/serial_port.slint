@@ -9,6 +9,9 @@ SerialPortPage := VerticalLayout {
     property <length> ph;
     property <length> pw;
 
+    property <string> port_no;
+    property <string> baud_rate;
+
     callback prev_clicked;
     callback next_clicked;
 
@@ -28,7 +31,7 @@ SerialPortPage := VerticalLayout {
         GroupBox {
             title: "串口配置";
 
-            VerticalLayout {
+            VerticalBox {
                 ListContainingCheckbox {
                     vertical-stretch: 2;
 
@@ -82,7 +85,7 @@ SerialPortPage := VerticalLayout {
                             text_text: "波特率";
                             line_edit_text: root.baud_rate;
                         }
-                        setting_button := Botton {
+                        setting_button := Button {
                             text: "设置";
                         }
                     }
