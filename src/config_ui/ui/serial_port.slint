@@ -18,6 +18,12 @@ SerialPortPage := VerticalLayout {
     // private variants
     property <bool> show_edit_dialog: true;
 
+    // util functions
+    callback close;
+    close() => {
+        show_edit_dialog = false;
+    }
+
     hl1 := HorizontalBox {
         property <length> h: 720px;
 
@@ -33,7 +39,7 @@ SerialPortPage := VerticalLayout {
 
             VerticalBox {
                 ListContainingCheckbox {
-                    vertical-stretch: 2;
+                    vertical-stretch: 3;
 
                     rows: [
                           {text: "采水泵PU2"},
@@ -54,7 +60,7 @@ SerialPortPage := VerticalLayout {
                 }
 
                 TableWithNumber {
-                    vertical-stretch: 2;
+                    vertical-stretch: 3;
 
                     rows: [
                           {cols: [{text: "序号"}, {text: "设备名称"}]},
@@ -104,6 +110,7 @@ SerialPortPage := VerticalLayout {
             height: 30px;
 
             clicked => {
+                close();
                 root.prev_clicked()
             }
         }
@@ -116,6 +123,7 @@ SerialPortPage := VerticalLayout {
             height: 30px;
 
             clicked => {
+                close();
                 root.next_clicked()
             }
         }

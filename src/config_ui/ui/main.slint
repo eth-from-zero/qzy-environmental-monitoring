@@ -6,6 +6,8 @@ import {SerialPortPage} from "serial_port.slint";
 
 export DeviceEditDialogE := Window {}
 
+Page := VerticalLayout {}
+
 Main := Window {
     property <[bool]> page_visibled: [
         false,
@@ -15,6 +17,9 @@ Main := Window {
         true,
     ];
     property <int> current_page_index: 5;
+
+    // property <[Page]> pages: [
+    // ];
 
 
     // util functions
