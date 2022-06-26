@@ -13,6 +13,12 @@ SwitchingFactorsPage := VerticalLayout {
     // private variants
     property <bool> show_edit_dialog: true;
 
+    // util functions
+    callback close;
+    close() => {
+        show_edit_dialog = false;
+    }
+
     hl1 := HorizontalBox {
         property <length> h: 720px;
 
@@ -79,6 +85,7 @@ SwitchingFactorsPage := VerticalLayout {
             height: 30px;
 
             clicked => {
+                close();
                 root.prev_clicked()
             }
         }
@@ -91,6 +98,7 @@ SwitchingFactorsPage := VerticalLayout {
             height: 30px;
 
             clicked => {
+                close();
                 root.next_clicked()
             }
         }
