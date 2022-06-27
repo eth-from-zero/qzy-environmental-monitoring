@@ -16,12 +16,14 @@ SerialPortPage := VerticalLayout {
     callback next_clicked;
 
     // private variants
-    property <bool> show_edit_dialog: true;
+    property <bool> show_edit_dialog: false;
+    property <bool> show_setting_dialog: false;
 
     // util functions
     callback close;
     close() => {
         show_edit_dialog = false;
+        show_setting_dialog = false;
     }
 
     hl1 := HorizontalBox {
@@ -93,6 +95,9 @@ SerialPortPage := VerticalLayout {
                         }
                         setting_button := Button {
                             text: "设置";
+                            clicked => {
+                                show_setting_dialog = true;
+                            }
                         }
                     }
                 }
@@ -134,6 +139,15 @@ SerialPortPage := VerticalLayout {
             text: "退出(C)";
             width: 80px;
             height: 30px;
+        }
+    }
+
+    if show_setting_dialog: SerialPortSettingDialog {
+        on_ok_clicked => {
+            show_setting_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_setting_dialog = false;
         }
     }
 }

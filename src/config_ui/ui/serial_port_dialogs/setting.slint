@@ -1,0 +1,153 @@
+import {
+    LineEdit, ComboBox, TabWidget, Button,
+    GroupBox, VerticalBox, HorizontalBox, SpinBox,
+    TextEdit, CheckBox
+} from "std-widgets.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
+// import {BasicEntries} from "./device_edit_dialogs/.slint";
+import {TextSpinBox} from "../../../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../../../common/ui/text_lineedit.slint";
+import {TextComboBox} from "../../../common/ui/text_combobox.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+export SerialPortSettingDialog := Window {
+    property<string> timer_desc;
+
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
+
+    Pane {
+    x: 200px;
+    y: 100px;
+    width: 600px;
+    height: 600px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+        GroupBox {
+            vertical-stretch: 2;
+            title: "定时器基本信息";
+
+            TextLineEdit {
+                text_text: "定时器描述";
+                line_edit_text: root.timer_desc;
+            }
+        }
+
+        timer_run_mode_gb := GroupBox {
+            vertical-stretch: 5;
+            title: "定时器运行模式";
+
+            property <bool> cb_state;
+
+            HorizontalBox {
+                VerticalBox {
+                    cycle_run_mode_cb := CheckBox {
+                        text: "周期性任务模式";
+                        checked: true;
+                        toggled => {
+                            cycle_run_mode_gb.enabled = !cycle_run_mode_gb.enabled;
+                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
+                        }
+                    }
+                    cycle_run_mode_gb := GroupBox {
+                        // vertical-stretch: 1;
+                        // title: "定时器基本信息";
+                        enabled: true;
+
+                        VerticalBox {
+                            TextSpinBox {
+                                text: "周期(秒)";
+                                enabled <=> cycle_run_mode_gb.enabled;
+                            }
+
+                            CheckBox {
+                                text: "启动定时器";
+                                checked: true;
+                                enabled <=> cycle_run_mode_gb.enabled;
+                            }
+                            CheckBox {
+                                text: "立即触发定时任务";
+                                checked: true;
+                                enabled <=> cycle_run_mode_gb.enabled;
+                            }
+                        }
+                    }
+                }
+
+                VerticalBox {
+                    timer_task_mode_cb := CheckBox {
+                        text: "定点任务模式";
+                        checked: false;
+                        toggled => {
+                            timer_task_mode_gb.enabled = !timer_task_mode_gb.enabled;
+                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
+                        }
+                    }
+                    timer_task_mode_gb := GroupBox {
+                        // vertical-stretch: 1;
+                        // title: "定时器基本信息";
+                        enabled: false;
+
+                        VerticalBox {
+                            TextComboBox {
+                                text: "定点模式";
+                                model: ["周模式", "月模式"];
+                                enabled: timer_task_mode_gb.enabled;
+                            }
+
+                            TextSpinBox {
+                                text: "定点精度(秒)";
+                                enabled: timer_task_mode_gb.enabled;
+                            }
+
+                            Button {
+                                text: "定点计划...";
+                                enabled: timer_task_mode_gb.enabled;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                // width: 80px;
+                // height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+    }
+    }
+}
+
