@@ -38,68 +38,17 @@ OtherPage := VerticalLayout {
         }
 
         GroupBox {
-            title: "串口配置";
+            title: "其他配置";
 
             VerticalBox {
-                ListContainingCheckbox {
-                    vertical-stretch: 3;
+                Button {
+                    text: "上一步(P)";
+                    width: 80px;
+                    height: 30px;
 
-                    rows: [
-                          {text: "采水泵PU2"},
-                          {text: "采水泵PU2"},
-                          {text: "清水泵PU1"},
-                          {text: "沉淀池后增压泵PU3"},
-                          {text: "隔膜泵PU2"},
-                          {text: "内管路清洗"},
-                    ];
-                    // height: hl1.h - 150px;
-                    // width: 750px;
-
-                    menu_on_clicked(index, t) => {
-                        show_edit_dialog = true;
-                    }
-
-                    menu_enabled: true;
-                }
-
-                TableWithNumber {
-                    vertical-stretch: 3;
-
-                    rows: [
-                          {cols: [{text: "序号"}, {text: "设备名称"}]},
-                          {cols: [{text: "1"}, {text: "和利时PLC_2012版本"}]},
-                    ];
-                    // height: hl1.h - 150px;
-                    // width: 750px;
-
-                    menu_on_clicked(index, t) => {
-                        show_edit_dialog = true;
-                    }
-
-                    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-                    menu_enabled: true;
-                }
-
-                GroupBox {
-                    vertical-stretch: 1;
-
-                    title: "详细配置";
-
-                    HorizontalBox {
-                        port_no_edit := TextLineEdit {
-                            text_text: "端口号";
-                            line_edit_text: root.port_no;
-                        }
-                        baud_rate_edit := TextLineEdit {
-                            text_text: "波特率";
-                            line_edit_text: root.baud_rate;
-                        }
-                        setting_button := Button {
-                            text: "设置";
-                            clicked => {
-                                show_setting_dialog = true;
-                            }
-                        }
+                    clicked => {
+                        close();
+                        root.prev_clicked()
                     }
                 }
             }
