@@ -3,6 +3,7 @@ import {MeasurementFactorsPage} from "measurement_factors.slint";
 import {SwitchingFactorsPage} from "switching_factors.slint";
 import {DevicePage} from "device.slint";
 import {SerialPortPage} from "serial_port.slint";
+import {OtherPage} from "other.slint";
 
 export DeviceEditDialogE := Window {}
 
@@ -14,9 +15,10 @@ Main := Window {
         false,
         false,
         false,
+        false,
         true,
     ];
-    property <int> current_page_index: 4;
+    property <int> current_page_index: 5;
 
     // property <[Page]> pages: [
     // ];
@@ -84,6 +86,15 @@ Main := Window {
         pw: parent.width;
         ph: parent.height;
         visible: page_visibled[4];
+
+        prev_clicked => { to_prev_page() }
+        next_clicked => { to_next_page() }
+    }
+
+    other_page := OtherPage {
+        pw: parent.width;
+        ph: parent.height;
+        visible: page_visibled[5];
 
         prev_clicked => { to_prev_page() }
         next_clicked => { to_next_page() }

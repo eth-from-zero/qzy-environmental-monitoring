@@ -31,25 +31,32 @@ OtherPage := VerticalLayout {
         property <length> h: 720px;
 
         Image {
+            horizontal-stretch: 1;
+
             width: 250px;
             // width: length(root.pw/4);
             height: parent.h;
             source: @image-url("images/config1.png");
         }
 
-        GroupBox {
+        gb := GroupBox {
+            horizontal-stretch: 3;
+
             title: "其他配置";
 
-            VerticalBox {
-                Button {
-                    text: "上一步(P)";
-                    width: 80px;
-                    height: 30px;
+            property <length> button-width: 280px;
+            property <length> button-height: 90px;
 
-                    clicked => {
-                        close();
-                        root.prev_clicked()
-                    }
+            VerticalBox {
+                alignment: center;
+
+                for name in [
+                    {text: "远程平台输出配置"},
+                    {text: "远程协议反控配置"}
+                ]: Button {
+                    text: name.text;
+                    // width: gb.button-width;
+                    // height: gb.button-height;
                 }
             }
         }
