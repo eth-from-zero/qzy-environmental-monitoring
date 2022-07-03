@@ -49,14 +49,21 @@ OtherPage := VerticalLayout {
 
             VerticalBox {
                 alignment: center;
+                padding-left: 100px;
+                padding-right: 100px;
 
                 for name in [
                     {text: "远程平台输出配置"},
-                    {text: "远程协议反控配置"}
+                    {text: "远程协议反控配置"},
+                    {text: "数据查询及报表服务"},
+                    {text: "系统报警码配置"},
+                    {text: "系统定时器配置"},
+                    {text: "系统任务配置"},
                 ]: Button {
                     text: name.text;
+                    background: #F0F0F0;
                     // width: gb.button-width;
-                    // height: gb.button-height;
+                    height: gb.button-height;
                 }
             }
         }
