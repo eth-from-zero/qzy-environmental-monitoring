@@ -1,0 +1,137 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+SysTaskDialog := Window {
+    property <string> device_no;
+    property <string> device_name;
+    property <string> device_address;
+    property <string> device_alarm_group_no;
+    property <string> device_alarm_source_no;
+    property <string> device_type_desc;
+
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
+
+    // private
+    property <bool> show_timer_dialog: false;
+
+    Pane {
+    x: 100px;
+    y: 0px;
+    width: 800px;
+    height: 800px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+
+        TableWithNumber {
+            vertical-stretch: 1;
+
+            rows: [
+                  {cols: [{text: "序号"}, {text: "设备名称"}]},
+                  {cols: [{text: "1"}, {text: "和利时PLC_2012版本"}]},
+            ];
+            // height: hl1.h - 150px;
+            // width: 750px;
+
+            menu_on_clicked(index, t) => {
+                show_timer_dialog = true;
+            }
+
+            menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+            menu_enabled: true;
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "新增";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "修改";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "删除";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+
+    } // VerticalBox
+    }
+
+    // if show_timer_dialog: TimerDialog {
+    //     on_ok_clicked => {
+    //         show_timer_dialog = false;
+    //     }
+    //     on_cancel_clicked => {
+    //         show_timer_dialog = false;
+    //     }
+    // }
+}
+
