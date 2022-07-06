@@ -25,6 +25,11 @@ OtherPage := VerticalLayout {
         show_systask_dialog = false;
     }
 
+    callback on_systask_clicked;
+    on_systask_clicked() => {
+        show_systask_dialog = true;
+    }
+
     hl1 := HorizontalBox {
         property <length> h: 720px;
 
@@ -51,17 +56,20 @@ OtherPage := VerticalLayout {
                 padding-right: 100px;
 
                 for name in [
-                    {text: "远程平台输出配置"},
-                    {text: "远程协议反控配置"},
-                    {text: "数据查询及报表服务"},
-                    {text: "系统报警码配置"},
-                    {text: "系统定时器配置"},
-                    {text: "系统任务配置"},
+                    {text: "远程平台输出配置", onclick: on_systask_clicked()},
+                    {text: "远程协议反控配置", onclick: on_systask_clicked()},
+                    {text: "数据查询及报表服务", onclick: on_systask_clicked()},
+                    {text: "系统报警码配置", onclick: on_systask_clicked()},
+                    {text: "系统定时器配置", onclick: on_systask_clicked()},
+                    {text: "系统任务配置", onclick: on_systask_clicked()},
                 ]: Button {
                     text: name.text;
+                    enabled: true;
                     background: #F0F0F0;
                     // width: gb.button-width;
                     height: gb.button-height;
+
+                    clicked => {name.onclick}
                 }
             }
         }

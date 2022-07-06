@@ -34,22 +34,34 @@ SysTaskDialog := Window {
 
     VerticalBox {
 
-        TableWithNumber {
-            vertical-stretch: 1;
+        TabWidget {
+            Tab {
+                title: "原子操作";
 
-            rows: [
-                  {cols: [{text: "序号"}, {text: "设备名称"}]},
-                  {cols: [{text: "1"}, {text: "和利时PLC_2012版本"}]},
-            ];
-            // height: hl1.h - 150px;
-            // width: 750px;
+                TableWithNumber {
+                    vertical-stretch: 1;
 
-            menu_on_clicked(index, t) => {
-                show_timer_dialog = true;
+                    rows: [
+                          {cols: [
+                              {text: "编号"}, {text: "命名"}, {text: "竞争资源"}, {text: "定时模式"},
+                              {text: "允许手动"}, {text: "实现模板"}
+                          ]},
+                          {cols: [
+                              {text: "1031"}, {text: "TP_仪表测量"}, {text: "默认竞争资源"},
+                              {text: "--"}, {text: "是"}, {text: "启动单台仪表测量"}
+                          ]},
+                    ];
+                    // height: hl1.h - 150px;
+                    // width: 750px;
+
+                    menu_on_clicked(index, t) => {
+                        show_timer_dialog = true;
+                    }
+
+                    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+                    menu_enabled: true;
+                }
             }
-
-            menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-            menu_enabled: true;
         }
 
         HorizontalLayout {
