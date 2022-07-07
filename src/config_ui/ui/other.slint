@@ -4,6 +4,12 @@ import {ListContainingCheckbox} from "../common/ui/list_containing_checkbox.slin
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 import {SysTaskDialog} from "systask.slint";
 
+OtherPageButton := Button {
+    enabled: true;
+    background: #F0F0F0;
+    height: 90px;
+}
+
 OtherPage := VerticalLayout {
     property <length> ph;
     property <length> pw;
@@ -55,21 +61,41 @@ OtherPage := VerticalLayout {
                 padding-left: 100px;
                 padding-right: 100px;
 
-                for name in [
-                    {text: "远程平台输出配置", onclick: on_systask_clicked()},
-                    {text: "远程协议反控配置", onclick: on_systask_clicked()},
-                    {text: "数据查询及报表服务", onclick: on_systask_clicked()},
-                    {text: "系统报警码配置", onclick: on_systask_clicked()},
-                    {text: "系统定时器配置", onclick: on_systask_clicked()},
-                    {text: "系统任务配置", onclick: on_systask_clicked()},
-                ]: Button {
-                    text: name.text;
-                    enabled: true;
-                    background: #F0F0F0;
-                    // width: gb.button-width;
-                    height: gb.button-height;
-
-                    clicked => {name.onclick}
+                OtherPageButton {
+                    text: "远程平台输出配置";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
+                }
+                OtherPageButton {
+                    text:  "远程协议反控配置";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
+                }
+                OtherPageButton {
+                    text:  "数据查询及报表服务";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
+                }
+                OtherPageButton {
+                    text:  "系统报警码配置";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
+                }
+                OtherPageButton {
+                    text:  "系统定时器配置";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
+                }
+                OtherPageButton {
+                    text:  "系统任务配置";
+                    clicked => {
+                        show_systask_dialog = true;
+                    }
                 }
             }
         }
