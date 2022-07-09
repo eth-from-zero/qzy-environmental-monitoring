@@ -2,6 +2,9 @@ import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widge
 import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
+import {AtomicPage} from "systask_tags/atomic.slint";
+import {ProcessPage} from "systask_tags/process.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -38,28 +41,19 @@ SysTaskDialog := Window {
             Tab {
                 title: "原子操作";
 
-                TableWithNumber {
-                    vertical-stretch: 1;
+                AtomicPage {
+                }
+            }
+            Tab {
+                title: "流程操作";
 
-                    rows: [
-                          {cols: [
-                              {text: "编号"}, {text: "命名"}, {text: "竞争资源"}, {text: "定时模式"},
-                              {text: "允许手动"}, {text: "实现模板"}
-                          ]},
-                          {cols: [
-                              {text: "1031"}, {text: "TP_仪表测量"}, {text: "默认竞争资源"},
-                              {text: "--"}, {text: "是"}, {text: "启动单台仪表测量"}
-                          ]},
-                    ];
-                    // height: hl1.h - 150px;
-                    // width: 750px;
+                ProcessPage {
+                }
+            }
+            Tab {
+                title: "系统模式操作";
 
-                    menu_on_clicked(index, t) => {
-                        show_timer_dialog = true;
-                    }
-
-                    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-                    menu_enabled: true;
+                SysModePage {
                 }
             }
         }
