@@ -1,0 +1,40 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {TextComboBox} from "../common/ui/text_combobox.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+SysModePage := VerticalBox {
+    GroupBox {
+        title: "间歇模式";
+
+        TextComboBox {
+            text: "间歇模式对应流程操作";
+            model: ["间歇测量模式"];
+        }
+    }
+
+    GroupBox {
+        title: "连续操作";
+
+        TextComboBox {
+            text: "连续模式对应流程操作";
+            model: [];
+        }
+    }
+
+    GroupBox {
+        title: "应急操作";
+
+        TextComboBox {
+            text: "应急模式对应流程操作";
+            model: [];
+        }
+    }
+}
+

@@ -1,0 +1,33 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+ProcessPage := TableWithNumber {
+    vertical-stretch: 1;
+
+    rows: [
+          {cols: [
+              {text: "编号"}, {text: "命名"}, {text: "竞争资源"}, {text: "定时模式"},
+              {text: "允许手动"}, {text: "实现模板"}
+          ]},
+          {cols: [
+              {text: "2001"}, {text: "系统清洗流程"}, {text: "默认竞争资源"},
+              {text: "--"}, {text: "是"}, {text: "系统复位流程"}
+          ]},
+    ];
+    // height: hl1.h - 150px;
+    // width: 750px;
+
+    menu_on_clicked(index, t) => {
+    }
+
+    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+    menu_enabled: true;
+}
+
