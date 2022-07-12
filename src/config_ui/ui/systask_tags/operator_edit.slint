@@ -69,6 +69,37 @@ OperatorEditDialog := Window {
                                 }
                             }
                         }
+
+                        VerticalBox {
+                            CheckBox {
+                                text: "允许手动触发";
+                                checked: true;
+                            }
+
+                            GroupBox {
+                                title: "操作描述";
+
+                                TextEdit {
+                                }
+                            }
+                        }
+                    }
+
+                    HorizontalLayout {
+                        // vertical-stretch: 1;
+
+                        padding-right: 30px;
+                        alignment: end;
+
+                        Button {
+                            text: "定时配置...";
+                            width: 80px;
+                            height: 30px;
+
+                            clicked => {
+                                root.on_ok_clicked()
+                            }
+                        }
                     }
                 }
             }
