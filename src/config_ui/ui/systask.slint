@@ -6,6 +6,8 @@ import {AtomicPage} from "systask_tags/atomic.slint";
 import {ProcessPage} from "systask_tags/process.slint";
 import {SysModePage} from "systask_tags/sysmode.slint";
 
+import {OperatorEditDialog} from "systask_tags/operator_edit.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -24,7 +26,8 @@ SysTaskDialog := Window {
     callback on_cancel_clicked;
 
     // private
-    property <bool> show_timer_dialog: false;
+    property <bool> show_operator_edit_dialog: false;
+    property <int> tag_current_index: 0;
 
     Pane {
     x: 100px;
@@ -38,7 +41,7 @@ SysTaskDialog := Window {
 
     VerticalBox {
 
-        TabWidget {
+        tw := TabWidget {
             Tab {
                 title: "原子操作";
 
@@ -71,7 +74,8 @@ SysTaskDialog := Window {
                 height: 30px;
 
                 clicked => {
-                    root.on_ok_clicked()
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
                 }
             }
 
@@ -134,13 +138,13 @@ SysTaskDialog := Window {
     } // VerticalBox
     }
 
-    // if show_timer_dialog: TimerDialog {
-    //     on_ok_clicked => {
-    //         show_timer_dialog = false;
-    //     }
-    //     on_cancel_clicked => {
-    //         show_timer_dialog = false;
-    //     }
-    // }
+    if show_operator_edit_dialog: OperatorEditDialog {
+        on_ok_clicked => {
+            show_operator_edit_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_operator_edit_dialog = false;
+        }
+    }
 }
 
