@@ -105,6 +105,17 @@ OperatorEditDialog := Window {
             }
             Tab {
                 title: "扩展";
+
+                HorizontalBox {
+                    TextComboBox {
+                        text: "操作模板";
+                        model: [""];
+                    }
+
+                    Button {
+                        text: "配置";
+                    }
+                }
             }
         }
 
