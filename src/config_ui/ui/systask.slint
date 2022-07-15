@@ -28,6 +28,7 @@ SysTaskDialog := Window {
     // private
     property <bool> show_operator_edit_dialog: false;
     property <int> tag_current_index: 0;
+    property <[{text: string}]> current_row;
 
     Pane {
     x: 100px;
@@ -46,6 +47,7 @@ SysTaskDialog := Window {
                 title: "原子操作";
 
                 AtomicPage {
+                    current_row <=> root.current_row;
                 }
             }
             Tab {
@@ -87,7 +89,8 @@ SysTaskDialog := Window {
                 height: 30px;
 
                 clicked => {
-                    root.on_ok_clicked()
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
                 }
             }
 
@@ -99,7 +102,8 @@ SysTaskDialog := Window {
                 height: 30px;
 
                 clicked => {
-                    root.on_cancel_clicked()
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
                 }
             }
         }

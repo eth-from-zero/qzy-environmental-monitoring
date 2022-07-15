@@ -9,6 +9,8 @@ Pane := Rectangle {
 }
 
 AtomicPage := TableWithNumber {
+    property <[{text: string}]> current_row;
+
     vertical-stretch: 1;
 
     rows: [
@@ -25,6 +27,7 @@ AtomicPage := TableWithNumber {
     // width: 750px;
 
     menu_on_clicked(index, t) => {
+        self.current_row = self.rows[index].cols;
     }
 
     menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
