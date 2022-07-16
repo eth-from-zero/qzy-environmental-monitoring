@@ -29,6 +29,7 @@ SysTaskDialog := Window {
     property <bool> show_operator_edit_dialog: false;
     property <int> tag_current_index: 0;
     property <[{text: string}]> current_row;
+    property <string> current_op;
 
     Pane {
     x: 100px;
@@ -78,6 +79,7 @@ SysTaskDialog := Window {
                 clicked => {
                     root.tag_current_index = tw.current-index;
                     root.show_operator_edit_dialog = true;
+                    root.current_op = "add";
                 }
             }
 
@@ -91,6 +93,7 @@ SysTaskDialog := Window {
                 clicked => {
                     root.tag_current_index = tw.current-index;
                     root.show_operator_edit_dialog = true;
+                    root.current_op = "update";
                 }
             }
 
@@ -104,6 +107,7 @@ SysTaskDialog := Window {
                 clicked => {
                     root.tag_current_index = tw.current-index;
                     root.show_operator_edit_dialog = true;
+                    root.current_op = "delete";
                 }
             }
         }
@@ -143,6 +147,10 @@ SysTaskDialog := Window {
     }
 
     if show_operator_edit_dialog: OperatorEditDialog {
+        operate_no <=> {
+            if current_op == "update": current_rows[0] {}
+        }
+
         on_ok_clicked => {
             show_operator_edit_dialog = false;
         }
