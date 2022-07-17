@@ -147,10 +147,6 @@ SysTaskDialog := Window {
     }
 
     if show_operator_edit_dialog: OperatorEditDialog {
-        operate_no <=> {
-            if current_op == "update": current_rows[0] {}
-        }
-
         on_ok_clicked => {
             show_operator_edit_dialog = false;
         }
