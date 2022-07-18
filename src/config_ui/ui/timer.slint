@@ -1,3 +1,8 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+import {TimerEditDialog} from "timer_dialogs/edit.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -6,21 +11,12 @@ Pane := Rectangle {
 }
 
 TimerDialog := Window {
-    property <string> device_no;
-    property <string> device_name;
-    property <string> device_address;
-    property <string> device_alarm_group_no;
-    property <string> device_alarm_source_no;
-    property <string> device_type_desc;
-
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
     // private
-    property <bool> show_operator_edit_dialog: false;
-    property <int> tag_current_index: 0;
+    property <bool> show_edit_dialog: false;
     property <[{text: string}]> current_row;
-    property <string> current_op;
 
     Pane {
     x: 100px;
@@ -51,6 +47,7 @@ TimerDialog := Window {
             // width: 750px;
 
             menu_on_clicked(index, t) => {
+                root.current_row = self.rows[index].cols;
             }
 
             menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
@@ -66,7 +63,7 @@ TimerDialog := Window {
             alignment: end;
 
             Button {
-                text: "确定";
+                text: "启动";
                 width: 80px;
                 height: 30px;
 
@@ -78,7 +75,31 @@ TimerDialog := Window {
             HorizontalDividingLine{ value: 30px; }
 
             Button {
-                text: "取消";
+                text: "停止";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    show_edit_dialog = true;
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "编辑";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "关闭";
                 width: 80px;
                 height: 30px;
 
@@ -91,12 +112,12 @@ TimerDialog := Window {
     } // VerticalBox
     }
 
-    if show_operator_edit_dialog: OperatorEditDialog {
+    if show_edit_dialog: TimerEditDialog {
         on_ok_clicked => {
-            show_operator_edit_dialog = false;
+            show_edit_dialog = false;
         }
         on_cancel_clicked => {
-            show_operator_edit_dialog = false;
+            show_edit_dialog = false;
         }
     }
 }
