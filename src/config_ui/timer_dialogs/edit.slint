@@ -1,0 +1,165 @@
+import {TabWidget, Button, TextEdit, CheckBox, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+
+import {TextSpinBox} from "../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../common/ui/text_lineedit.slint";
+import {TextComboBox} from "../common/ui/text_combobox.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+TimerEditDialog := Window {
+    property <string> operate_no;
+    property <string> operate_name;
+    property <string> resulting_state;
+    property <string> competitive_resource;
+
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
+
+    // private
+    property <bool> show_timer_dialog: false;
+
+    Pane {
+    x: 200px;
+    y: 50px;
+    width: 600px;
+    height: 700px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+
+        TabWidget {
+            Tab {
+                title: "基本";
+
+                VerticalBox {
+                    HorizontalBox {
+                        VerticalBox {
+                            TextLineEdit {
+                                text_text: "操作编号";
+                                line_edit_text: root.operate_no;
+                            }
+
+                            TextLineEdit {
+                                text_text: "操作命名";
+                                line_edit_text: root.operate_name;
+                            }
+
+                            TextComboBox {
+                                text: "导致状态";
+                                model: [""];
+                            }
+
+                            HorizontalBox {
+                                TextComboBox {
+                                    text: "竞争资源";
+                                    model: ["默认竞争资源"];
+                                }
+
+                                Button {
+                                    text: "📅";
+                                }
+                            }
+                        }
+
+                        VerticalBox {
+                            CheckBox {
+                                text: "允许手动触发";
+                                checked: true;
+                            }
+
+                            GroupBox {
+                                title: "操作描述";
+
+                                TextEdit {
+                                }
+                            }
+                        }
+                    }
+
+                    HorizontalLayout {
+                        // vertical-stretch: 1;
+
+                        padding-right: 30px;
+                        alignment: end;
+
+                        Button {
+                            text: "定时配置...";
+                            width: 80px;
+                            height: 30px;
+
+                            clicked => {
+                                root.on_ok_clicked()
+                            }
+                        }
+                    }
+                }
+            }
+            Tab {
+                title: "扩展";
+
+                HorizontalBox {
+                    TextComboBox {
+                        text: "操作模板";
+                        model: [""];
+                    }
+
+                    Button {
+                        text: "配置";
+                    }
+                }
+            }
+        }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+
+    } // VerticalBox
+    }
+
+    // if show_timer_dialog: TimerDialog {
+    //     on_ok_clicked => {
+    //         show_timer_dialog = false;
+    //     }
+    //     on_cancel_clicked => {
+    //         show_timer_dialog = false;
+    //     }
+    // }
+}
+
+
+
