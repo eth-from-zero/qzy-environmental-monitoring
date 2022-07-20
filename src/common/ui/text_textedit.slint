@@ -1,0 +1,21 @@
+import {
+    HorizontalBox, TextEdit
+} from "std-widgets.slint";
+
+TextTextEdit := HorizontalBox {
+    property <string> text;
+    property <string> edit_text;
+    property <bool> enabled;
+
+    t := Text {
+        // horizontal-stretch: 1;
+        text: root.text;
+    }
+
+    TextEdit {
+        // horizontal-stretch: 2;
+        text <=> root.edit_text;
+        enabled <=> root.enabled;
+    }
+}
+
