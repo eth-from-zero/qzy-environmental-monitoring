@@ -4,6 +4,7 @@ import {
 
 TextSpinBox := HorizontalBox {
     property <string> text;
+    property <int> value;
     property <bool> enabled;
 
     t := Text {
@@ -11,7 +12,7 @@ TextSpinBox := HorizontalBox {
     }
 
     sb := SpinBox {
-        value: 0;
+        value <=> root.value;
         minimum: 0;
         maximum: 100;
         enabled <=> root.enabled;

@@ -5,6 +5,7 @@ import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/div
 import {TextSpinBox} from "../common/ui/text_spinbox.slint";
 import {TextLineEdit} from "../common/ui/text_lineedit.slint";
 import {TextComboBox} from "../common/ui/text_combobox.slint";
+import {TextTextEdit} from "../common/ui/text_textedit.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -35,85 +36,30 @@ TimerEditDialog := Window {
     border-radius: 3px;
 
     VerticalBox {
-
-        TabWidget {
-            Tab {
-                title: "基本";
+        HorizontalBox {
+            GroupBox {
+                title: "定时器基本配置";
 
                 VerticalBox {
-                    HorizontalBox {
-                        VerticalBox {
-                            TextLineEdit {
-                                text_text: "操作编号";
-                                line_edit_text: root.operate_no;
-                            }
-
-                            TextLineEdit {
-                                text_text: "操作命名";
-                                line_edit_text: root.operate_name;
-                            }
-
-                            TextComboBox {
-                                text: "导致状态";
-                                model: [""];
-                            }
-
-                            HorizontalBox {
-                                TextComboBox {
-                                    text: "竞争资源";
-                                    model: ["默认竞争资源"];
-                                }
-
-                                Button {
-                                    text: "📅";
-                                }
-                            }
-                        }
-
-                        VerticalBox {
-                            CheckBox {
-                                text: "允许手动触发";
-                                checked: true;
-                            }
-
-                            GroupBox {
-                                title: "操作描述";
-
-                                TextEdit {
-                                }
-                            }
-                        }
+                    TextSpinBox {
+                        text: "优先级";
+                        value: 10;
                     }
-
-                    HorizontalLayout {
-                        // vertical-stretch: 1;
-
-                        padding-right: 30px;
-                        alignment: end;
-
-                        Button {
-                            text: "定时配置...";
-                            width: 80px;
-                            height: 30px;
-
-                            clicked => {
-                                root.on_ok_clicked()
-                            }
-                        }
+                    TextSpinBox {
+                        text: "任务重量";
+                        value: 10;
                     }
-                }
-            }
-            Tab {
-                title: "扩展";
-
-                HorizontalBox {
+                    TextSpinBox {
+                        text: "最多并行";
+                        value: 10;
+                    }
                     TextComboBox {
-                        text: "操作模板";
-                        model: [""];
+                        text: "关联设备";
+                        enabled: false;
                     }
-
-                    Button {
-                        text: "配置";
+                    TextTextEdit {
+                        text: "定时器描述";
+                        edit_text: "";
                     }
                 }
             }
