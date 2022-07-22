@@ -6,6 +6,7 @@ import {TextSpinBox} from "../common/ui/text_spinbox.slint";
 import {TextLineEdit} from "../common/ui/text_lineedit.slint";
 import {TextComboBox} from "../common/ui/text_combobox.slint";
 import {TextTextEdit} from "../common/ui/text_textedit.slint";
+import {CheckBoxGroupBox} from "../common/ui/checkbox_groupbox.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -60,6 +61,20 @@ TimerEditDialog := Window {
                     TextTextEdit {
                         text: "定时器描述";
                         edit_text: "";
+                    }
+                }
+            }
+
+            GroupBox {
+                title: "定时器运行模式";
+
+                VerticalBox {
+                    CheckBoxGroupBox {
+                        text: "周期性任务";
+
+                        GroupBox {
+                            title: "周期模式选项";
+                        }
                     }
                 }
             }
