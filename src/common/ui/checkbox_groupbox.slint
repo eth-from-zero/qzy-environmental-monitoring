@@ -1,0 +1,14 @@
+import {
+    HorizontalBox, CheckBox
+} from "std-widgets.slint";
+
+CheckBoxGroupBox := HorizontalBox {
+    property <string> text;
+    property <int> value;
+    property <bool> enabled;
+
+    CheckBox {
+        text: root.text;
+    }
+}
+

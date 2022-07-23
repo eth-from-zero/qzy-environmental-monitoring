@@ -1,12 +1,12 @@
 import {TabWidget, Button, TextEdit, CheckBox, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
-import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {TableWithNumber} from "../../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
-import {TextSpinBox} from "../common/ui/text_spinbox.slint";
-import {TextLineEdit} from "../common/ui/text_lineedit.slint";
-import {TextComboBox} from "../common/ui/text_combobox.slint";
-import {TextTextEdit} from "../common/ui/text_textedit.slint";
-import {CheckBoxGroupBox} from "../common/ui/checkbox_groupbox.slint";
+import {TextSpinBox} from "../../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../../common/ui/text_lineedit.slint";
+import {TextComboBox} from "../../common/ui/text_combobox.slint";
+import {TextTextEdit} from "../../common/ui/text_textedit.slint";
+import {CheckBoxGroupBox} from "../../common/ui/checkbox_groupbox.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -74,6 +74,40 @@ TimerEditDialog := Window {
 
                         GroupBox {
                             title: "周期模式选项";
+
+                            VerticalBox {
+                                TextSpinBox {
+                                    text: "周期(秒)";
+                                    value: 15;
+                                }
+                                CheckBox {
+                                    text: "启用定时器";
+                                }
+                                CheckBox {
+                                    text: "立即触发定时任务";
+                                }
+                            }
+                        }
+                    }
+                    CheckBoxGroupBox {
+                        text: "定点任务";
+
+                        GroupBox {
+                            title: "定点模式选项";
+
+                            VerticalBox {
+                                TextComboBox {
+                                    text: "定点模式";
+                                    model: ["月模式"];
+                                }
+                                TextSpinBox {
+                                    text: "定点精度(秒)";
+                                    value: 3;
+                                }
+                                Button {
+                                    text: "定点计划";
+                                }
+                            }
                         }
                     }
                 }
