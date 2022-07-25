@@ -24,17 +24,24 @@ OtherPage := VerticalLayout {
     // private variants
     property <bool> show_edit_dialog: false;
     property <bool> show_systask_dialog: false;
+    property <bool> show_timer_dialog: false;
 
     // util functions
     callback close;
     close() => {
         show_edit_dialog = false;
         show_systask_dialog = false;
+        show_timer_dialog = false;
     }
 
     callback on_systask_clicked;
     on_systask_clicked() => {
         show_systask_dialog = true;
+    }
+
+    callback on_timer_clicked;
+    on_timer_clicked() => {
+        show_timer_dialog = true;
     }
 
     hl1 := HorizontalBox {
@@ -89,7 +96,7 @@ OtherPage := VerticalLayout {
                 OtherPageButton {
                     text:  "系统定时器配置";
                     clicked => {
-                        show_systask_dialog = true;
+                        show_timer_dialog = true;
                     }
                 }
                 OtherPageButton {
@@ -145,6 +152,15 @@ OtherPage := VerticalLayout {
         }
         on_cancel_clicked => {
             show_systask_dialog = false;
+        }
+    }
+
+    if show_timer_dialog: TimerDialog {
+        on_ok_clicked => {
+            show_timer_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_timer_dialog = false;
         }
     }
 }
