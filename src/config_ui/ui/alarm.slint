@@ -2,6 +2,10 @@ import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widge
 import {TableWithNumber} from "../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
 
+import {AlarmGroupPage} from "alarm_tags/alarm_group.slint";
+
+import {OperatorEditDialog} from "systask_tags/operator_edit.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -9,12 +13,21 @@ Pane := Rectangle {
 }
 
 AlarmDialog := Window {
+    property <string> device_no;
+    property <string> device_name;
+    property <string> device_address;
+    property <string> device_alarm_group_no;
+    property <string> device_alarm_source_no;
+    property <string> device_type_desc;
+
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
     // private
-    property <bool> show_edit_dialog: false;
+    property <bool> show_operator_edit_dialog: false;
+    property <int> tag_current_index: 0;
     property <[{text: string}]> current_row;
+    property <string> current_op;
 
     Pane {
     x: 100px;
@@ -28,26 +41,73 @@ AlarmDialog := Window {
 
     VerticalBox {
 
-        TableWithNumber {
+        tw := TabWidget {
+            Tab {
+                title: "报警组配置";
+
+                AlarmGroupPage {
+                    current_row <=> root.current_row;
+                }
+            }
+            Tab {
+                title: "报警码配置";
+
+                AlarmCode {
+                }
+            }
+            Tab {
+                title: "报警等级配置";
+
+                AlarmLevel {
+                }
+            }
+        }
+
+        HorizontalLayout {
             vertical-stretch: 1;
 
-            rows: [
-                  {cols: [
-                      {text: "报警组编号"}, {text: "报警组名称"},
-                  ]},
-                  {cols: [
-                      {text: "FPI_Equip"}, {text: "(报警组)FPI水质归一化仪表"},
-                  ]},
-            ];
-            // height: hl1.h - 150px;
-            // width: 750px;
+            padding-right: 30px;
+            alignment: end;
 
-            menu_on_clicked(index, t) => {
-                root.current_row = self.rows[index].cols;
+            Button {
+                text: "新增";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
+                    root.current_op = "add";
+                }
             }
 
-            menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-            menu_enabled: true;
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "修改";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
+                    root.current_op = "update";
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "删除";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.tag_current_index = tw.current-index;
+                    root.show_operator_edit_dialog = true;
+                    root.current_op = "delete";
+                }
+            }
         }
 
         VerticalDividingLine{ value: 30px; }
@@ -59,7 +119,7 @@ AlarmDialog := Window {
             alignment: end;
 
             Button {
-                text: "启动";
+                text: "确定";
                 width: 80px;
                 height: 30px;
 
@@ -71,31 +131,7 @@ AlarmDialog := Window {
             HorizontalDividingLine{ value: 30px; }
 
             Button {
-                text: "停止";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_cancel_clicked()
-                }
-            }
-
-            HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "编辑";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    show_edit_dialog = true;
-                }
-            }
-
-            HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "关闭";
+                text: "取消";
                 width: 80px;
                 height: 30px;
 
@@ -108,12 +144,13 @@ AlarmDialog := Window {
     } // VerticalBox
     }
 
-    if show_edit_dialog: TimerEditDialog {
+    if show_operator_edit_dialog: OperatorEditDialog {
         on_ok_clicked => {
-            show_edit_dialog = false;
+            show_operator_edit_dialog = false;
         }
         on_cancel_clicked => {
-            show_edit_dialog = false;
+            show_operator_edit_dialog = false;
         }
     }
 }
+
