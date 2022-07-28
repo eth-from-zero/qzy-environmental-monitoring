@@ -1,29 +1,40 @@
-import {TableWithNumber} from "../common/ui/table_with_number.slint";
+import {VerticalBox, HorizontalBox, TextEdit, Button} from "std-widgets.slint";
+import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
+import {TextComboBox} from "../../../common/ui/text_combobox.slint";
 
-Pane := Rectangle {
-    TouchArea {
-        enabled: true;
-    }
-}
-
-AlarmCodeTag := TableWithNumber {
+AlarmCodeTag := VerticalBox {
     property <[{text: string}]> current_row;
 
-    rows: [
-        {cols: [
-            {text: "报警组编号"}, {text: "报警组名称"},
-        ]},
-        {cols: [
-            {text: "FPI_Equip"}, {text: "(报警组)FPI水质归一化仪表"},
-        ]},
-    ];
-    // height: hl1.h - 150px;
-    // width: 750px;
+    HorizontalBox {
+        TextComboBox {
+            text: "报警组选择";
+            model: ["(报警组)FPI水质归一化仪表"];
+        }
 
-    menu_on_clicked(index, t) => {
-        root.current_row = self.rows[index].cols;
+        Button {
+            text: "保存当前报警码配置";
+        }
     }
 
-    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-    menu_enabled: true;
+    TableWithNumber {
+
+        rows: [
+            {cols: [
+                {text: "报警码"}, {text: "报警名称"}, {text: "报警等级"}, {text: "重复判定时间(s)"},
+                {text: "报警描述"}
+            ]},
+            {cols: [
+                {text: "FPI_Equip"}, {text: "(报警组)FPI水质归一化仪表"},
+            ]},
+        ];
+        // height: hl1.h - 150px;
+        // width: 750px;
+
+        menu_on_clicked(index, t) => {
+            root.current_row = self.rows[index].cols;
+        }
+
+        menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+        menu_enabled: true;
+    }
 }
