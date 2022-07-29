@@ -1,20 +1,14 @@
-import {TableWithNumber} from "../common/ui/table_with_number.slint";
-
-Pane := Rectangle {
-    TouchArea {
-        enabled: true;
-    }
-}
+import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
 AlarmLevelTag := TableWithNumber {
     property <[{text: string}]> current_row;
 
     rows: [
         {cols: [
-            {text: "报警组编号"}, {text: "报警组名称"},
+            {text: "报警等级编号"}, {text: "报警等级命名"}, {text: "报警等级值"}
         ]},
         {cols: [
-            {text: "FPI_Equip"}, {text: "(报警组)FPI水质归一化仪表"},
+            {text: "1"}, {text: "故障"}, {text: "1"}
         ]},
     ];
     // height: hl1.h - 150px;
