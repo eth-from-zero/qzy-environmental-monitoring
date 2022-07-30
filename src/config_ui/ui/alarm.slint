@@ -5,6 +5,7 @@ import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/div
 import {AlarmGroupPage} from "alarm_tags/alarm_group.slint";
 import {AlarmCodePage} from "alarm_tags/alarm_code.slint";
 import {AlarmLevelPage} from "alarm_tags/alarm_level.slint";
+import {AlarmSourcePage} from "alarm_tags/alarm_source.slint";
 
 import {OperatorEditDialog} from "systask_tags/operator_edit.slint";
 
@@ -61,6 +62,12 @@ AlarmDialog := Window {
                 title: "报警等级配置";
 
                 AlarmLevel {
+                }
+            }
+            Tab {
+                title: "报警源配置";
+
+                AlarmSource {
                 }
             }
         }
