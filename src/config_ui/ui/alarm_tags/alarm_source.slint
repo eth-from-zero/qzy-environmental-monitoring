@@ -1,14 +1,14 @@
 import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
-AlarmSourceTag := TableWithNumber {
+AlarmSourcePage := TableWithNumber {
     property <[{text: string}]> current_row;
 
     rows: [
         {cols: [
-            {text: "报警等级编号"}, {text: "报警等级命名"}, {text: "报警等级值"}
+            {text: "报警源编号"}, {text: "报警源名称"}
         ]},
         {cols: [
-            {text: "1"}, {text: "故障"}, {text: "1"}
+            {text: "SYS_Alarm"}, {text: "系统及故障"}
         ]},
     ];
     // height: hl1.h - 150px;
