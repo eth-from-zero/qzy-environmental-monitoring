@@ -72,52 +72,52 @@ AlarmDialog := Window {
             }
         }
 
-        HorizontalLayout {
-            vertical-stretch: 1;
+        // HorizontalLayout {
+        //     vertical-stretch: 1;
 
-            padding-right: 30px;
-            alignment: end;
+        //     padding-right: 30px;
+        //     alignment: end;
 
-            Button {
-                text: "新增";
-                width: 80px;
-                height: 30px;
+        //     Button {
+        //         text: "新增";
+        //         width: 80px;
+        //         height: 30px;
 
-                clicked => {
-                    root.tag_current_index = tw.current-index;
-                    root.show_operator_edit_dialog = true;
-                    root.current_op = "add";
-                }
-            }
+        //         clicked => {
+        //             root.tag_current_index = tw.current-index;
+        //             root.show_operator_edit_dialog = true;
+        //             root.current_op = "add";
+        //         }
+        //     }
 
-            HorizontalDividingLine{ value: 30px; }
+        //     HorizontalDividingLine{ value: 30px; }
 
-            Button {
-                text: "修改";
-                width: 80px;
-                height: 30px;
+        //     Button {
+        //         text: "修改";
+        //         width: 80px;
+        //         height: 30px;
 
-                clicked => {
-                    root.tag_current_index = tw.current-index;
-                    root.show_operator_edit_dialog = true;
-                    root.current_op = "update";
-                }
-            }
+        //         clicked => {
+        //             root.tag_current_index = tw.current-index;
+        //             root.show_operator_edit_dialog = true;
+        //             root.current_op = "update";
+        //         }
+        //     }
 
-            HorizontalDividingLine{ value: 30px; }
+        //     HorizontalDividingLine{ value: 30px; }
 
-            Button {
-                text: "删除";
-                width: 80px;
-                height: 30px;
+        //     Button {
+        //         text: "删除";
+        //         width: 80px;
+        //         height: 30px;
 
-                clicked => {
-                    root.tag_current_index = tw.current-index;
-                    root.show_operator_edit_dialog = true;
-                    root.current_op = "delete";
-                }
-            }
-        }
+        //         clicked => {
+        //             root.tag_current_index = tw.current-index;
+        //             root.show_operator_edit_dialog = true;
+        //             root.current_op = "delete";
+        //         }
+        //     }
+        // }
 
         VerticalDividingLine{ value: 30px; }
 

@@ -1,0 +1,40 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+
+import {VerticalDividingLine, HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
+
+AddDelUpdate := HorizontalLayout {
+    callback add-clicked;
+    callback update-clicked;
+    callback del-clicked;
+
+    padding-right: 30px;
+    alignment: end;
+
+    Button {
+        text: "新增";
+        width: 80px;
+        height: 30px;
+
+        clicked => {root.add-clicked();}
+    }
+
+    HorizontalDividingLine{ value: 30px; }
+
+    Button {
+        text: "修改";
+        width: 80px;
+        height: 30px;
+
+        clicked => {root.update-clicked();}
+    }
+
+    HorizontalDividingLine{ value: 30px; }
+
+    Button {
+        text: "删除";
+        width: 80px;
+        height: 30px;
+
+        clicked => {root.del-clicked();}
+    }
+}

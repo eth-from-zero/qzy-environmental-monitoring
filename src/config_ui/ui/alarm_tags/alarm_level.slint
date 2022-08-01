@@ -1,23 +1,34 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
-AlarmLevelPage := TableWithNumber {
+import {AddDelUpdate} from "../common/add_del_update.slint";
+
+AlarmLevelPage := VerticalBox {
     property <[{text: string}]> current_row;
 
-    rows: [
-        {cols: [
-            {text: "报警等级编号"}, {text: "报警等级命名"}, {text: "报警等级值"}
-        ]},
-        {cols: [
-            {text: "1"}, {text: "故障"}, {text: "1"}
-        ]},
-    ];
-    // height: hl1.h - 150px;
-    // width: 750px;
+    TableWithNumber {
+        rows: [
+            {cols: [
+                {text: "报警等级编号"}, {text: "报警等级命名"}, {text: "报警等级值"}
+            ]},
+            {cols: [
+                {text: "1"}, {text: "故障"}, {text: "1"}
+            ]},
+        ];
+        // height: hl1.h - 150px;
+        // width: 750px;
 
-    menu_on_clicked(index, t) => {
-        root.current_row = self.rows[index].cols;
+        menu_on_clicked(index, t) => {
+            root.current_row = self.rows[index].cols;
+        }
+
+        menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+        menu_enabled: true;
     }
 
-    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-    menu_enabled: true;
+    AddDelUpdate {
+        add-clicked => {}
+        update-clicked => {}
+        del-clicked => {}
+    }
 }
