@@ -1,23 +1,34 @@
+import {VerticalBox} from "std-widgets.slint";
 import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
-AlarmSourcePage := TableWithNumber {
+import {AddDelUpdate} from "../common/add_del_update.slint";
+
+AlarmSourcePage := VerticalBox {
     property <[{text: string}]> current_row;
 
-    rows: [
-        {cols: [
-            {text: "报警源编号"}, {text: "报警源名称"}
-        ]},
-        {cols: [
-            {text: "SYS_Alarm"}, {text: "系统及故障"}
-        ]},
-    ];
-    // height: hl1.h - 150px;
-    // width: 750px;
+    TableWithNumber {
+        rows: [
+            {cols: [
+                {text: "报警源编号"}, {text: "报警源名称"}
+            ]},
+            {cols: [
+                {text: "SYS_Alarm"}, {text: "系统及故障"}
+            ]},
+        ];
+        // height: hl1.h - 150px;
+        // width: 750px;
 
-    menu_on_clicked(index, t) => {
-        root.current_row = self.rows[index].cols;
+        menu_on_clicked(index, t) => {
+            root.current_row = self.rows[index].cols;
+        }
+
+        menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
+        menu_enabled: true;
     }
 
-    menu_items: [{text: "📩 编辑"}, {text: "📩 定义为电控设备"}];
-    menu_enabled: true;
+    AddDelUpdate {
+        add-clicked => {}
+        update-clicked => {}
+        del-clicked => {}
+    }
 }
