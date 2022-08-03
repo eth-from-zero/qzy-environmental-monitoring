@@ -1,0 +1,74 @@
+import {Button, VerticalBox} from "std-widgets.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
+
+import {TextSpinBox} from "../../../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../../../common/ui/text_lineedit.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+AlarmLevelEditDialog := Window {
+
+    Pane {
+    x: 300px;
+    y: 0px;
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+
+        TextSpinBox {
+            text: "报警等级编号";
+        }
+
+        VerticalDividingLine{ value: 30px; }
+
+        HorizontalLayout {
+            vertical-stretch: 1;
+
+            padding-right: 30px;
+            alignment: end;
+
+            Button {
+                text: "确定";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_ok_clicked()
+                }
+            }
+
+            HorizontalDividingLine{ value: 30px; }
+
+            Button {
+                text: "取消";
+                width: 80px;
+                height: 30px;
+
+                clicked => {
+                    root.on_cancel_clicked()
+                }
+            }
+        }
+
+    } // VerticalBox
+    }
+
+    if show_operator_edit_dialog: OperatorEditDialog {
+        on_ok_clicked => {
+            show_operator_edit_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_operator_edit_dialog = false;
+        }
+    }
+}
+
