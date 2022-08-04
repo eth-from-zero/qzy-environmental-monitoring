@@ -1,8 +1,8 @@
 import {Button, VerticalBox} from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
 
-import {TextSpinBox} from "../../../common/ui/text_spinbox.slint";
-import {TextLineEdit} from "../../../common/ui/text_lineedit.slint";
+import {TextSpinBox} from "../../../../common/ui/text_spinbox.slint";
+import {TextLineEdit} from "../../../../common/ui/text_lineedit.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -24,11 +24,27 @@ AlarmLevelEditDialog := Window {
 
     VerticalBox {
 
-        TextSpinBox {
-            text: "报警等级编号";
-        }
+        VerticalBox {
+            vertical-stretch: 2;
 
-        VerticalDividingLine{ value: 30px; }
+            TextLineEdit {
+                text_text: "报警等级值";
+                line_edit_text: "";
+            }
+
+            VerticalDividingLine{ value: 30px; }
+
+            TextLineEdit {
+                text_text: "报警等级命名";
+                line_edit_text: "";
+            }
+
+            VerticalDividingLine{ value: 30px; }
+
+            TextLineEdit {
+                text: "报警等级值";
+            }
+        }
 
         HorizontalLayout {
             vertical-stretch: 1;
@@ -60,15 +76,6 @@ AlarmLevelEditDialog := Window {
         }
 
     } // VerticalBox
-    }
-
-    if show_operator_edit_dialog: OperatorEditDialog {
-        on_ok_clicked => {
-            show_operator_edit_dialog = false;
-        }
-        on_cancel_clicked => {
-            show_operator_edit_dialog = false;
-        }
     }
 }
 
