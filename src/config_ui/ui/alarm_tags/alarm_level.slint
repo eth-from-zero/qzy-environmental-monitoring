@@ -3,8 +3,12 @@ import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
 import {AddDelUpdate} from "../common/add_del_update.slint";
 
+import {AlarmLevelEditDialog} from "alarm_level_dialogs/edit.slint";
+
 AlarmLevelPage := VerticalBox {
     property <[{text: string}]> current_row;
+
+    property <bool> show_edit_dialog: false;
 
     TableWithNumber {
         rows: [
@@ -30,5 +34,14 @@ AlarmLevelPage := VerticalBox {
         add-clicked => {}
         update-clicked => {}
         del-clicked => {}
+    }
+
+    if show_edit_dialog: AlarmLevelEditDialog {
+        on_ok_clicked => {
+            show_edit_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_edit_dialog = false;
+        }
     }
 }

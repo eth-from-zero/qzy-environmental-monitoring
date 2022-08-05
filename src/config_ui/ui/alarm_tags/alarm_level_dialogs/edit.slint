@@ -11,6 +11,8 @@ Pane := Rectangle {
 }
 
 AlarmLevelEditDialog := Window {
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
 
     Pane {
     x: 300px;
@@ -41,7 +43,7 @@ AlarmLevelEditDialog := Window {
 
             VerticalDividingLine{ value: 30px; }
 
-            TextLineEdit {
+            TextSpinBox {
                 text: "报警等级值";
             }
         }
