@@ -4,8 +4,12 @@ import {TextComboBox} from "../../../common/ui/text_combobox.slint";
 
 import {AddDelUpdate} from "../common/add_del_update.slint";
 
+import {AlarmCodeEditDialog} from "alarm_code_dialogs/edit.slint";
+
 AlarmCodePage := VerticalBox {
     property <[{text: string}]> current_row;
+
+    property <bool> show_edit_dialog: false;
 
     HorizontalBox {
         TextComboBox {
@@ -45,5 +49,14 @@ AlarmCodePage := VerticalBox {
         add-clicked => {}
         update-clicked => {}
         del-clicked => {}
+    }
+
+    if show_edit_dialog: AlarmCodeEditDialog {
+        on_ok_clicked => {
+            show_edit_dialog = false;
+        }
+        on_cancel_clicked => {
+            show_edit_dialog = false;
+        }
     }
 }
