@@ -1,6 +1,7 @@
 import {Button, VerticalBox} from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
 
+import {TextLineEdit} from "../../../../common/ui/text_lineedit.slint";
 import {TextSpinBox} from "../../../../common/ui/text_spinbox.slint";
 import {TextComboBox} from "../../../../common/ui/text_combobox.slint";
 
@@ -30,21 +31,22 @@ AlarmSourceEditDialog := Window {
             vertical-stretch: 2;
 
             TextLineEdit {
-                text_text: "报警等级编号";
+                text_text: "报警源编号";
                 line_edit_text: "";
             }
 
             VerticalDividingLine{ value: 30px; }
 
             TextLineEdit {
-                text_text: "报警等级命名";
+                text_text: "报警源名称";
                 line_edit_text: "";
             }
 
             VerticalDividingLine{ value: 30px; }
 
             TextSpinBox {
-                text: "报警等级值";
+                text: "对应报警值";
+                enabled: false;
             }
         }
 
