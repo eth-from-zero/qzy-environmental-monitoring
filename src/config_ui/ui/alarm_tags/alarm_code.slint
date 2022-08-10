@@ -46,9 +46,15 @@ AlarmCodePage := VerticalBox {
     }
 
     AddDelUpdate {
-        add-clicked => {}
-        update-clicked => {}
-        del-clicked => {}
+        add-clicked => {
+            show-edit-dialog = true;
+        }
+        update-clicked => {
+            show-edit-dialog = true;
+        }
+        del-clicked => {
+            show-edit-dialog = true;
+        }
     }
 
     if show_edit_dialog: AlarmCodeEditDialog {
