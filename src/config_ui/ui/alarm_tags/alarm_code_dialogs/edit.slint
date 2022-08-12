@@ -1,4 +1,4 @@
-import {Button, VerticalBox} from "std-widgets.slint";
+import {Button, VerticalBox, ScrollView} from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
 
 import {TextSpinBox} from "../../../../common/ui/text_spinbox.slint";
@@ -16,11 +16,11 @@ AlarmCodeEditDialog := Window {
     callback on-ok-clicked;
     callback on-cancel-clicked;
 
-    Pane {
-    x: 300px;
+    ScrollView {
+    x: 100px;
     y: 200px;
-    width: 200px;
-    height: 200px;
+    width: 600px;
+    height: 400px;
     background: white;
     border-width: 2px;
     border-color: grey;
@@ -29,35 +29,27 @@ AlarmCodeEditDialog := Window {
     VerticalBox {
 
         VerticalBox {
-            vertical-stretch: 2;
+            vertical-stretch: 1;
 
             TextLineEdit {
                 text_text: "报警码";
                 line_edit_text: "";
             }
 
-            VerticalDividingLine{ value: 30px; }
-
             TextLineEdit {
                 text_text: "报警名称";
                 line_edit_text: "";
             }
-
-            VerticalDividingLine{ value: 30px; }
 
             TextComboBox {
                 text: "报警等级";
                 enabled: false;
             }
 
-            VerticalDividingLine{ value: 30px; }
-
             TextSpinBox {
                 text: "重复判定(秒)";
                 value: 60;
             }
-
-            VerticalDividingLine{ value: 30px; }
 
             TextTextEdit {
                 text: "报警描述";
