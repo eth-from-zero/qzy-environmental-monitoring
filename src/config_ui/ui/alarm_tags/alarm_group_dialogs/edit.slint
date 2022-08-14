@@ -14,7 +14,7 @@ Pane := Rectangle {
     }
 }
 
-AlarmCodeEditDialog := Window {
+AlarmGroupEditDialog := Window {
     callback on-ok-clicked;
     callback on-cancel-clicked;
 
@@ -34,34 +34,17 @@ AlarmCodeEditDialog := Window {
             vertical-stretch: 1;
 
             TextLineEdit {
-                text_text: "报警码";
+                text_text: "报警组编号";
                 line_edit_text: "";
             }
 
             TextLineEdit {
-                text_text: "报警名称";
+                text_text: "报警组名称";
                 line_edit_text: "";
-            }
-
-            TextComboBox {
-                text: "报警等级";
-                enabled: false;
-            }
-
-            TextSpinBox {
-                text: "重复判定(秒)";
-                value: 60;
-            }
-
-            TextTextEdit {
-                text: "报警描述";
-                edit_text: "";
             }
         }
 
         OkCancel {
-            vertical-stretch: 1;
-
             ok-clicked => { root.on-ok-clicked(); }
             cancel-clicked => { root.on-cancel-clicked(); }
         }

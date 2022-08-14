@@ -1,0 +1,29 @@
+import {Button, HorizontalBox} from "std-widgets.slint";
+
+import {HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
+
+OkCancel := HorizontalLayout {
+    callback ok-clicked;
+    callback cancel-clicked;
+
+    padding-right: 30px;
+    alignment: end;
+
+    Button {
+        text: "确定";
+        width: 80px;
+        height: 30px;
+
+        clicked => {root.ok-clicked();}
+    }
+
+    HorizontalDividingLine{ value: 30px; }
+
+    Button {
+        text: "取消";
+        width: 80px;
+        height: 30px;
+
+        clicked => {root.cancel-clicked();}
+    }
+}
