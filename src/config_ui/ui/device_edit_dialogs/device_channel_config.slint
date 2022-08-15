@@ -1,6 +1,8 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
-import {TableWithNumber} from "../common/ui/table_with_number.slint";
-import {VerticalDividingLine, HorizontalDividingLine} from "../components/ui/dividing_line/dividing_line.slint";
+import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
+
+import {OkCancel} from "../common/ok_cancel.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -41,33 +43,11 @@ DeviceChannelDialog := Window {
             menu_enabled: true;
         }
 
-        HorizontalLayout {
+        OkCancel {
             vertical-stretch: 1;
 
-            padding-right: 30px;
-            alignment: end;
-
-            Button {
-                text: "确定";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_ok_clicked()
-                }
-            }
-
-            HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "取消";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_cancel_clicked()
-                }
-            }
+            ok-clicked => { root.on-ok-clicked(); }
+            cancel-clicked => { root.on-cancel-clicked(); }
         }
     }
     }

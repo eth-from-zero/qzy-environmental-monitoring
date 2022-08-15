@@ -5,6 +5,8 @@ import {TextLineEdit} from "../../../../common/ui/text_lineedit.slint";
 import {TextSpinBox} from "../../../../common/ui/text_spinbox.slint";
 import {TextComboBox} from "../../../../common/ui/text_combobox.slint";
 
+import {OkCancel} from "../../common/ok_cancel.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -50,35 +52,12 @@ AlarmSourceEditDialog := Window {
             }
         }
 
-        HorizontalLayout {
+        OkCancel {
             vertical-stretch: 1;
 
-            padding-right: 30px;
-            alignment: end;
-
-            Button {
-                text: "确定";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_ok_clicked()
-                }
-            }
-
-            HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "取消";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_cancel_clicked()
-                }
-            }
+            ok-clicked => { root.on-ok-clicked(); }
+            cancel-clicked => { root.on-cancel-clicked(); }
         }
-
     } // VerticalBox
     }
 }

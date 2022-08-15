@@ -3,6 +3,8 @@ import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
 
 import {AddDelUpdate} from "../common/add_del_update.slint";
 
+import {AlarmGroupEditDialog} from "alarm_group_dialogs/edit.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -11,6 +13,8 @@ Pane := Rectangle {
 
 AlarmGroupPage := VerticalBox{
     property <[{text: string}]> current_row;
+
+    property <bool> show_edit_dialog: false;
 
     TableWithNumber {
         rows: [
@@ -36,6 +40,15 @@ AlarmGroupPage := VerticalBox{
         add-clicked => {}
         update-clicked => {}
         del-clicked => {}
+    }
+
+    if show_edit_dialog: AlarmGroupEditDialog {
+        on-ok-clicked => {
+            show_edit_dialog = false;
+        }
+        on-cancel-clicked => {
+            show_edit_dialog = false;
+        }
     }
 }
 
