@@ -18,6 +18,8 @@ Pane := Rectangle {
 }
 
 export MonthPlanDialog := Window {
+    title: "月计划";
+
     property<string> timer_desc;
 
     callback on_ok_clicked;
@@ -34,91 +36,8 @@ export MonthPlanDialog := Window {
     border-radius: 3px;
 
     VerticalBox {
-        GroupBox {
-            vertical-stretch: 2;
-            title: "定时器基本信息";
 
-            TextLineEdit {
-                text_text: "定时器描述";
-                line_edit_text: root.timer_desc;
-            }
-        }
-
-        timer_run_mode_gb := GroupBox {
-            vertical-stretch: 5;
-            title: "定时器运行模式";
-
-            property <bool> cb_state;
-
-            HorizontalBox {
-                VerticalBox {
-                    cycle_run_mode_cb := CheckBox {
-                        text: "周期性任务模式";
-                        checked: true;
-                        toggled => {
-                            cycle_run_mode_gb.enabled = !cycle_run_mode_gb.enabled;
-                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
-                        }
-                    }
-                    cycle_run_mode_gb := GroupBox {
-                        // vertical-stretch: 1;
-                        // title: "定时器基本信息";
-                        enabled: true;
-
-                        VerticalBox {
-                            TextSpinBox {
-                                text: "周期(秒)";
-                                enabled <=> cycle_run_mode_gb.enabled;
-                            }
-
-                            CheckBox {
-                                text: "启动定时器";
-                                checked: true;
-                                enabled <=> cycle_run_mode_gb.enabled;
-                            }
-                            CheckBox {
-                                text: "立即触发定时任务";
-                                checked: true;
-                                enabled <=> cycle_run_mode_gb.enabled;
-                            }
-                        }
-                    }
-                }
-
-                VerticalBox {
-                    timer_task_mode_cb := CheckBox {
-                        text: "定点任务模式";
-                        checked: false;
-                        toggled => {
-                            timer_task_mode_gb.enabled = !timer_task_mode_gb.enabled;
-                            // timer_run_mode_gb.cb_state = !timer_run_mode_gb.cb_state;
-                        }
-                    }
-                    timer_task_mode_gb := GroupBox {
-                        // vertical-stretch: 1;
-                        // title: "定时器基本信息";
-                        enabled: false;
-
-                        VerticalBox {
-                            TextComboBox {
-                                text: "定点模式";
-                                model: ["周模式", "月模式"];
-                                enabled: timer_task_mode_gb.enabled;
-                            }
-
-                            TextSpinBox {
-                                text: "定点精度(秒)";
-                                enabled: timer_task_mode_gb.enabled;
-                            }
-
-                            Button {
-                                text: "定点计划...";
-                                enabled: timer_task_mode_gb.enabled;
-                            }
-                        }
-                    }
-                }
-            }
+        HorizontalBox {
         }
 
         OkCancel {
