@@ -1,7 +1,7 @@
 import {
     LineEdit, ComboBox, TabWidget, Button,
     GroupBox, VerticalBox, HorizontalBox, SpinBox,
-    TextEdit, CheckBox
+    TextEdit, CheckBox, GridBox
 } from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
 // import {BasicEntries} from "./device_edit_dialogs/.slint";
@@ -38,6 +38,8 @@ export MonthPlanDialog := Window {
     VerticalBox {
 
         HorizontalBox {
+            GridBox {
+            }
         }
 
         OkCancel {
