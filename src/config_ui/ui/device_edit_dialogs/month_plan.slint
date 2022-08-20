@@ -17,6 +17,14 @@ Pane := Rectangle {
     }
 }
 
+Item := HorizontalBox {
+    property <string> text;
+
+    CheckBox {
+        text <=> self.text;
+    }
+}
+
 export MonthPlanDialog := Window {
     title: "月计划";
 
