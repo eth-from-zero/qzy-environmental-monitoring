@@ -23,6 +23,12 @@ Item := HorizontalBox {
     CheckBox {
         text <=> self.text;
     }
+
+    SpinBox {
+        value: 0;
+        minimum: 0;
+        maximum: 1000;
+    }
 }
 
 export MonthPlanDialog := Window {
