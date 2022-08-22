@@ -11,6 +11,8 @@ import {TextComboBox} from "../../../common/ui/text_combobox.slint";
 
 import {OkCancel} from "../common/ok_cancel.slint";
 
+import {MonthPlanDialog} from "month_plan.slint";
+
 Pane := Rectangle {
     TouchArea {
         enabled: true;
@@ -22,6 +24,9 @@ export TimerDialog := Window {
 
     callback on_ok_clicked;
     callback on_cancel_clicked;
+
+    // private
+    property <bool> show_month_plan_dialog: false;
 
     Pane {
     x: 200px;
@@ -114,6 +119,9 @@ export TimerDialog := Window {
                             Button {
                                 text: "定点计划...";
                                 enabled: timer_task_mode_gb.enabled;
+                                clicked => {
+                                    show-month-plan-dialog = true;
+                                }
                             }
                         }
                     }
@@ -128,6 +136,15 @@ export TimerDialog := Window {
             cancel-clicked => { root.on-cancel-clicked(); }
         }
     }
+    }
+
+    if show-month-plan-dialog: MonthPlanDialog {
+        on_ok_clicked => {
+            show-month-plan-dialog = false;
+        }
+        on_cancel_clicked => {
+            show-month-plan-dialog = false;
+        }
     }
 }
 

@@ -51,9 +51,23 @@ export MonthPlanDialog := Window {
 
     VerticalBox {
 
-        HorizontalBox {
-            GridBox {
+        GridBox {
+            for ri in 10: Item {
+                row: ri;
+                col: 0;
             }
+            for ri in 10: Item {
+                row: ri;
+                col: 1;
+            }
+            for ri in 10: Item {
+                row: ri;
+                col: 2;
+            }
+        }
+
+        CheckBox {
+            text: "全与 1 日的时刻相同";
         }
 
         OkCancel {
