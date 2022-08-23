@@ -21,7 +21,8 @@ Item := HorizontalBox {
     property <string> text;
 
     CheckBox {
-        text <=> self.text;
+        // text <=> "每月" + root.text + "号";
+        text <=> root.text;
     }
 
     SpinBox {
@@ -52,17 +53,9 @@ export MonthPlanDialog := Window {
     VerticalBox {
 
         GridBox {
-            for ri in 10: Item {
-                row: ri;
+            Item {
+                row: 0;
                 col: 0;
-            }
-            for ri in 10: Item {
-                row: ri;
-                col: 1;
-            }
-            for ri in 10: Item {
-                row: ri;
-                col: 2;
             }
         }
 
