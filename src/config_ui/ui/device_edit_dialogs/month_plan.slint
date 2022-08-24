@@ -32,6 +32,14 @@ Item := HorizontalBox {
     }
 }
 
+Items := Rectangle{
+    property <[string]> cols;
+
+    for col[index] in cols: Item {
+        text: col;
+    }
+}
+
 export MonthPlanDialog := Window {
     title: "月计划";
 
@@ -52,10 +60,62 @@ export MonthPlanDialog := Window {
 
     VerticalBox {
 
-        GridBox {
-            Item {
-                row: 0;
-                col: 0;
+        HorizontalBox {
+            Rectangle{
+                property <[string]> cols: [
+                    "每月1日",
+                    "每月2日",
+                    "每月3日",
+                    "每月4日",
+                    "每月5日",
+                    "每月6日",
+                    "每月7日",
+                    "每月8日",
+                    "每月9日",
+                    "每月10日",
+                ];
+
+                for col[index] in cols: Item {
+                    text: col;
+                }
+            }
+
+            Rectangle{
+                property <[string]> cols: [
+                    "每月11日",
+                    "每月12日",
+                    "每月13日",
+                    "每月14日",
+                    "每月15日",
+                    "每月16日",
+                    "每月17日",
+                    "每月18日",
+                    "每月19日",
+                    "每月20日",
+                ];
+
+                for col[index] in cols: Item {
+                    text: col;
+                }
+            }
+
+            Rectangle{
+                property <[string]> cols: [
+                    "每月21日",
+                    "每月22日",
+                    "每月23日",
+                    "每月24日",
+                    "每月25日",
+                    "每月26日",
+                    "每月27日",
+                    "每月28日",
+                    "每月29日",
+                    "每月30日",
+                ];
+
+                for col[index] in cols: Item {
+                    text: col;
+                }
             }
         }
 
