@@ -37,6 +37,8 @@ Items := Rectangle{
 
     for col[index] in cols: Item {
         text: col;
+        width: 150px;
+        height: 30px * index;
     }
 }
 
@@ -61,8 +63,8 @@ export MonthPlanDialog := Window {
     VerticalBox {
 
         HorizontalBox {
-            Rectangle{
-                property <[string]> cols: [
+            Items{
+                cols: [
                     "每月1日",
                     "每月2日",
                     "每月3日",
@@ -74,14 +76,10 @@ export MonthPlanDialog := Window {
                     "每月9日",
                     "每月10日",
                 ];
-
-                for col[index] in cols: Item {
-                    text: col;
-                }
             }
 
-            Rectangle{
-                property <[string]> cols: [
+            Items{
+                cols: [
                     "每月11日",
                     "每月12日",
                     "每月13日",
@@ -93,14 +91,10 @@ export MonthPlanDialog := Window {
                     "每月19日",
                     "每月20日",
                 ];
-
-                for col[index] in cols: Item {
-                    text: col;
-                }
             }
 
-            Rectangle{
-                property <[string]> cols: [
+            Items{
+                cols: [
                     "每月21日",
                     "每月22日",
                     "每月23日",
@@ -112,10 +106,6 @@ export MonthPlanDialog := Window {
                     "每月29日",
                     "每月30日",
                 ];
-
-                for col[index] in cols: Item {
-                    text: col;
-                }
             }
         }
 
