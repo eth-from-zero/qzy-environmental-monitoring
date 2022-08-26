@@ -17,28 +17,35 @@ Pane := Rectangle {
     }
 }
 
-Item := HorizontalBox {
+// Item := HorizontalBox {
+Item := Pane {
     property <string> text;
+    property <int> index;
+
+        // height: (50px * (index + 1)) + 5px;
 
     CheckBox {
         // text <=> "每月" + root.text + "号";
         text <=> root.text;
+        enabled: true;
     }
 
-    SpinBox {
-        value: 0;
-        minimum: 0;
-        maximum: 1000;
-    }
+    // SpinBox {
+    //     value: 0;
+    //     minimum: 0;
+    //     maximum: 1000;
+    // }
 }
 
-Items := Rectangle{
+Items := Rectangle {
     property <[string]> cols;
 
     for col[index] in cols: Item {
         text: col;
         width: 150px;
-        height: 30px * index;
+        index: index;
+        // height: (50px * (index + 1)) + 5px;
+        y: (50px * (index + 1)) + 5px;
     }
 }
 
