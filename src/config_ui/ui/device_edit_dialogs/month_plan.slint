@@ -17,24 +17,25 @@ Pane := Rectangle {
     }
 }
 
-// Item := HorizontalBox {
-Item := Pane {
+Item := HorizontalBox {
+// Item := Pane {
     property <string> text;
     property <int> index;
+    property <bool> checkbox-enabled;
 
         // height: (50px * (index + 1)) + 5px;
 
     CheckBox {
         // text <=> "每月" + root.text + "号";
         text <=> root.text;
-        enabled: true;
+        enabled <=> checkbox-enabled;
     }
 
-    // SpinBox {
-    //     value: 0;
-    //     minimum: 0;
-    //     maximum: 1000;
-    // }
+    SpinBox {
+        value: 0;
+        minimum: 0;
+        maximum: 1000;
+    }
 }
 
 Items := Rectangle {
@@ -57,6 +58,8 @@ export MonthPlanDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
+    property <bool> all-enabled: true;
+
     Pane {
     x: 200px;
     y: 100px;
@@ -73,105 +76,142 @@ export MonthPlanDialog := Window {
             VerticalBox {
                 Item {
                     text: "每月1日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月2日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月3日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月4日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月5日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月6日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月7日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月8日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月9日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月10日";
+                    checkbox-enabled: root.all-enabled;
                 }
             }
 
             VerticalBox {
                 Item {
                     text: "每月11日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月12日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月13日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月14日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月15日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月16日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月17日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月18日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月19日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月20日";
+                    checkbox-enabled: root.all-enabled;
                 }
             }
 
             VerticalBox {
                 Item {
                     text: "每月21日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月22日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月23日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月24日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月25日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月26日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月27日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月28日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月29日";
+                    checkbox-enabled: root.all-enabled;
                 }
                 Item {
                     text: "每月30日";
+                    checkbox-enabled: root.all-enabled;
+                }
+                Item {
+                    text: "每月31日";
+                    checkbox-enabled: root.all-enabled;
                 }
             }
         }
 
         CheckBox {
             text: "全与 1 日的时刻相同";
+            toggled => {
+                root.all-enabled = !root.all-enabled;
+            }
         }
 
         OkCancel {
