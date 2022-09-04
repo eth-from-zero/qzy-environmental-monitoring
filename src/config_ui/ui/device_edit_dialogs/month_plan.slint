@@ -1,7 +1,7 @@
 import {
     LineEdit, ComboBox, TabWidget, Button,
     GroupBox, VerticalBox, HorizontalBox, SpinBox,
-    TextEdit, CheckBox, GridBox
+    TextEdit, CheckBox, GridBox, ScrollView
 } from "std-widgets.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../components/ui/dividing_line/dividing_line.slint";
 // import {BasicEntries} from "./device_edit_dialogs/.slint";
@@ -62,7 +62,7 @@ export MonthPlanDialog := Window {
 
     property <bool> all-checked: true;
 
-    Pane {
+    ScrollView {
     x: 200px;
     y: 100px;
     width: 600px;
