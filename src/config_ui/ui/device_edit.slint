@@ -168,30 +168,47 @@ export DeviceEditDialog := Window {
                         checked: false;
                     }
                 }
-                HorizontalLayout {
-                    TextComboBox {
-                        horizontal-stretch: 1;
-                        text: "串口号";
-                        model: [];
-                    }
-                    TextComboBox {
-                        horizontal-stretch: 1;
-                        text: "波特率";
-                        model: ["9600"];
+
+                VerticalBox {
+                    HorizontalLayout {
+                        TextLineEdit {
+                            horizontal-stretch: 1;
+                            text_text: "IP地址";
+                        }
+                        TextSpinBox {
+                            horizontal-stretch: 1;
+                            text: "端口";
+                            value: 0;
+                        }
                     }
                 }
-                HorizontalLayout {
-                    TextComboBox {
-                        text: "数据位";
-                        model: ["8"];
+
+                VerticalBox {
+                    HorizontalLayout {
+                        TextComboBox {
+                            horizontal-stretch: 1;
+                            text: "串口号";
+                            model: [];
+                        }
+                        TextComboBox {
+                            horizontal-stretch: 1;
+                            text: "波特率";
+                            model: ["9600"];
+                        }
                     }
-                    TextComboBox {
-                        text: "停止位";
-                        model: ["1"];
-                    }
-                    TextComboBox {
-                        text: "校验位";
-                        model: ["None"];
+                    HorizontalLayout {
+                        TextComboBox {
+                            text: "数据位";
+                            model: ["8"];
+                        }
+                        TextComboBox {
+                            text: "停止位";
+                            model: ["1"];
+                        }
+                        TextComboBox {
+                            text: "校验位";
+                            model: ["None"];
+                        }
                     }
                 }
             }
