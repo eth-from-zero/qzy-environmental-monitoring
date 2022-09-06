@@ -152,7 +152,7 @@ export DeviceEditDialog := Window {
 
             VerticalLayout {
                 HorizontalLayout {
-                    TextComboBox {
+                    select := TextComboBox {
                         horizontal-stretch: 3;
                         text: "通信类型选择";
                         model: ["COM1"];
@@ -184,7 +184,7 @@ export DeviceEditDialog := Window {
                 }
 
                 VerticalBox {
-                    HorizontalLayout {
+                    if select: HorizontalLayout {
                         TextComboBox {
                             horizontal-stretch: 1;
                             text: "串口号";
