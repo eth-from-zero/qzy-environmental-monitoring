@@ -26,6 +26,8 @@ export DeviceEditDialog := Window {
     property <bool> show_timer_dialog: false;
     property <bool> show_device_channel_dialog: false;
 
+    property <string> select-mode: "normal";
+
     ScrollView {
     x: 100px;
     y: 0px;
@@ -184,7 +186,7 @@ export DeviceEditDialog := Window {
                 }
 
                 VerticalBox {
-                    if select: HorizontalLayout {
+                    if select-mode == "normal": HorizontalLayout {
                         TextComboBox {
                             horizontal-stretch: 1;
                             text: "串口号";
