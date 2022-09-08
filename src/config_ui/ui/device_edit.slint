@@ -171,7 +171,7 @@ export DeviceEditDialog := Window {
                     }
                 }
 
-                VerticalBox {
+                if select-mode == "serial_port": VerticalBox {
                     HorizontalLayout {
                         TextLineEdit {
                             horizontal-stretch: 1;
@@ -185,8 +185,8 @@ export DeviceEditDialog := Window {
                     }
                 }
 
-                VerticalBox {
-                    if select-mode == "normal": HorizontalLayout {
+                if select-mode == "net_tcp": VerticalBox {
+                    HorizontalLayout {
                         TextComboBox {
                             horizontal-stretch: 1;
                             text: "串口号";
