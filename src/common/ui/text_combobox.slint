@@ -7,6 +7,8 @@ TextComboBox := HorizontalBox {
     property <[string]> model;
     property <bool> enabled;
 
+    callback selected(string);
+
     t := Text {
         horizontal-stretch: 1;
         text: root.text;
@@ -18,6 +20,7 @@ TextComboBox := HorizontalBox {
         model: root.model;
         current-index: 0;
         enabled <=> root.enabled;
+        selected(v) => { root.selected(v) }
     }
 }
 

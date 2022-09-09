@@ -157,7 +157,11 @@ export DeviceEditDialog := Window {
                     select := TextComboBox {
                         horizontal-stretch: 3;
                         text: "通信类型选择";
-                        model: ["COM1"];
+                        model: [
+                            "COM1",
+                            "NET_C",
+                        ];
+                        selected(v) => { root.select-mode = v; }
                     }
                     TextLineEdit {
                         horizontal-stretch: 2;
@@ -171,7 +175,7 @@ export DeviceEditDialog := Window {
                     }
                 }
 
-                if select-mode == "serial_port": VerticalBox {
+                if select-mode == "NET_C": VerticalBox {
                     HorizontalLayout {
                         TextLineEdit {
                             horizontal-stretch: 1;
@@ -185,7 +189,7 @@ export DeviceEditDialog := Window {
                     }
                 }
 
-                if select-mode == "net_tcp": VerticalBox {
+                if select-mode == "COM1": VerticalBox {
                     HorizontalLayout {
                         TextComboBox {
                             horizontal-stretch: 1;
