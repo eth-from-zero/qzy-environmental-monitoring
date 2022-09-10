@@ -160,6 +160,7 @@ export DeviceEditDialog := Window {
                         model: [
                             "COM1",
                             "NET_C",
+                            "FILE",
                         ];
                         selected(v) => { root.select-mode = v; }
                     }
@@ -214,6 +215,15 @@ export DeviceEditDialog := Window {
                         TextComboBox {
                             text: "校验位";
                             model: ["None"];
+                        }
+                    }
+                }
+
+                if select-mode == "FILE": VerticalBox {
+                    HorizontalLayout {
+                        TextLineEdit {
+                            horizontal-stretch: 1;
+                            text_text: "其他参数";
                         }
                     }
                 }
