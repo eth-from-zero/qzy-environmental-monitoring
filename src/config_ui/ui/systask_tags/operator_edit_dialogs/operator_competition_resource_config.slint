@@ -1,0 +1,64 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../../../../common/ui/table_with_number.slint";
+import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
+
+import {OkCancel} from "../../common/ok_cancel.slint";
+import {AddDelUpdate} from "../../common/add_del_update.slint";
+
+Pane := Rectangle {
+    TouchArea {
+        enabled: true;
+    }
+}
+
+OperatorCompetitionResourceConfigDialog := Window {
+    callback on_ok_clicked;
+    callback on_cancel_clicked;
+
+    Pane {
+    x: 200px;
+    y: 100px;
+    width: 600px;
+    height: 600px;
+    background: white;
+    border-width: 2px;
+    border-color: grey;
+    border-radius: 3px;
+
+    VerticalBox {
+        TableWithNumber {
+            vertical-stretch: 6;
+
+            rows: [
+                  {cols: [{text: "编号"}, {text: "命名"}, {text: "全局性"}, {text: "描述"}]},
+                  {cols: [{text: "1"}, {text: "系统任务一..."}, {text: "是"}, {text: "系统任务一互斥量"}]},
+                  {cols: [{text: "2"}, {text: "系统任务二..."}, {text: "是"}, {text: "系统任务二互斥量"}]},
+                  {cols: [{text: "3"}, {text: "系统任务三..."}, {text: "是"}, {text: "系统任务三互斥量"}]},
+                  {cols: [{text: "4"}, {text: "系统任务四..."}, {text: "是"}, {text: "系统任务四互斥量"}]},
+            ];
+            // height: hl1.h - 150px;
+            // width: 750px;
+
+            // menu_on_clicked(index, t) => {
+            //     show_edit_dialog = true;
+            // }
+
+            menu_items: [{text: "📩 编辑"}];
+            menu_enabled: true;
+        }
+
+        AddDelUpdate {
+        }
+
+        OkCancel {
+            vertical-stretch: 1;
+
+            ok-clicked => { root.on-ok-clicked(); }
+            cancel-clicked => { root.on-cancel-clicked(); }
+        }
+    }
+    }
+}
+
+
+
