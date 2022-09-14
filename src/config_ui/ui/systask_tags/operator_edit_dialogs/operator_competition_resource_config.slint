@@ -1,4 +1,4 @@
-import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox, ScrollView} from "std-widgets.slint";
 import {TableWithNumber} from "../../../../common/ui/table_with_number.slint";
 import {VerticalDividingLine, HorizontalDividingLine} from "../../../../components/ui/dividing_line/dividing_line.slint";
 
@@ -15,7 +15,7 @@ OperatorCompetitionResourceConfigDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
-    Pane {
+    ScrollView {
     x: 200px;
     y: 100px;
     width: 600px;

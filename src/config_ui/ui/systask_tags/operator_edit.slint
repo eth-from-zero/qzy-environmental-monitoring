@@ -168,6 +168,12 @@ OperatorEditDialog := Window {
     // }
 
     if show-operator-competition-resource-config: OperatorCompetitionResourceConfigDialog {
+        on_ok_clicked => {
+            show-operator-competition-resource-config = false;
+        }
+        on_cancel_clicked => {
+            show-operator-competition-resource-config = false;
+        }
     }
 }
 
