@@ -5,6 +5,7 @@ import {VerticalDividingLine, HorizontalDividingLine} from "../../components/ui/
 import {SysTaskDialog} from "systask.slint";
 import {TimerDialog} from "timer.slint";
 import {AlarmDialog} from "alarm.slint";
+import {DataQueryAndTableReportDialog} from "dataquery_tablereport.slint";
 
 OtherPageButton := Button {
     enabled: true;
@@ -23,18 +24,18 @@ OtherPage := VerticalLayout {
     callback next_clicked;
 
     // private variants
-    property <bool> show_edit_dialog: false;
     property <bool> show_systask_dialog: false;
     property <bool> show_timer_dialog: false;
     property <bool> show_alarm_dialog: false;
+    property <bool> show-dataquery-and-tablereport: false;
 
     // util functions
     callback close;
     close() => {
-        show_edit_dialog = false;
         show_systask_dialog = false;
         show_timer_dialog = false;
         show_alarm_dialog = false;
+        show-dataquery-and-tablereport = false;
     }
 
     callback on_systask_clicked;

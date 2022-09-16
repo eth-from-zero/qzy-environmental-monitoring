@@ -15,7 +15,7 @@ Pane := Rectangle {
     }
 }
 
-QueryDialog := Window {
+DataQueryAndTableReportDialog := Window {
     property <string> device_no;
     property <string> device_name;
     property <string> device_address;
@@ -42,115 +42,18 @@ QueryDialog := Window {
     border-color: grey;
     border-radius: 3px;
 
-    VerticalBox {
+    TabWidget {
+        Tab {
+            title: "基本项";
 
-        tw := TabWidget {
-            Tab {
-                title: "报警组配置";
-
-                AlarmGroupPage {
-                    current_row <=> root.current_row;
-                }
-            }
-            Tab {
-                title: "报警码配置";
-
-                AlarmCodePage {
-                }
-            }
-            Tab {
-                title: "报警等级配置";
-
-                AlarmLevelPage {
-                }
-            }
-            Tab {
-                title: "报警源配置";
-
-                AlarmSourcePage {
-                }
+            BasicEntries {
             }
         }
 
-        // HorizontalLayout {
-        //     vertical-stretch: 1;
-
-        //     padding-right: 30px;
-        //     alignment: end;
-
-        //     Button {
-        //         text: "新增";
-        //         width: 80px;
-        //         height: 30px;
-
-        //         clicked => {
-        //             root.tag_current_index = tw.current-index;
-        //             root.show_operator_edit_dialog = true;
-        //             root.current_op = "add";
-        //         }
-        //     }
-
-        //     HorizontalDividingLine{ value: 30px; }
-
-        //     Button {
-        //         text: "修改";
-        //         width: 80px;
-        //         height: 30px;
-
-        //         clicked => {
-        //             root.tag_current_index = tw.current-index;
-        //             root.show_operator_edit_dialog = true;
-        //             root.current_op = "update";
-        //         }
-        //     }
-
-        //     HorizontalDividingLine{ value: 30px; }
-
-        //     Button {
-        //         text: "删除";
-        //         width: 80px;
-        //         height: 30px;
-
-        //         clicked => {
-        //             root.tag_current_index = tw.current-index;
-        //             root.show_operator_edit_dialog = true;
-        //             root.current_op = "delete";
-        //         }
-        //     }
-        // }
-
-        VerticalDividingLine{ value: 30px; }
-
-        HorizontalLayout {
-            vertical-stretch: 1;
-
-            padding-right: 30px;
-            alignment: end;
-
-            Button {
-                text: "确定";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_ok_clicked()
-                }
-            }
-
-            HorizontalDividingLine{ value: 30px; }
-
-            Button {
-                text: "取消";
-                width: 80px;
-                height: 30px;
-
-                clicked => {
-                    root.on_cancel_clicked()
-                }
-            }
+        Tab {
+            title: "扩展项";
         }
-
-    } // VerticalBox
+    }
     }
 
     if show_operator_edit_dialog: OperatorEditDialog {
