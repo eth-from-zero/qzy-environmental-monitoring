@@ -15,14 +15,10 @@ Pane := Rectangle {
     }
 }
 
-DataQueryAndTableReportDialog := Window {
-    property <string> device_no;
-    property <string> device_name;
-    property <string> device_address;
-    property <string> device_alarm_group_no;
-    property <string> device_alarm_source_no;
-    property <string> device_type_desc;
+HistoryDataQueryTag := GroupBox {
+}
 
+DataQueryAndTableReportDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
@@ -44,14 +40,10 @@ DataQueryAndTableReportDialog := Window {
 
     TabWidget {
         Tab {
-            title: "基本项";
+            title: "历史数据查询";
 
-            BasicEntries {
+            HistoryDataQueryTag {
             }
-        }
-
-        Tab {
-            title: "扩展项";
         }
     }
     }
