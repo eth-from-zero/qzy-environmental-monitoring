@@ -1,13 +1,7 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
 import {TableWithNumber} from "../../common/ui/table_with_number.slint";
-import {VerticalDividingLine, HorizontalDividingLine} from "../../components/ui/dividing_line/dividing_line.slint";
 
-import {AlarmGroupPage} from "alarm_tags/alarm_group.slint";
-import {AlarmCodePage} from "alarm_tags/alarm_code.slint";
-import {AlarmLevelPage} from "alarm_tags/alarm_level.slint";
-import {AlarmSourcePage} from "alarm_tags/alarm_source.slint";
-
-import {OperatorEditDialog} from "systask_tags/operator_edit.slint";
+import {AddDelUpdate} from "common/add_del_update.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -16,6 +10,22 @@ Pane := Rectangle {
 }
 
 HistoryDataQueryTag := GroupBox {
+    HorizontalBox {
+        TableWithNumber {
+            vertical-stretch: 6;
+
+            rows: [
+                  {cols: [{text: "名称"}, {text: "单位"}, {text: "小数位数"}]},
+                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+                  {cols: [{text: "采水泵PU2"}, {text: ""}, {text: "2"}]},
+                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+            ];
+
+            // menu_items: [{text: "📩 编辑"}];
+            menu_enabled: true;
+        }
+    }
 }
 
 DataQueryAndTableReportDialog := Window {
@@ -23,32 +33,38 @@ DataQueryAndTableReportDialog := Window {
     callback on_cancel_clicked;
 
     // private
-    property <bool> show_operator_edit_dialog: false;
-    property <int> tag_current_index: 0;
-    property <[{text: string}]> current_row;
-    property <string> current_op;
+    property <bool> show-add-group-dialog: false;
 
     Pane {
-    x: 100px;
-    y: 0px;
-    width: 800px;
-    height: 800px;
-    background: white;
-    border-width: 2px;
-    border-color: grey;
-    border-radius: 3px;
+        x: 100px;
+        y: 0px;
+        width: 800px;
+        height: 800px;
+        background: white;
+        border-width: 2px;
+        border-color: grey;
+        border-radius: 3px;
 
-    TabWidget {
-        Tab {
-            title: "历史数据查询";
+        TabWidget {
+            Tab {
+                title: "历史数据查询";
 
-            HistoryDataQueryTag {
+                HistoryDataQueryTag {
+                }
             }
         }
     }
+
+    AddDelUpdate {
+        add-clicked => {
+        }
+        del-clicked => {
+        }
+        update-clicked => {
+        }
     }
 
-    if show_operator_edit_dialog: OperatorEditDialog {
+    if show-add-group-dialog: OperatorEditDialog {
         on_ok_clicked => {
             show_operator_edit_dialog = false;
         }
