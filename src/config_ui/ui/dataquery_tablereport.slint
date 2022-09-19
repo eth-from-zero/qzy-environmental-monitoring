@@ -25,6 +25,21 @@ HistoryDataQueryTag := GroupBox {
             // menu_items: [{text: "📩 编辑"}];
             menu_enabled: true;
         }
+
+        TableWithNumber {
+            vertical-stretch: 6;
+
+            rows: [
+                  {cols: [{text: "名称"}, {text: "单位"}, {text: "小数位数"}]},
+                  {cols: [{text: "总磷"}, {text: "mg/l"}, {text: "2"}]},
+                  {cols: [{text: "压力"}, {text: "KPa"}, {text: "2"}]},
+                  {cols: [{text: "湿度"}, {text: "%"}, {text: "2"}]},
+                  {cols: [{text: "氨氮"}, {text: "。C"}, {text: "2"}]},
+            ];
+
+            // menu_items: [{text: "📩 编辑"}];
+            menu_enabled: true;
+        }
     }
 }
 
