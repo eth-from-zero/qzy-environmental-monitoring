@@ -1,0 +1,23 @@
+import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
+import {TableWithNumber} from "../../../common/ui/table_with_number.slint";
+
+import {AddDelUpdate} from "../common/add_del_update.slint";
+import {Pane} from "../common/pane.slint";
+
+DelGroupDialog := Window {
+    callback on-ok-clicked;
+    callback on-cancel-clicked;
+
+    // private
+
+    Pane {
+        x: 100px;
+        y: 0px;
+        width: 800px;
+        height: 800px;
+        background: white;
+        border-width: 2px;
+        border-color: grey;
+        border-radius: 3px;
+    }
+}
