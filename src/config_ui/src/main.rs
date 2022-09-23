@@ -1,5 +1,4 @@
 use config_ui::ComponentHandle;
-use config_ui::HistoryDataQueryTag;
 use config_ui::Main;
 // use config_ui::TestMain;
 

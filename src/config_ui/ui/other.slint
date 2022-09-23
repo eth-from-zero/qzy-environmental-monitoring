@@ -93,7 +93,7 @@ OtherPage := VerticalLayout {
                 OtherPageButton {
                     text:  "数据查询及报表服务";
                     clicked => {
-                        show_systask_dialog = true;
+                        show-dataquery-and-tablereport = true;
                     }
                 }
                 OtherPageButton {
@@ -179,6 +179,15 @@ OtherPage := VerticalLayout {
         }
         on_cancel_clicked => {
             show_alarm_dialog = false;
+        }
+    }
+
+    if show-dataquery-and-tablereport: DataQueryAndTableReportDialog {
+        on-ok-clicked => {
+            show-dataquery-and-tablereport = false;
+        }
+        on-cancel-clicked => {
+            show-dataquery-and-tablereport = false;
         }
     }
 }
