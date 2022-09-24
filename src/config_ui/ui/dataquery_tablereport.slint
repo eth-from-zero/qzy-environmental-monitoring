@@ -1,5 +1,5 @@
 import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widgets.slint";
-import {TableWithNumber} from "../../common/ui/table_with_number.slint";
+import {TableWithNumber, TableWithNumberRow} from "../../common/ui/table_with_number.slint";
 
 import {AddDelUpdate} from "common/add_del_update.slint";
 
@@ -10,17 +10,27 @@ Pane := Rectangle {
 }
 
 HistoryDataQueryTag := GroupBox {
+    property <[TableWithNumberRow]> left-rows: [
+        {cols: [{text: "名称"}, {text: "单位"}, {text: "小数位数"}]},
+        {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+        {cols: [{text: "采水泵PU2"}, {text: ""}, {text: "2"}]},
+        {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+        {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+    ];
+
     HorizontalBox {
         TableWithNumber {
             vertical-stretch: 6;
 
-            rows: [
-                  {cols: [{text: "名称"}, {text: "单位"}, {text: "小数位数"}]},
-                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
-                  {cols: [{text: "采水泵PU2"}, {text: ""}, {text: "2"}]},
-                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
-                  {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
-            ];
+            rows: left-rows;
+
+            // rows: [
+            //       {cols: [{text: "名称"}, {text: "单位"}, {text: "小数位数"}]},
+            //       {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+            //       {cols: [{text: "采水泵PU2"}, {text: ""}, {text: "2"}]},
+            //       {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+            //       {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
+            // ];
 
             // menu_items: [{text: "📩 编辑"}];
             menu_enabled: true;
@@ -47,6 +57,8 @@ DataQueryAndTableReportDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
+    property <[TableWithNumberRow]> left-rows;
+
     // private
     property <bool> show-add-group-dialog: false;
 
@@ -65,6 +77,7 @@ DataQueryAndTableReportDialog := Window {
                 title: "历史数据查询";
 
                 HistoryDataQueryTag {
+                    left-rows <=> root.left-rows;
                 }
             }
         }
