@@ -2,6 +2,7 @@ import {TabWidget, Button, GroupBox, VerticalBox, HorizontalBox} from "std-widge
 import {TableWithNumber, TableWithNumberRow} from "../../common/ui/table_with_number.slint";
 
 import {AddDelUpdate} from "common/add_del_update.slint";
+import { VerticalDividingLine } from "../../components/ui/dividing_line/dividing_line.slint";
 
 Pane := Rectangle {
     TouchArea {
@@ -17,6 +18,11 @@ HistoryDataQueryTag := GroupBox {
         {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
         {cols: [{text: "采水泵PU1"}, {text: ""}, {text: "2"}]},
     ];
+
+    callback to-single-right-clicked();
+    callback to-single-left-clicked();
+    callback to-multi-right-clicked();
+    callback to-multi-left-clicked();
 
     HorizontalBox {
         TableWithNumber {
@@ -34,6 +40,29 @@ HistoryDataQueryTag := GroupBox {
 
             // menu_items: [{text: "📩 编辑"}];
             menu_enabled: true;
+        }
+
+        VerticalBox {
+            Button {
+                text: ">";
+                clicked => { root.to-single-right-clicked() }
+            }
+            Button {
+                text: "<";
+                clicked => { root.to-single-left-clicked() }
+            }
+
+            VerticalDividingLine {
+            }
+
+            Button {
+                text: ">>";
+                clicked => { root.to-multi-right-clicked() }
+            }
+            Button {
+                text: "<<";
+                clicked => { root.to-multi-left-clicked() }
+            }
         }
 
         TableWithNumber {
