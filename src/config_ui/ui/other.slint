@@ -26,6 +26,11 @@ OtherPage := VerticalLayout {
 
     property <[TableWithNumberRow]> data-query-and-table-report-dialog-left-rows;
 
+    callback data-query-and-table-report-dialog-to-single-right-clicked();
+    callback data-query-and-table-report-dialog-to-single-left-clicked();
+    callback data-query-and-table-report-dialog-to-multi-right-clicked();
+    callback data-query-and-table-report-dialog-to-multi-left-clicked();
+
     // private variants
     property <bool> show_systask_dialog: false;
     property <bool> show_timer_dialog: false;
@@ -187,6 +192,7 @@ OtherPage := VerticalLayout {
 
     if show-dataquery-and-tablereport: DataQueryAndTableReportDialog {
         left-rows <=> root.data-query-and-table-report-dialog-left-rows;
+        to-single-left-clicked => { root.data-query-and-table-report-dialog-to-single-right-clicked(); }
 
         on-ok-clicked => {
             show-dataquery-and-tablereport = false;
