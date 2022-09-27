@@ -86,6 +86,11 @@ DataQueryAndTableReportDialog := Window {
     callback on_ok_clicked;
     callback on_cancel_clicked;
 
+    callback to-single-right-clicked();
+    callback to-single-left-clicked();
+    callback to-multi-right-clicked();
+    callback to-multi-left-clicked();
+
     property <[TableWithNumberRow]> left-rows;
 
     // private
