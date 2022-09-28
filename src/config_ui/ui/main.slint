@@ -23,6 +23,11 @@ Main := Window {
     // property <[Page]> pages: [
     // ];
 
+    callback other-page-data-query-and-table-report-dialog-to-single-right-clicked();
+    callback other-page-data-query-and-table-report-dialog-to-single-left-clicked();
+    callback other-page-data-query-and-table-report-dialog-to-multi-right-clicked();
+    callback other-page-data-query-and-table-report-dialog-to-multi-left-clicked();
+
 
     // util functions
     callback to_next_page;
@@ -95,6 +100,11 @@ Main := Window {
         pw: parent.width;
         ph: parent.height;
         visible: page_visibled[5];
+
+        data-query-and-table-report-dialog-to-single-left-clicked => { root.other-page-data-query-and-table-report-dialog-to-single-left-clicked(); }
+        data-query-and-table-report-dialog-to-single-right-clicked => { root.other-page-data-query-and-table-report-dialog-to-single-right-clicked(); }
+        data-query-and-table-report-dialog-to-multi-left-clicked => { root.other-page-data-query-and-table-report-dialog-to-multi-left-clicked(); }
+        data-query-and-table-report-dialog-to-multi-right-clicked => { root.other-page-data-query-and-table-report-dialog-to-multi-right-clicked(); }jA
 
         prev_clicked => { to_prev_page() }
         next_clicked => { to_next_page() }
