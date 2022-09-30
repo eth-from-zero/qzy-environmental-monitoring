@@ -5,6 +5,8 @@ import {DevicePage} from "device.slint";
 import {SerialPortPage} from "serial_port.slint";
 import {OtherPage} from "other.slint";
 
+import {TableWithNumberRow} from "../../common/ui/table_with_number.slint";
+
 export DeviceEditDialogE := Window {}
 
 Page := VerticalLayout {}
@@ -23,6 +25,7 @@ Main := Window {
     // property <[Page]> pages: [
     // ];
 
+    property <[TableWithNumberRow]> other-page-data-query-and-table-report-dialog-left-rows;
     callback other-page-data-query-and-table-report-dialog-to-single-right-clicked();
     callback other-page-data-query-and-table-report-dialog-to-single-left-clicked();
     callback other-page-data-query-and-table-report-dialog-to-multi-right-clicked();
@@ -101,6 +104,7 @@ Main := Window {
         ph: parent.height;
         visible: page_visibled[5];
 
+        data-query-and-table-report-dialog-left-rows <=> root.other-page-data-query-and-table-report-dialog-left-rows;
         data-query-and-table-report-dialog-to-single-left-clicked => { root.other-page-data-query-and-table-report-dialog-to-single-left-clicked(); }
         data-query-and-table-report-dialog-to-single-right-clicked => { root.other-page-data-query-and-table-report-dialog-to-single-right-clicked(); }
         data-query-and-table-report-dialog-to-multi-left-clicked => { root.other-page-data-query-and-table-report-dialog-to-multi-left-clicked(); }
