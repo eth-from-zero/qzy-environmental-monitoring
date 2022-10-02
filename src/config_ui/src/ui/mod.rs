@@ -1,2 +1,2 @@
 mod device;
-mod other_page;
+pub mod other_page;

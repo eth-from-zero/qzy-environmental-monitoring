@@ -1,6 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-mod ui;
+pub mod ui;
 
 #[allow(clippy::all)]
 mod generated_code {
