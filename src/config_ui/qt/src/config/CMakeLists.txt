@@ -8,10 +8,8 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
@@ -31,9 +29,6 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 if(ANDROID)
   add_library(config SHARED
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
     pages/welcome.ui
     pages/welcome.h
     pages/welcome.cpp
@@ -41,9 +36,6 @@ if(ANDROID)
 else()
   add_executable(config
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
     pages/welcome.ui
     pages/welcome.h
     pages/welcome.cpp
