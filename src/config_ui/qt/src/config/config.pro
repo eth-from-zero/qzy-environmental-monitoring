@@ -17,9 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
+    sources/base_widget.cpp \
     sources/welcome.cpp
 
 HEADERS += \
+    headers/base_widget.h \
     headers/welcome.h
 
 FORMS += \
