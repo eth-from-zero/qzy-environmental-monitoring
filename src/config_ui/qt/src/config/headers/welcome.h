@@ -9,7 +9,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class welcome; }
 QT_END_NAMESPACE
 
-class welcome : public BaseWidget
+class welcome : public QMainWindow
 {
     Q_OBJECT
 
