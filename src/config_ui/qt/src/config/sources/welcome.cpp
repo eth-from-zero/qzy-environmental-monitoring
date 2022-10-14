@@ -2,14 +2,11 @@
 #include "ui_welcome.h"
 
 welcome::welcome(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::welcome)
+    : BaseWidget(parent)
+    , ui_(new Ui::welcome())
 {
-    ui->setupUi(this);
 }
 
-welcome::~welcome()
-{
-    delete ui;
+welcome::~welcome() {
+    delete ui_;
 }
-

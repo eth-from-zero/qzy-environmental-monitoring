@@ -3,9 +3,13 @@
 
 #include <QMainWindow>
 
+#include <memory>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class welcome;
 
 class Main : public QMainWindow
 {
@@ -17,6 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    std::unique_ptr<welcome> welcome_;
 };
 
 #endif // MAIN_H

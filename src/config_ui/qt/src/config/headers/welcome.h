@@ -3,13 +3,15 @@
 
 #include <QMainWindow>
 
+#include <memory>
+
 #include "headers/base_widget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class welcome; }
 QT_END_NAMESPACE
 
-class welcome : public QMainWindow
+class welcome : public BaseWidget
 {
     Q_OBJECT
 
@@ -18,6 +20,6 @@ public:
     ~welcome();
 
 private:
-    Ui::welcome *ui;
+    Ui::welcome* ui_;
 };
 #endif // WELCOME_H

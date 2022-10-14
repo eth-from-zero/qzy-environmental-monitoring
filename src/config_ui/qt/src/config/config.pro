@@ -18,12 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     sources/base_widget.cpp \
-    sources/main.cpp \
+    sources/mainwindow.cpp \
     sources/welcome.cpp
 
 HEADERS += \
     headers/base_widget.h \
-    headers/main.h \
+    headers/mainwindow.h \
     headers/welcome.h
 
 FORMS += \
