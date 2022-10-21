@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QImage image("");
+    QImage image(":/new/prefix1/config1.png");
     ui->label->setPixmap(QPixmap::fromImage(image));
 }
 
