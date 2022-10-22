@@ -21,7 +21,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    std::unique_ptr<welcome> welcome_;
 };
 
 #endif // MAIN_H
