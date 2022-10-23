@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/common/images">
         <file>resources/config1.png</file>
+        <file>resources/window_icon.png</file>
     </qresource>
 </RCC>

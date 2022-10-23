@@ -20,6 +20,9 @@ public:
     ~Main();
 
 private:
+    void initUi(QWidget *parent);
+
+private:
     Ui::MainWindow *ui;
 };
 
