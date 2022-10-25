@@ -27,6 +27,7 @@ void Main::initUi(QWidget *parent) {
         pix_map = pix_map.scaled(200, 600, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         ui->lb_image->setPixmap(pix_map);
     }
+//    ui->tb_welcome->setAutoFillBackground(true);
 }
 
 Main::~Main()
