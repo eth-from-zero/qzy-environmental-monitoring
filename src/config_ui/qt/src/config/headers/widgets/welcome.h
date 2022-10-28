@@ -2,12 +2,13 @@
 #define WELCOME_H
 
 #include <memory>
+#include "ui_welcome.h"
 
 #include <QWidget>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class Welcome; }
-QT_END_NAMESPACE
+//QT_BEGIN_NAMESPACE
+//namespace Ui { class Welcome; }
+//QT_END_NAMESPACE
 
 class WelcomePage : public QWidget
 {

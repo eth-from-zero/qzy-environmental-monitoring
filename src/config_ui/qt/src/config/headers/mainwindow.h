@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "headers/widgets/welcome.h"
+
 #include <memory>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +24,7 @@ private:
 
 private:
     Ui::MainWindow *ui;
+    std::unique_ptr<WelcomePage> welcome_page_;
 };
 
 #endif // MAIN_H

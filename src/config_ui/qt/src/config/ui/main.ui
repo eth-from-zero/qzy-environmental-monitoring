@@ -124,6 +124,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;单机 【下一步(N)】继续&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
+          <widget class="QWidget" name="welcome_page" native="true">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>330</y>
+             <width>281</width>
+             <height>121</height>
+            </rect>
+           </property>
+          </widget>
          </widget>
         </item>
        </layout>
