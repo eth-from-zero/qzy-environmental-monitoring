@@ -28,7 +28,7 @@ void Main::initUi(QWidget *parent) {
         ui->lb_image->setPixmap(pix_map);
     }
 //    ui->tb_welcome->setAutoFillBackground(true);
-    welcome_page_ = std::make_unique<WelcomePage>(ui->welcome_page);
+    welcome_page_ = std::make_unique<WelcomePage>(ui->page);
 }
 
 Main::~Main()
