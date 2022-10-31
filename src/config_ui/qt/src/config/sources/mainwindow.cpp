@@ -30,7 +30,8 @@ void Main::initUi(QWidget *parent) {
 //    ui->tb_welcome->setAutoFillBackground(true);
     welcome_page_ = std::make_unique<WelcomePage>(ui->page);
 
-    connect(ui->btn_next, )
+    connect(ui->btn_next, &QAction::triggered, this, [ui->btn_next, this]() {
+    });
 }
 
 Main::~Main()
