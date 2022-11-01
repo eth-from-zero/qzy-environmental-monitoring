@@ -21,6 +21,7 @@ public:
 
 private:
     void initUi(QWidget *parent);
+    void initBind();
 
 private:
     Ui::MainWindow *ui;

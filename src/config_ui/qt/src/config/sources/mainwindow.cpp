@@ -8,9 +8,10 @@ Main::Main(QWidget *parent)
     ui->setupUi(this);
 
     initUi(parent);
+    initBind();
 }
 
-void Main::initUi(QWidget *parent) {
+void Main::initUi(QWidget *) {
     // set window
     {
         setWindowTitle("[清泚源科技] 系统配置向导");
@@ -29,9 +30,14 @@ void Main::initUi(QWidget *parent) {
     }
 //    ui->tb_welcome->setAutoFillBackground(true);
     welcome_page_ = std::make_unique<WelcomePage>(ui->page);
+}
 
-    connect(ui->btn_next, &QAction::triggered, this, [ui->btn_next, this]() {
-    });
+void Main::initBind() {
+    {
+        auto btn_next = ui->btn_next;
+        connect(btn_next, &QPushButton::click, this, [btn_next, this]() {
+        });
+    }
 }
 
 Main::~Main()
