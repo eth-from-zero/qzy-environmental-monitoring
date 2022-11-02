@@ -26,6 +26,7 @@ HEADERS += \
 
 FORMS += \
     ui/main.ui \
+    ui/measuring.ui \
     ui/welcome.ui
 
 # Default rules for deployment.
