@@ -10,16 +10,16 @@
 //namespace Ui { class Welcome; }
 //QT_END_NAMESPACE
 
-class MesuringPage : public QWidget
+class MeasuringPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    MesuringPage(QWidget *parent= nullptr);
-    ~MesuringPage() = default;
+    MeasuringPage(QWidget *parent= nullptr);
+    ~MeasuringPage() = default;
 
 private:
-    std::unique_ptr<Ui::Mesuring> ui_;
+    std::unique_ptr<Ui::Measuring> ui_;
 };
 
 

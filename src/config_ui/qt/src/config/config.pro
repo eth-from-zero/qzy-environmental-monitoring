@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
+    sources/widgets/measuring.cpp \
     sources/widgets/welcome.cpp
 
 HEADERS += \
