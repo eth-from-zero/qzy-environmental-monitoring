@@ -7,8 +7,12 @@ Main::Main(QWidget *parent)
 {
     ui->setupUi(this);
 
+    initData();
     initUi(parent);
     initBind();
+}
+
+void Main::initData() {
 }
 
 void Main::initUi(QWidget *) {
