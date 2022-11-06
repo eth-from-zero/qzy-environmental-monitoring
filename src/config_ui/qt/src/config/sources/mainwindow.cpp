@@ -15,7 +15,7 @@ Main::Main(QWidget *parent)
 void Main::initData() {
 }
 
-void Main::initUi(QWidget *) {
+void Main::initUi(QWidget *parent) {
     // set window
     {
         setWindowTitle("[清泚源科技] 系统配置向导");
@@ -33,7 +33,11 @@ void Main::initUi(QWidget *) {
         ui->lb_image->setPixmap(pix_map);
     }
 //    ui->tb_welcome->setAutoFillBackground(true);
-    welcome_page_ = std::make_unique<WelcomePage>(ui->page);
+//    welcome_page_ = std::make_unique<WelcomePage>(ui->page);
+    pages_.emplace_back(std::make_unique<WelcomePage>(parent));
+
+    page_layout_->addWidget(pages_[0].get());
+    pages_[0]->setLayout(page_layout_.get());
 }
 
 void Main::initBind() {

@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <QMainWindow>
+#include <QHBoxLayout>
 
 #include "headers/widgets/welcome.h"
 
@@ -29,6 +30,7 @@ private:
     Ui::MainWindow *ui;
     std::unique_ptr<WelcomePage> welcome_page_;
     int index_ = 0;
+    std::unique_ptr<QHBoxLayout> page_layout_;
     std::vector<std::unique_ptr<QWidget>> pages_;
 };
 
