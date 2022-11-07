@@ -31,7 +31,8 @@ private:
     std::unique_ptr<WelcomePage> welcome_page_;
     int index_ = 0;
     std::unique_ptr<QHBoxLayout> page_layout_;
-    std::vector<std::unique_ptr<QWidget>> pages_;
+//    std::vector<std::unique_ptr<QWidget>> pages_;
+    std::vector<QWidget*> pages_;
 };
 
 #endif // MAIN_H
