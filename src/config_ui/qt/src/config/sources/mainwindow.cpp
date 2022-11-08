@@ -35,10 +35,10 @@ void Main::initUi(QWidget *parent) {
 //    ui->tb_welcome->setAutoFillBackground(true);
 //    welcome_page_ = std::make_unique<WelcomePage>(ui->page);
 //    pages_.emplace_back(std::make_unique<WelcomePage>(parent));
-    pages_.emplace_back(new WelcomePage());
+    pages_.emplace_back(new WelcomePage(parent));
 
-    page_layout_->addWidget(pages_[0]);
-    pages_[0]->setLayout(page_layout_.get());
+    ui->page->addWidget(pages_[0]);
+//    pages_[0]->setLayout(page_layout_.get());
 }
 
 void Main::initBind() {
