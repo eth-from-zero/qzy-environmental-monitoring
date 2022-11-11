@@ -44,7 +44,7 @@ void Main::initUi(QWidget *parent) {
 void Main::initBind() {
     {
         auto btn_next = ui->btn_next;
-        connect(btn_next, &QPushButton::click, this, [btn_next, this]() {
+        connect(btn_next, &QPushButton::clicked, this, [btn_next, this]() {
             ++index_;
         });
     }
