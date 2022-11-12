@@ -32,13 +32,10 @@ void Main::initUi(QWidget *parent) {
         pix_map = pix_map.scaled(200, 600, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         ui->lb_image->setPixmap(pix_map);
     }
-//    ui->tb_welcome->setAutoFillBackground(true);
-//    welcome_page_ = std::make_unique<WelcomePage>(ui->page);
-//    pages_.emplace_back(std::make_unique<WelcomePage>(parent));
+
     pages_.emplace_back(new WelcomePage(parent));
 
     ui->page->addWidget(pages_[0]);
-//    pages_[0]->setLayout(page_layout_.get());
 }
 
 void Main::initBind() {

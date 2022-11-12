@@ -5,5 +5,5 @@
 WelcomePage::WelcomePage(QWidget* parent)
     : QWidget(parent) {
     ui_ = std::make_unique<Ui::Welcome>();
-//    ui_->setupUi(parent);
+    ui_->setupUi(this);
 }
