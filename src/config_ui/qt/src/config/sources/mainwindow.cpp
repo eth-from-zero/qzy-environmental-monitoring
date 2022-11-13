@@ -1,6 +1,8 @@
 #include "headers/mainwindow.h"
 #include "ui_main.h"
 
+#include <QDebug>
+
 Main::Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -35,16 +37,31 @@ void Main::initUi(QWidget *parent) {
 
     pages_.emplace_back(new WelcomePage(parent));
 
-    ui->page->addWidget(pages_[0]);
+    for (auto& page : pages_) {
+        page->setAttribute(Qt::WA_StyledBackground);
+    }
+
+    ui->page->addWidget(pages_[0].get());
 }
 
 void Main::initBind() {
     {
         auto btn_next = ui->btn_next;
-        connect(btn_next, &QPushButton::clicked, this, [btn_next, this]() {
+        connect(btn_next, &QPushButton::clicked, this, [this]() {
             ++index_;
         });
     }
+}
+
+void Main::switchToNextPage() {
+    int last_index = index_ - 1;
+    if (index_ == static_cast<int>(pages_.size())) {
+        last_index = index_ - 1;
+        index_ = 0;
+    }
+    auto page = pages_[index_].get();
+
+//    ui->page->replaceWidget();
 }
 
 Main::~Main()

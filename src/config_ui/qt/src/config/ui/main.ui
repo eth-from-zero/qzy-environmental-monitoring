@@ -63,7 +63,11 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="page"/>
+         <layout class="QVBoxLayout" name="page">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+         </layout>
         </item>
        </layout>
       </item>
