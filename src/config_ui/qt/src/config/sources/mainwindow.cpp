@@ -1,6 +1,9 @@
 #include "headers/mainwindow.h"
 #include "ui_main.h"
 
+#include "headers/widgets/welcome.h"
+#include "headers/widgets/measuring.h"
+
 #include <QDebug>
 
 Main::Main(QWidget *parent)
@@ -36,6 +39,7 @@ void Main::initUi(QWidget *parent) {
     }
 
     pages_.emplace_back(new WelcomePage(parent));
+    pages_.emplace_back(new MeasuringPage(parent));
 
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
@@ -46,9 +50,17 @@ void Main::initUi(QWidget *parent) {
 
 void Main::initBind() {
     {
+        auto btn_prev = ui->btn_prev;
         auto btn_next = ui->btn_next;
+
+        connect(btn_prev, &QPushButton::clicked, this, [this]() {
+            --index_;
+            switchToNextPage();
+        });
+
         connect(btn_next, &QPushButton::clicked, this, [this]() {
             ++index_;
+            switchToNextPage();
         });
     }
 }
@@ -56,12 +68,18 @@ void Main::initBind() {
 void Main::switchToNextPage() {
     int last_index = index_ - 1;
     if (index_ == static_cast<int>(pages_.size())) {
-        last_index = index_ - 1;
         index_ = 0;
     }
+    qDebug() << "last_index = " << last_index << ", index_ = " << index_;
+    auto last_page = pages_[last_index].get();
     auto page = pages_[index_].get();
 
-//    ui->page->replaceWidget();
+    last_page->hide();
+    page->show();
+
+//    ui->page->removeWidget(last_page);
+//    ui->page->addWidget(page);
+    ui->page->replaceWidget(last_page, page);
 }
 
 Main::~Main()
