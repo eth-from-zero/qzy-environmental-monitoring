@@ -45,7 +45,7 @@ void Main::initUi(QWidget *parent) {
         page->setAttribute(Qt::WA_StyledBackground);
     }
 
-    ui->page->addWidget(pages_[0].get());
+    ui->page->addWidget(pages_[0]);
 }
 
 void Main::initBind() {
@@ -55,7 +55,7 @@ void Main::initBind() {
 
         connect(btn_prev, &QPushButton::clicked, this, [this]() {
             --index_;
-            switchToNextPage();
+            switchToPrevPage();
         });
 
         connect(btn_next, &QPushButton::clicked, this, [this]() {
@@ -65,17 +65,34 @@ void Main::initBind() {
     }
 }
 
+void Main::switchToPrevPage() {
+    int last_index = index_ + 1;
+    if (index_ == -1) {
+        index_ = static_cast<int>(pages_.size());
+    }
+    qDebug() << "last_index = " << last_index << ", index_ = " << index_;
+    auto last_page = pages_[last_index];
+    auto page = pages_[index_];
+
+    last_page->hide();
+//    page->show();
+
+//    ui->page->removeWidget(last_page);
+//    ui->page->addWidget(page);
+    ui->page->replaceWidget(last_page, page);
+}
+
 void Main::switchToNextPage() {
     int last_index = index_ - 1;
     if (index_ == static_cast<int>(pages_.size())) {
         index_ = 0;
     }
     qDebug() << "last_index = " << last_index << ", index_ = " << index_;
-    auto last_page = pages_[last_index].get();
-    auto page = pages_[index_].get();
+    auto last_page = pages_[last_index];
+    auto page = pages_[index_];
 
     last_page->hide();
-    page->show();
+//    page->show();
 
 //    ui->page->removeWidget(last_page);
 //    ui->page->addWidget(page);

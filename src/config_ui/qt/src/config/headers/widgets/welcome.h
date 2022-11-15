@@ -1,6 +1,8 @@
 #ifndef WELCOME_H
 #define WELCOME_H
 
+#include <iostream>
+
 #include <memory>
 #include "ui_welcome.h"
 
@@ -16,7 +18,7 @@ class WelcomePage : public QWidget
 
 public:
     WelcomePage(QWidget *parent= nullptr);
-    ~WelcomePage() = default;
+    ~WelcomePage() { std::cout<< "~WelcomePage()" << std::endl;}
 
 private:
     std::unique_ptr<Ui::Welcome> ui_;

@@ -26,12 +26,13 @@ private:
 
 private:
     void switchToNextPage();
+    void switchToPrevPage();
 
 private:
     int index_ = 0;
     Ui::MainWindow *ui;
     std::unique_ptr<QHBoxLayout> page_layout_;
-    std::vector<std::unique_ptr<QWidget>> pages_;
+    std::vector<QWidget*> pages_;
 };
 
 #endif // MAIN_H
