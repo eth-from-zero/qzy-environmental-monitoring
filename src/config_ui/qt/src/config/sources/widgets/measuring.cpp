@@ -1,5 +1,6 @@
 #include "headers/widgets/measuring.h"
 
+#include <QMenu>
 
 MeasuringPage::MeasuringPage(QWidget* parent)
     : QWidget(parent) {
@@ -14,5 +15,13 @@ MeasuringPage::MeasuringPage(QWidget* parent)
     item->setText("水温");
     list_view_model_->appendRow(item);
     ui_->lv->setModel(list_view_model_.get());
+
+    ui_->lv->setContextMenuPolicy(Qt::CustomContextMenu);
+    auto menu = new QMenu(ui_->lv);
+    menu->addAction("添加");
+
+    connect(ui_->lv, &QListView::customContextMenuRequested, this, [this, menu](const QPoint& pos) {
+        menu->exec(ui_->lv->mapToGlobal(pos));
+    });
 }
 
