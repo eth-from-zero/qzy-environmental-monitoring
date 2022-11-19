@@ -5,6 +5,7 @@
 #include "ui_measuring.h"
 
 #include <QWidget>
+#include <QMenu>
 #include <QStandardItemModel>
 
 //QT_BEGIN_NAMESPACE
@@ -22,6 +23,7 @@ public:
 private:
     std::unique_ptr<Ui::Measuring> ui_;
     std::unique_ptr<QStandardItemModel> list_view_model_;
+    std::unique_ptr<QMenu> list_view_menu_;
 };
 
 
