@@ -21,9 +21,9 @@ public:
     ~MeasuringPage() = default;
 
 private:
+    std::unique_ptr<QMenu> list_view_menu_;
     std::unique_ptr<Ui::Measuring> ui_;
     std::unique_ptr<QStandardItemModel> list_view_model_;
-    std::unique_ptr<QMenu> list_view_menu_;
 };
 
 

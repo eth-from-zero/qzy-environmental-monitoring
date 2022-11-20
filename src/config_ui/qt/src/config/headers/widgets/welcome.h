@@ -18,7 +18,7 @@ class WelcomePage : public QWidget
 
 public:
     WelcomePage(QWidget *parent= nullptr);
-    ~WelcomePage() { std::cout<< "~WelcomePage()" << std::endl;}
+    ~WelcomePage() = default;
 
 private:
     std::unique_ptr<Ui::Welcome> ui_;
