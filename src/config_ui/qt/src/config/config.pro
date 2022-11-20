@@ -29,6 +29,7 @@ HEADERS += \
 FORMS += \
     ui/main.ui \
     ui/measuring.ui \
+    ui/variant_edit.ui \
     ui/welcome.ui
 
 # Default rules for deployment.
