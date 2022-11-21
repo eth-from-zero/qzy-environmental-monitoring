@@ -24,6 +24,7 @@ SOURCES += \
 HEADERS += \
     headers/mainwindow.h \
     headers/widgets/measuring.h \
+    headers/widgets/variant_edit.h \
     headers/widgets/welcome.h
 
 FORMS += \
