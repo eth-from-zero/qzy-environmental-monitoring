@@ -32,5 +32,8 @@ MeasuringPage::MeasuringPage(QWidget* parent)
     connect(ui_->lv, &QListView::customContextMenuRequested, this, [this](const QPoint& pos) {
         list_view_menu_->exec(ui_->lv->mapToGlobal(pos));
     });
+
+    variant_edit_dialog_ = std::make_unique<Ui::VariantEditDialog>();
+    variant_edit_dialog_->setupUi(this);
 }
 

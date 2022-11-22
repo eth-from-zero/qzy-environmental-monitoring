@@ -4,6 +4,8 @@
 #include <memory>
 #include "ui_measuring.h"
 
+#include "ui_variant_edit.h"
+
 #include <QWidget>
 #include <QMenu>
 #include <QStandardItemModel>
@@ -24,6 +26,8 @@ private:
     std::unique_ptr<QMenu> list_view_menu_;
     std::unique_ptr<Ui::Measuring> ui_;
     std::unique_ptr<QStandardItemModel> list_view_model_;
+
+    std::unique_ptr<Ui::VariantEditDialog> variant_edit_dialog_;
 };
 
 
