@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "ui_variant_edit.h"
+#include "ui_basic.h"
 
 #include <QDialog>
 
@@ -16,6 +17,7 @@ public:
 
 private:
     std::unique_ptr<Ui::VariantEditDialog> ui_;
+    std::unique_ptr<Ui::VEBasic> basic_widget_;
 };
 
 

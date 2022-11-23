@@ -20,13 +20,11 @@ MeasuringPage::MeasuringPage(QWidget* parent)
     list_view_menu_ = std::make_unique<QMenu>(ui_->lv);
     auto add_action = new QAction("添加");
     connect(add_action, &QAction::triggered, this, [this]() {
-        qDebug() << "clicked add";
         variant_edit_->exec();
     });
     list_view_menu_->addAction(add_action);
     auto del_action = new QAction("删除");
     connect(del_action, &QAction::triggered, this, [this]() {
-        qDebug() << "clicked del";
     });
     list_view_menu_->addAction(del_action);
 

@@ -29,6 +29,7 @@ HEADERS += \
     headers/widgets/welcome.h
 
 FORMS += \
+    headers/widgets/variant_edit/basic.ui \
     ui/main.ui \
     ui/measuring.ui \
     ui/variant_edit.ui \
