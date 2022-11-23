@@ -4,17 +4,18 @@
 #include <memory>
 #include "ui_variant_edit.h"
 
-#include <QWidget>
+#include <QDialog>
 
-class VariantEditDialog : public QWidget
+class VariantEdit : public QDialog
 {
     Q_OBJECT
 
 public:
-    VariantEditDialog(QWidget *parent= nullptr);
-    ~VariantEditDialog() = default;
+    VariantEdit(QWidget *parent= nullptr);
+    ~VariantEdit() = default;
 
 private:
+    std::unique_ptr<Ui::VariantEditDialog> ui_;
 };
 
 

@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
     sources/widgets/measuring.cpp \
+    sources/widgets/variant_edit.cpp \
     sources/widgets/welcome.cpp
 
 HEADERS += \

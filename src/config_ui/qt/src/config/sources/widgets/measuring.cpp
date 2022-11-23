@@ -21,6 +21,7 @@ MeasuringPage::MeasuringPage(QWidget* parent)
     auto add_action = new QAction("添加");
     connect(add_action, &QAction::triggered, this, [this]() {
         qDebug() << "clicked add";
+        variant_edit_->exec();
     });
     list_view_menu_->addAction(add_action);
     auto del_action = new QAction("删除");
@@ -33,7 +34,6 @@ MeasuringPage::MeasuringPage(QWidget* parent)
         list_view_menu_->exec(ui_->lv->mapToGlobal(pos));
     });
 
-    variant_edit_dialog_ = std::make_unique<Ui::VariantEditDialog>();
-    variant_edit_dialog_->setupUi(this);
+    variant_edit_= std::make_unique<VariantEdit>();
 }
 
