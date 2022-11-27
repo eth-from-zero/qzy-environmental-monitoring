@@ -30,6 +30,7 @@ HEADERS += \
 
 FORMS += \
     headers/widgets/variant_edit/basic.ui \
+    headers/widgets/variant_edit/extend.ui \
     ui/main.ui \
     ui/measuring.ui \
     ui/variant_edit.ui \
