@@ -5,6 +5,7 @@
 #include "ui_variant_edit.h"
 #include "ui_basic.h"
 #include "ui_extend.h"
+#include "ui_ve_unitset.h"
 
 #include <QDialog>
 
@@ -20,6 +21,7 @@ private:
     std::unique_ptr<Ui::VariantEditDialog> ui_;
     std::unique_ptr<Ui::VEBasic> basic_widget_;
     std::unique_ptr<Ui::VEExtend> extend_widget_;
+    std::unique_ptr<Ui::VEUnitset> unitset_widget_;
 };
 
 
