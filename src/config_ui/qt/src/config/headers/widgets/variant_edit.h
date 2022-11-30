@@ -3,8 +3,8 @@
 
 #include <memory>
 #include "ui_variant_edit.h"
-#include "ui_basic.h"
-#include "ui_extend.h"
+#include "ui_ve_basic.h"
+#include "ui_ve_extend.h"
 #include "ui_ve_unitset.h"
 
 #include <QDialog>
