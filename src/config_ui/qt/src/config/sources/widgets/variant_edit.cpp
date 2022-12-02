@@ -13,4 +13,13 @@ VariantEdit::VariantEdit(QWidget *parent)
 
     unitset_widget_ = std::make_unique<Ui::VEUnitset>();
     unitset_widget_->setupUi(ui_->tab_unit_set);
+
+    list_view_model_ = std::make_unique<QStandardItemModel>();
+//    auto item = std::make_unique<QStandardItem>();
+    auto item = new QStandardItem();
+    item->setCheckable(true);
+    item->setCheckState(Qt::Unchecked);
+    item->setText("水温");
+    list_view_model_->appendRow(item);
+    ui_->lv->setModel(list_view_model_.get());
 }
