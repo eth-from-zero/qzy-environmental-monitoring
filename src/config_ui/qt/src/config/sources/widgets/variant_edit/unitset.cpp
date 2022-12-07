@@ -28,7 +28,7 @@ Unitset::Unitset(QWidget* parent)
         item->setText("ug/l");
         table_view_model_->setItem(1, 0, item);
     }
-    ui_->lv->setModel(table_view_model_.get());
+    ui_->tv->setModel(table_view_model_.get());
 
     connect(ui_->btn_select, &QPushButton::clicked, this, [this]() {
         qDebug() << "select be clicked";
