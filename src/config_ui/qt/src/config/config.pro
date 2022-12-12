@@ -33,6 +33,7 @@ HEADERS += \
 FORMS += \
     ui/variant_edit/ve_basic.ui \
     ui/variant_edit/ve_extend.ui \
+    ui/variant_edit/ve_mileageset.ui \
     ui/variant_edit/ve_unitset.ui \
     ui/main.ui \
     ui/measuring.ui \
