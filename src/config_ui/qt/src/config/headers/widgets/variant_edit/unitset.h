@@ -8,7 +8,7 @@
 
 class Unitset : public QWidget {
 public:
-    Unitset(QWidget* parent = nullptr);
+    Unitset(QWidget* page);
     ~Unitset() = default;
 
 private:

@@ -23,8 +23,8 @@ private:
     std::unique_ptr<Ui::VariantEditDialog> ui_;
     std::unique_ptr<Ui::VEBasic> basic_widget_;
     std::unique_ptr<Ui::VEExtend> extend_widget_;
-//    std::unique_ptr<Unitset> unitset_widget_;
-    std::unique_ptr<Ui::VEUnitset> unitset_widget_;
+    std::unique_ptr<Unitset> unitset_widget_;
+//    std::unique_ptr<Ui::VEUnitset> unitset_widget_;
 };
 
 
