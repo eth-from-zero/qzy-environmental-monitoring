@@ -8,6 +8,7 @@
 #include "ui_ve_unitset.h"
 
 #include "headers/widgets/variant_edit/unitset.h"
+#include "headers/widgets/variant_edit/mileageset.h"
 
 #include <QDialog>
 
@@ -24,7 +25,7 @@ private:
     std::unique_ptr<Ui::VEBasic> basic_widget_;
     std::unique_ptr<Ui::VEExtend> extend_widget_;
     std::unique_ptr<Unitset> unitset_widget_;
-//    std::unique_ptr<Ui::VEUnitset> unitset_widget_;
+    std::unique_ptr<Mileageset> mileageset_widget_;
 };
 
 

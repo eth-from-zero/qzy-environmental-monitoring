@@ -20,6 +20,7 @@ SOURCES += \
     sources/mainwindow.cpp \
     sources/widgets/measuring.cpp \
     sources/widgets/variant_edit.cpp \
+    sources/widgets/variant_edit/mileageset.cpp \
     sources/widgets/variant_edit/unitset.cpp \
     sources/widgets/welcome.cpp
 
@@ -27,6 +28,7 @@ HEADERS += \
     headers/mainwindow.h \
     headers/widgets/measuring.h \
     headers/widgets/variant_edit.h \
+    headers/widgets/variant_edit/mileageset.h \
     headers/widgets/variant_edit/unitset.h \
     headers/widgets/welcome.h
 
