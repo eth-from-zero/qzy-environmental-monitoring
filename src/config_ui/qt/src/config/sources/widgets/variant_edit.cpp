@@ -13,4 +13,5 @@ VariantEdit::VariantEdit(QWidget *parent)
 
     unitset_widget_ = std::make_unique<Unitset>(ui_->tab_unit_set);
     mileageset_widget_ = std::make_unique<Mileageset>(ui_->tab_miles_set);
+    alarmlimitset_widget_ = std::make_unique<Alarmlimitset>(ui_->tab_alarm_limits_set);
 }

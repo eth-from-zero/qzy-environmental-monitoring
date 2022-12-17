@@ -9,6 +9,7 @@
 
 #include "headers/widgets/variant_edit/unitset.h"
 #include "headers/widgets/variant_edit/mileageset.h"
+#include "headers/widgets/variant_edit/alarmlimitset.h"
 
 #include <QDialog>
 
@@ -26,6 +27,7 @@ private:
     std::unique_ptr<Ui::VEExtend> extend_widget_;
     std::unique_ptr<Unitset> unitset_widget_;
     std::unique_ptr<Mileageset> mileageset_widget_;
+    std::unique_ptr<Alarmlimitset> alarmlimitset_widget_;
 };
 
 
