@@ -1,6 +1,3 @@
-#ifndef UNITSET_CPP
-#define UNITSET_CPP
-
 #include <QStandardItemModel>
 
 #include <QDebug>
@@ -35,5 +32,3 @@ Unitset::Unitset(QWidget* page): QWidget(nullptr) {
         qDebug() << "select be clicked";
     });
 }
-
-#endif // UNITSET_CPP

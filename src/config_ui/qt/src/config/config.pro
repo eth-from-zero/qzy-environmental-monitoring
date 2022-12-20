@@ -23,6 +23,7 @@ SOURCES += \
     sources/widgets/variant_edit/alarmlimitset.cpp \
     sources/widgets/variant_edit/mileageset.cpp \
     sources/widgets/variant_edit/unitset.cpp \
+    sources/widgets/variant_edit/unitset/selectunit.cpp \
     sources/widgets/welcome.cpp
 
 HEADERS += \
@@ -32,6 +33,7 @@ HEADERS += \
     headers/widgets/variant_edit/alarmlimitset.h \
     headers/widgets/variant_edit/mileageset.h \
     headers/widgets/variant_edit/unitset.h \
+    headers/widgets/variant_edit/unitset/selectunit.h \
     headers/widgets/welcome.h
 
 FORMS += \
