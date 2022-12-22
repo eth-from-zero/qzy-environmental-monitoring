@@ -1,14 +1,14 @@
 #ifndef SELECTUNIT_H
 #define SELECTUNIT_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QStandardItemModel>
 
 #include "ui_ve_us_selectunit.h"
 
-class Selectunit : public QWidget {
+class Selectunit : public QDialog {
 public:
-    Selectunit(QWidget* page);
+    Selectunit(QWidget* parent = nullptr);
     ~Selectunit() = default;
 
 private:

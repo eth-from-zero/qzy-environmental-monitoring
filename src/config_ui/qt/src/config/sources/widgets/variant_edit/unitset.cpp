@@ -28,7 +28,10 @@ Unitset::Unitset(QWidget* page): QWidget(nullptr) {
 
     ui_->tv->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
+    select_unit_dialog_ = std::make_unique<Selectunit>();
+
     connect(ui_->btn_select, &QPushButton::clicked, this, [this]() {
         qDebug() << "select be clicked";
+        select_unit_dialog_->exec();
     });
 }

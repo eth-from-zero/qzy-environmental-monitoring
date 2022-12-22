@@ -4,9 +4,9 @@
 
 #include "headers/widgets/variant_edit/unitset/selectunit.h"
 
-Selectunit::Selectunit(QWidget* page): QWidget(nullptr) {
+Selectunit::Selectunit(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::VEUSSelectunit>();
-    ui_->setupUi(page);
+    ui_->setupUi(this);
 
     {
         table_view_model_ = std::make_unique<QStandardItemModel>();

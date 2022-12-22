@@ -6,6 +6,8 @@
 
 #include "ui_ve_unitset.h"
 
+#include "headers/widgets/variant_edit/unitset/selectunit.h"
+
 class Unitset : public QWidget {
 public:
     Unitset(QWidget* page);
@@ -14,6 +16,7 @@ public:
 private:
     std::unique_ptr<Ui::VEUnitset> ui_;
     std::unique_ptr<QStandardItemModel> table_view_model_;
+    std::unique_ptr<Selectunit> select_unit_dialog_;
 };
 
 #endif // UNITSET_H
