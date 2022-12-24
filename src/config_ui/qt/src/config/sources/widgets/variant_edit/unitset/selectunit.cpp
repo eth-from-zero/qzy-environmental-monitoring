@@ -37,4 +37,8 @@ Selectunit::Selectunit(QWidget*): QDialog(nullptr) {
 
         ui_->tv_right->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
+
+    connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
+        this->reject();
+    });
 }
