@@ -37,6 +37,7 @@ HEADERS += \
     headers/widgets/welcome.h
 
 FORMS += \
+    ui/variant_edit/extend/ve_ed_expr.ui \
     ui/variant_edit/unitset/ve_us_selectunit.ui \
     ui/variant_edit/ve_alarmlimitset.ui \
     ui/variant_edit/ve_basic.ui \
