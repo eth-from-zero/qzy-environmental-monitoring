@@ -21,6 +21,7 @@ SOURCES += \
     sources/widgets/measuring.cpp \
     sources/widgets/variant_edit.cpp \
     sources/widgets/variant_edit/alarmlimitset.cpp \
+    sources/widgets/variant_edit/extend/logicexpr.cpp \
     sources/widgets/variant_edit/mileageset.cpp \
     sources/widgets/variant_edit/unitset.cpp \
     sources/widgets/variant_edit/unitset/selectunit.cpp \
@@ -31,13 +32,14 @@ HEADERS += \
     headers/widgets/measuring.h \
     headers/widgets/variant_edit.h \
     headers/widgets/variant_edit/alarmlimitset.h \
+    headers/widgets/variant_edit/extend/logicexpr.h \
     headers/widgets/variant_edit/mileageset.h \
     headers/widgets/variant_edit/unitset.h \
     headers/widgets/variant_edit/unitset/selectunit.h \
     headers/widgets/welcome.h
 
 FORMS += \
-    ui/variant_edit/extend/ve_ed_expr.ui \
+    ui/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/variant_edit/unitset/ve_us_selectunit.ui \
     ui/variant_edit/ve_alarmlimitset.ui \
     ui/variant_edit/ve_basic.ui \
