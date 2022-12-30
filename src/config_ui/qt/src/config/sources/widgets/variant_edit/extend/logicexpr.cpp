@@ -10,20 +10,21 @@ Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
 
     {
         left_list_view_model_ = std::make_unique<QStandardItemModel>();
-        left_list_view_model_->setHorizontalHeaderLabels({"单位类型"});
+
+        right_list_view_model_ = std::make_unique<QStandardItemModel>();
         {
             auto item = new QStandardItem();
             item->setCheckable(true);
             item->setCheckState(Qt::Unchecked);
-            item->setText("气浓度");
-            left_list_view_model_->appendRow(item);
+            item->setText("IF");
+            right_list_view_model_->appendRow(item);
         }
         {
             auto item = new QStandardItem();
             item->setCheckable(true);
             item->setCheckState(Qt::Unchecked);
-            item->setText("水浓度");
-            left_list_view_model_->setItem(1, 0, item);
+            item->setText("CASE");
+            right_list_view_model_->appendRow(item);
         }
 
         ui_->lv_expr->setModel(left_list_view_model_.get());
