@@ -11,6 +11,8 @@
 #include "headers/widgets/variant_edit/mileageset.h"
 #include "headers/widgets/variant_edit/alarmlimitset.h"
 
+#include "headers/widgets/variant_edit/extend/logicexpr.h"
+
 #include <QDialog>
 
 class VariantEdit : public QDialog
@@ -28,6 +30,8 @@ private:
     std::unique_ptr<Unitset> unitset_widget_;
     std::unique_ptr<Mileageset> mileageset_widget_;
     std::unique_ptr<Alarmlimitset> alarmlimitset_widget_;
+
+    std::unique_ptr<Logicexpr> extend_logicexpr_;
 };
 
 
