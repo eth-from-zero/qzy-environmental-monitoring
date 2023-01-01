@@ -26,8 +26,7 @@ Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
             item->setText("CASE");
             right_list_view_model_->appendRow(item);
         }
-
-        ui_->lv_expr->setModel(left_list_view_model_.get());
+        ui_->lv_function->setModel(right_list_view_model_.get());
     }
 
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
