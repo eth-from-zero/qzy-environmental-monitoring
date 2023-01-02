@@ -40,6 +40,7 @@ HEADERS += \
 
 FORMS += \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
+    ui/variant_edit/extend/ve_ed_selectvar.ui \
     ui/variant_edit/unitset/ve_us_selectunit.ui \
     ui/variant_edit/ve_alarmlimitset.ui \
     ui/variant_edit/ve_basic.ui \
