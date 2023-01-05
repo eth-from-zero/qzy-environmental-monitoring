@@ -8,23 +8,26 @@ Selectvar::Selectvar(QWidget*): QDialog(nullptr) {
 
     {
         left_table_view_model_ = std::make_unique<QStandardItemModel>();
+        left_table_view_model_->setHorizontalHeaderLabels({"名称", "单位"});
+        {
+            auto item = new QStandardItem();
+            item->setCheckable(true);
+            item->setCheckState(Qt::Unchecked);
+            item->setText("总磷");
+            left_table_view_model_->setItem(0, 0, item);
+        }
+        {
+            auto item = new QStandardItem();
+            item->setCheckable(true);
+            item->setCheckState(Qt::Unchecked);
+            item->setText("mg/l");
+            left_table_view_model_->setItem(0, 1, item);
+        }
+        ui_->tv_left->setModel(right_table_view_model_.get());
 
         right_table_view_model_ = std::make_unique<QStandardItemModel>();
-        {
-            auto item = new QStandardItem();
-            item->setCheckable(true);
-            item->setCheckState(Qt::Unchecked);
-            item->setText("IF");
-            right_table_view_model_->appendRow(item);
-        }
-        {
-            auto item = new QStandardItem();
-            item->setCheckable(true);
-            item->setCheckState(Qt::Unchecked);
-            item->setText("CASE");
-            right_table_view_model_->appendRow(item);
-        }
-        ui_->lv_function->setModel(right_table_view_model_.get());
+        right_table_view_model_->setHorizontalHeaderLabels({"名称", "单位"});
+        ui_->tv_right->setModel(right_table_view_model_.get());
     }
 
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
