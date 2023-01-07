@@ -23,12 +23,31 @@ Selectvar::Selectvar(QWidget*): QDialog(nullptr) {
             item->setText("mg/l");
             left_table_view_model_->setItem(0, 1, item);
         }
+        {
+            auto item = new QStandardItem();
+            item->setCheckable(true);
+            item->setCheckState(Qt::Unchecked);
+            item->setText("压力");
+            left_table_view_model_->setItem(0, 0, item);
+        }
+        {
+            auto item = new QStandardItem();
+            item->setCheckable(true);
+            item->setCheckState(Qt::Unchecked);
+            item->setText("kpa");
+            left_table_view_model_->setItem(0, 1, item);
+        }
         ui_->tv_left->setModel(right_table_view_model_.get());
 
         right_table_view_model_ = std::make_unique<QStandardItemModel>();
         right_table_view_model_->setHorizontalHeaderLabels({"名称", "单位"});
         ui_->tv_right->setModel(right_table_view_model_.get());
     }
+
+    connect(ui_->btn_toleft, &QPushButton::clicked, this, [this]() {
+    });
+    connect(ui_->btn_toright, &QPushButton::clicked, this, [this]() {
+    });
 
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
         this->reject();
