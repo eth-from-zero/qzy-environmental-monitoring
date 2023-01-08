@@ -1,6 +1,7 @@
 #include <QStandardItemModel>
 
 #include <QDebug>
+#include <QMouseEvent>
 
 #include "headers/widgets/variant_edit/extend/logicexpr.h"
 
@@ -29,10 +30,20 @@ Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
         ui_->lv_function->setModel(right_list_view_model_.get());
     }
 
+    ui_->lv_function->viewport()->installEventFilter(this);
+
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
         this->reject();
     });
     connect(ui_->btn_cancel, &QPushButton::clicked, this, [this]() {
         this->reject();
     });
+}
+
+bool Logicexpr::eventFilter(QObject *watched, QEvent *event) {
+    if(watched ==  ui_->lv_function->viewport() && event->type() == QEvent::MouseButtonDblClick){
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        qDebug()<<"listview of function: MouseButtonDblClick"<<mouseEvent->pos();
+    }
+    return Logicexpr::eventFilter(watched, event);
 }

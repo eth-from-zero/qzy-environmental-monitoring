@@ -12,6 +12,9 @@ public:
     ~Logicexpr() = default;
 
 private:
+    bool eventFilter(QObject *watched, QEvent *event);
+
+private:
     std::unique_ptr<Ui::VEEDLogicexpr> ui_;
     std::unique_ptr<QStandardItemModel> left_list_view_model_;
     std::unique_ptr<QStandardItemModel> right_list_view_model_;
