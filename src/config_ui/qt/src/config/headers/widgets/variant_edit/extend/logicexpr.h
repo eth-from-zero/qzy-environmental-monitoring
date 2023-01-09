@@ -5,6 +5,7 @@
 #include <QStandardItemModel>
 
 #include "ui_ve_ed_logicexpr.h"
+#include "selectvar.h"
 
 class Logicexpr : public QDialog {
 public:
@@ -18,6 +19,8 @@ private:
     std::unique_ptr<Ui::VEEDLogicexpr> ui_;
     std::unique_ptr<QStandardItemModel> left_list_view_model_;
     std::unique_ptr<QStandardItemModel> right_list_view_model_;
+
+    std::unique_ptr<Selectvar> select_var_;
 };
 
 #endif // LOGICEXPR_H

@@ -9,6 +9,8 @@ Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::VEEDLogicexpr>();
     ui_->setupUi(this);
 
+    select_var_ = std::make_unique<Selectvar>();
+
     {
         left_list_view_model_ = std::make_unique<QStandardItemModel>();
 
@@ -44,6 +46,7 @@ bool Logicexpr::eventFilter(QObject *watched, QEvent *event) {
     if(watched ==  ui_->lv_function->viewport() && event->type() == QEvent::MouseButtonDblClick){
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         qDebug()<<"listview of function: MouseButtonDblClick"<<mouseEvent->pos();
+        select_var_->exec();
     }
     return Logicexpr::eventFilter(watched, event);
 }
