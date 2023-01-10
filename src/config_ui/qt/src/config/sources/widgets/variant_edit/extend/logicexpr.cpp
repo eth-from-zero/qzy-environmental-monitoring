@@ -48,5 +48,5 @@ bool Logicexpr::eventFilter(QObject *watched, QEvent *event) {
         qDebug()<<"listview of function: MouseButtonDblClick"<<mouseEvent->pos();
         select_var_->exec();
     }
-    return Logicexpr::eventFilter(watched, event);
+    return QWidget::eventFilter(watched, event);
 }
