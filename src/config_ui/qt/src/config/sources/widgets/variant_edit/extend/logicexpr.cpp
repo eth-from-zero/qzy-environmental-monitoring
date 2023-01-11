@@ -17,15 +17,13 @@ Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
         right_list_view_model_ = std::make_unique<QStandardItemModel>();
         {
             auto item = new QStandardItem();
-            item->setCheckable(true);
-            item->setCheckState(Qt::Unchecked);
+            item->setCheckable(false);
             item->setText("IF");
             right_list_view_model_->appendRow(item);
         }
         {
             auto item = new QStandardItem();
-            item->setCheckable(true);
-            item->setCheckState(Qt::Unchecked);
+            item->setCheckable(false);
             item->setText("CASE");
             right_list_view_model_->appendRow(item);
         }
