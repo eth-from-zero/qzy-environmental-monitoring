@@ -8,7 +8,7 @@
 #include "ui_ve_unitset.h"
 
 #include "headers/widgets/variant_edit/unitset.h"
-#include "headers/widgets/variant_edit/mileageset.h"
+#include "headers/widgets/variant_edit/measuringset.h"
 #include "headers/widgets/variant_edit/alarmlimitset.h"
 
 #include "headers/widgets/variant_edit/extend/logicexpr.h"
@@ -28,7 +28,7 @@ private:
     std::unique_ptr<Ui::VEBasic> basic_widget_;
     std::unique_ptr<Ui::VEExtend> extend_widget_;
     std::unique_ptr<Unitset> unitset_widget_;
-    std::unique_ptr<Mileageset> mileageset_widget_;
+    std::unique_ptr<Measuringset> measuringset_widget_;
     std::unique_ptr<Alarmlimitset> alarmlimitset_widget_;
 
     std::unique_ptr<Logicexpr> extend_logicexpr_;

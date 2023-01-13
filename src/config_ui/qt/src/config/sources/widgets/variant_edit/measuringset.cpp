@@ -2,9 +2,9 @@
 
 #include <QDebug>
 
-#include "headers/widgets/variant_edit/mileageset.h"
+#include "headers/widgets/variant_edit/measuringset.h"
 
-Mileageset::Mileageset(QWidget* page): QWidget(nullptr) {
+Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
     ui_ = std::make_unique<Ui::VEMileageset>();
     ui_->setupUi(page);
 

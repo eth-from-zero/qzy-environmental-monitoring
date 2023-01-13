@@ -6,10 +6,10 @@
 
 #include "ui_ve_mileageset.h"
 
-class Mileageset : public QWidget {
+class Measuringset : public QWidget {
 public:
-    Mileageset(QWidget* page);
-    ~Mileageset() = default;
+    Measuringset(QWidget* page);
+    ~Measuringset() = default;
 
 private:
     std::unique_ptr<Ui::VEMileageset> ui_;
