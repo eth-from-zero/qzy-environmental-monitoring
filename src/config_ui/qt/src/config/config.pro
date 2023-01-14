@@ -18,7 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
-    sources/widgets/measuring.cpp \
+    sources/widgets/measurement.cpp \
     sources/widgets/variant_edit.cpp \
     sources/widgets/variant_edit/alarmlimitset.cpp \
     sources/widgets/variant_edit/extend/logicexpr.cpp \
@@ -30,7 +30,7 @@ SOURCES += \
 
 HEADERS += \
     headers/mainwindow.h \
-    headers/widgets/measuring.h \
+    headers/widgets/measurement.h \
     headers/widgets/variant_edit.h \
     headers/widgets/variant_edit/alarmlimitset.h \
     headers/widgets/variant_edit/extend/logicexpr.h \
@@ -41,16 +41,16 @@ HEADERS += \
     headers/widgets/welcome.h
 
 FORMS += \
+    ui/measurement.ui \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/variant_edit/extend/ve_ed_selectvar.ui \
     ui/variant_edit/unitset/ve_us_selectunit.ui \
     ui/variant_edit/ve_alarmlimitset.ui \
     ui/variant_edit/ve_basic.ui \
     ui/variant_edit/ve_extend.ui \
-    ui/variant_edit/ve_mileageset.ui \
+    ui/variant_edit/ve_measuringset.ui \
     ui/variant_edit/ve_unitset.ui \
     ui/main.ui \
-    ui/measuring.ui \
     ui/variant_edit.ui \
     ui/welcome.ui
 

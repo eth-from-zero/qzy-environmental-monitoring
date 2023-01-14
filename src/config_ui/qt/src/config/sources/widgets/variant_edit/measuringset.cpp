@@ -5,7 +5,7 @@
 #include "headers/widgets/variant_edit/measuringset.h"
 
 Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
-    ui_ = std::make_unique<Ui::VEMileageset>();
+    ui_ = std::make_unique<Ui::VEMeasuringset>();
     ui_->setupUi(page);
 
     table_view_model_ = std::make_unique<QStandardItemModel>();

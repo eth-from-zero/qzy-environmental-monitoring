@@ -2,7 +2,7 @@
 #include "ui_main.h"
 
 #include "headers/widgets/welcome.h"
-#include "headers/widgets/measuring.h"
+#include "headers/widgets/measurement.h"
 
 #include <QDebug>
 

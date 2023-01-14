@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QStandardItemModel>
 
-#include "ui_ve_mileageset.h"
+#include "ui_ve_measuringset.h"
 
 class Measuringset : public QWidget {
 public:
@@ -12,7 +12,7 @@ public:
     ~Measuringset() = default;
 
 private:
-    std::unique_ptr<Ui::VEMileageset> ui_;
+    std::unique_ptr<Ui::VEMeasuringset> ui_;
     std::unique_ptr<QStandardItemModel> table_view_model_;
 };
 
