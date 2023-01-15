@@ -24,6 +24,7 @@ SOURCES += \
     sources/widgets/variant_edit/extend/logicexpr.cpp \
     sources/widgets/variant_edit/extend/selectvar.cpp \
     sources/widgets/variant_edit/measuringset.cpp \
+    sources/widgets/variant_edit/measuringset/measuringedit.cpp \
     sources/widgets/variant_edit/unitset.cpp \
     sources/widgets/variant_edit/unitset/selectunit.cpp \
     sources/widgets/welcome.cpp
@@ -36,6 +37,7 @@ HEADERS += \
     headers/widgets/variant_edit/extend/logicexpr.h \
     headers/widgets/variant_edit/extend/selectvar.h \
     headers/widgets/variant_edit/measuringset.h \
+    headers/widgets/variant_edit/measuringset/measuringedit.h \
     headers/widgets/variant_edit/unitset.h \
     headers/widgets/variant_edit/unitset/selectunit.h \
     headers/widgets/welcome.h
@@ -44,6 +46,7 @@ FORMS += \
     ui/measurement.ui \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/variant_edit/extend/ve_ed_selectvar.ui \
+    ui/variant_edit/measuringset/ve_me_measuringedit.ui \
     ui/variant_edit/unitset/ve_us_selectunit.ui \
     ui/variant_edit/ve_alarmlimitset.ui \
     ui/variant_edit/ve_basic.ui \
