@@ -70,31 +70,49 @@
     <string>线性系数</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>141</x>
-     <y>221</y>
-     <width>67</width>
-     <height>16</height>
+     <y>220</y>
+     <width>117</width>
+     <height>27</height>
     </rect>
    </property>
-   <property name="text">
-    <string>量程最小值</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>量程最小值</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="spinBox"/>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>141</x>
-     <y>261</y>
-     <width>67</width>
-     <height>16</height>
+     <y>260</y>
+     <width>117</width>
+     <height>27</height>
     </rect>
    </property>
-   <property name="text">
-    <string>量程最大值</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>量程最大值</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="spinBox_2"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
