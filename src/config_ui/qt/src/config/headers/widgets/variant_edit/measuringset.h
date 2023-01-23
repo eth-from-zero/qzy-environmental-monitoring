@@ -6,6 +6,8 @@
 
 #include "ui_ve_measuringset.h"
 
+#include "headers/widgets/variant_edit/measuringset/measuringedit.h"
+
 class Measuringset : public QWidget {
 public:
     Measuringset(QWidget* page);
@@ -14,6 +16,7 @@ public:
 private:
     std::unique_ptr<Ui::VEMeasuringset> ui_;
     std::unique_ptr<QStandardItemModel> table_view_model_;
+    std::unique_ptr<Measuringedit> measuring_add_dialog_;
 };
 
 #endif // MILEAGESET_H

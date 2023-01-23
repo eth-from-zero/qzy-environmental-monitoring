@@ -13,8 +13,6 @@ public:
 
 private:
     std::unique_ptr<Ui::VEMEMeasuringedit> ui_;
-    std::unique_ptr<QStandardItemModel> left_table_view_model_;
-    std::unique_ptr<QStandardItemModel> right_table_view_model_;
 };
 
 #endif // MEASURINGEDIT_H
