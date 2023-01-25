@@ -11,4 +11,7 @@ Measuringedit::Measuringedit(QWidget*): QDialog(nullptr) {
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
         this->reject();
     });
+    connect(ui_->btn_cancel, &QPushButton::clicked, this, [this]() {
+        this->reject();
+    });
 }
