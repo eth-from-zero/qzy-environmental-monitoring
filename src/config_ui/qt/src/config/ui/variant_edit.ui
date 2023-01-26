@@ -57,7 +57,7 @@
      </widget>
      <widget class="QWidget" name="tab_miles_set">
       <attribute name="title">
-       <string>里程集</string>
+       <string>量程集</string>
       </attribute>
      </widget>
      <widget class="QWidget" name="tab_alarm_limits_set">
