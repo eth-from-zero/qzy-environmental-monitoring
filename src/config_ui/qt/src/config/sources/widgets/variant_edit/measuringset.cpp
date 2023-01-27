@@ -44,5 +44,11 @@ Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
     connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
         measuring_add_dialog_->exec();
     });
+    connect(ui_->btn_update, &QPushButton::clicked, this, [this]() {
+        measuring_update_dialog_->exec();
+    });
+    connect(ui_->btn_update, &QPushButton::clicked, this, [this]() {
+        measuring_delete_dialog_->exec();
+    });
 }
 
