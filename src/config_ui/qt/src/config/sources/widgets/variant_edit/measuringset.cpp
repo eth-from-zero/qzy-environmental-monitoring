@@ -40,6 +40,8 @@ Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
     ui_->tv->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     measuring_add_dialog_ = std::make_unique<Measuringedit>();
+    measuring_update_dialog_ = std::make_unique<Measuringedit>();
+    measuring_delete_dialog_ = std::make_unique<Measuringedit>();
 
     connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
         measuring_add_dialog_->exec();

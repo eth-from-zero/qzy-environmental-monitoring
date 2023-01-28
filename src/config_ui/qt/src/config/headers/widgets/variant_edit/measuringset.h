@@ -17,6 +17,8 @@ private:
     std::unique_ptr<Ui::VEMeasuringset> ui_;
     std::unique_ptr<QStandardItemModel> table_view_model_;
     std::unique_ptr<Measuringedit> measuring_add_dialog_;
+    std::unique_ptr<Measuringedit> measuring_update_dialog_;
+    std::unique_ptr<Measuringedit> measuring_delete_dialog_;
 };
 
 #endif // MILEAGESET_H
