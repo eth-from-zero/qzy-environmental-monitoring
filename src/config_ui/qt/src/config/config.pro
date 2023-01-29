@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
+    sources/widgets/common/confirmation_dialog.cpp \
     sources/widgets/measurement.cpp \
     sources/widgets/variant_edit.cpp \
     sources/widgets/variant_edit/alarmlimitset.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     headers/mainwindow.h \
+    headers/widgets/common/confirmation_dialog.h \
     headers/widgets/measurement.h \
     headers/widgets/variant_edit.h \
     headers/widgets/variant_edit/alarmlimitset.h \
@@ -43,6 +45,7 @@ HEADERS += \
     headers/widgets/welcome.h
 
 FORMS += \
+    ui/common/confirmation_dialog.ui \
     ui/measurement.ui \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/variant_edit/extend/ve_ed_selectvar.ui \
