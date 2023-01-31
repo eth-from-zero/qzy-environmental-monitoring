@@ -6,3 +6,6 @@ ConfirmationDialog::ConfirmationDialog(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::ConfirmationDialog>();
     ui_->setupUi(this);
 }
+
+void ConfirmationDialog::set_tips(const QString&) {
+}
