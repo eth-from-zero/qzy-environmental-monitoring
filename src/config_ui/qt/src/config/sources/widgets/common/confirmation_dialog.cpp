@@ -7,5 +7,6 @@ ConfirmationDialog::ConfirmationDialog(QWidget*): QDialog(nullptr) {
     ui_->setupUi(this);
 }
 
-void ConfirmationDialog::set_tips(const QString&) {
+void ConfirmationDialog::set_tips(const QString& content) {
+    ui_->tb_tips->setText(content);
 }
