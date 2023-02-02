@@ -9,6 +9,7 @@
 #include <QStandardItemModel>
 
 #include "headers/widgets/variant_edit.h"
+#include "headers/common/confirmation_dialog.h"
 
 //QT_BEGIN_NAMESPACE
 //namespace Ui { class Welcome; }
