@@ -7,6 +7,7 @@
 #include "ui_ve_measuringset.h"
 
 #include "headers/widgets/variant_edit/measuringset/measuringedit.h"
+#include "headers/widgets/common/confirmation_dialog.h"
 
 class Measuringset : public QWidget {
 public:
@@ -18,7 +19,7 @@ private:
     std::unique_ptr<QStandardItemModel> table_view_model_;
     std::unique_ptr<Measuringedit> measuring_add_dialog_;
     std::unique_ptr<Measuringedit> measuring_update_dialog_;
-    std::unique_ptr<Measuringedit> measuring_delete_dialog_;
+    std::unique_ptr<ConfirmationDialog> measuring_delete_dialog_;
 };
 
 #endif // MILEAGESET_H
