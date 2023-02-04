@@ -43,6 +43,10 @@ Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
     measuring_update_dialog_ = std::make_unique<Measuringedit>();
     measuring_delete_dialog_ = std::make_unique<ConfirmationDialog>();
 
+    connect(measuring_delete_dialog_, &ConfirmationDialog::signal_ok, this, [this]() {
+        measuring_add_dialog_->exec();
+    });
+
     connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
         measuring_add_dialog_->exec();
     });
@@ -50,6 +54,7 @@ Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
         measuring_update_dialog_->exec();
     });
     connect(ui_->btn_update, &QPushButton::clicked, this, [this]() {
+        measuring_delete_dialog_->set_tips("确认要删除吗");
         measuring_delete_dialog_->exec();
     });
 }
