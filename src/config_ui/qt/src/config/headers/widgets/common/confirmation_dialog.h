@@ -16,9 +16,9 @@ public:
 
     void set_tips(const QString&);
 
-public slots:
-    void on_ok();
-    void on_cancel();
+Q_SIGNALS:
+    void signal_ok();
+    void signal_cancel();
 
 private:
     std::unique_ptr<Ui::ConfirmationDialog> ui_;

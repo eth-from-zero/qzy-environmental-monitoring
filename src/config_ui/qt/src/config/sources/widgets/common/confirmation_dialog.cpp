@@ -10,3 +10,9 @@ ConfirmationDialog::ConfirmationDialog(QWidget*): QDialog(nullptr) {
 void ConfirmationDialog::set_tips(const QString& content) {
     ui_->tb_tips->setText(content);
 }
+
+void ConfirmationDialog::signal_ok() {
+}
+
+void ConfirmationDialog::signal_cancel() {
+}
