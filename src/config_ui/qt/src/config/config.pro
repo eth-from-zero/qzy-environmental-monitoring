@@ -36,6 +36,7 @@ HEADERS += \
     headers/widgets/measurement.h \
     headers/widgets/variant_edit.h \
     headers/widgets/variant_edit/alarmlimitset.h \
+    headers/widgets/variant_edit/alarmlimitset/alarmlimitset.h \
     headers/widgets/variant_edit/extend/logicexpr.h \
     headers/widgets/variant_edit/extend/selectvar.h \
     headers/widgets/variant_edit/measuringset.h \

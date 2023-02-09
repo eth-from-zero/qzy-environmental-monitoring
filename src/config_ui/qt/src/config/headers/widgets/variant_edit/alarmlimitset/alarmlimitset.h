@@ -1,0 +1,4 @@
+#ifndef ALARMLIMITSET_H
+#define ALARMLIMITSET_H
+
+#endif // ALARMLIMITSET_H
