@@ -46,6 +46,7 @@ HEADERS += \
     headers/widgets/welcome.h
 
 FORMS += \
+    sources/widgets/variant_edit/alarmlimitset/alarmlimitedit.ui \
     ui/common/confirmation_dialog.ui \
     ui/measurement.ui \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
