@@ -1,7 +1,9 @@
 #include "headers/widgets/variant_edit/alarmlimitset/alarmlimitedit.h"
 
-Measuringedit::Measuringedit(QWidget*): QDialog(nullptr) {
-    ui_ = std::make_unique<Ui::VEMEMeasuringedit>();
+#include <QPushButton>
+
+AlarmlimitEdit::AlarmlimitEdit(QWidget*): QDialog(nullptr) {
+    ui_ = std::make_unique<Ui::VEALAlarmlimitedit>();
     ui_->setupUi(this);
 
     connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {

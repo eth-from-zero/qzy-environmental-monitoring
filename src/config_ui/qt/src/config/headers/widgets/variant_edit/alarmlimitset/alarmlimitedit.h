@@ -4,15 +4,15 @@
 #include <QDialog>
 #include <QStandardItemModel>
 
-#include "ui_ve_me_measuringedit.h"
+#include "ui_ve_al_alarmlimitedit.h"
 
-class AlarmlimitsetEdit : public QDialog {
+class AlarmlimitEdit : public QDialog {
 public:
-    AlarmlimitsetEdit(QWidget* parent = nullptr);
-    ~AlarmlimitsetEdit() = default;
+    AlarmlimitEdit(QWidget* parent = nullptr);
+    ~AlarmlimitEdit() = default;
 
 private:
-    std::unique_ptr<Ui::VEAEEdit> ui_;
+    std::unique_ptr<Ui::VEALAlarmlimitedit> ui_;
 };
 
 #endif // ALARMLIMITSET_H
