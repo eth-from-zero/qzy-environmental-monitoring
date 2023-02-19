@@ -1,5 +1,5 @@
-#ifndef ALARMLIMITSET_H
-#define ALARMLIMITSET_H
+#ifndef ALARMLIMITSET_EDIT_H
+#define ALARMLIMITSET_EDIT_H
 
 #include <QDialog>
 #include <QStandardItemModel>
@@ -15,4 +15,4 @@ private:
     std::unique_ptr<Ui::VEALAlarmlimitedit> ui_;
 };
 
-#endif // ALARMLIMITSET_H
+#endif // ALARMLIMITSET_EDIT_H

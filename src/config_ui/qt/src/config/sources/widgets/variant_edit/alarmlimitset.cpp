@@ -39,15 +39,24 @@ Alarmlimitset::Alarmlimitset(QWidget* page): QWidget(nullptr) {
 
     ui_->tv->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
+    alarmlimit_add_dialog_ = std::make_unique<AlarmlimitEdit>();
+    alarmlimit_update_dialog_ = std::make_unique<AlarmlimitEdit>();
+    alarmlimit_delete_dialog_ = std::make_unique<ConfirmationDialog>();
+
+    connect(alarmlimit_delete_dialog_.get(), &ConfirmationDialog::signal_ok, this, []() {
+    });
+    connect(alarmlimit_delete_dialog_.get(), &ConfirmationDialog::signal_cancel, this, []() {
+    });
+
     connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
-        qDebug() << "select be clicked";
+        alarmlimit_add_dialog_->exec();
     });
     connect(ui_->btn_update, &QPushButton::clicked, this, [this]() {
-        measuring_update_dialog_->exec();
+        alarmlimit_delete_dialog_->exec();
     });
     connect(ui_->btn_del, &QPushButton::clicked, this, [this]() {
-        measuring_delete_dialog_->set_tips("确认要删除吗");
-        measuring_delete_dialog_->exec();
+        alarmlimit_delete_dialog_->set_tips("确认要删除吗");
+        alarmlimit_delete_dialog_->exec();
     });
 }
 
