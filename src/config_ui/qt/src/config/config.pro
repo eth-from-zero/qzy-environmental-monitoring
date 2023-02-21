@@ -59,8 +59,8 @@ FORMS += \
     ui/variant_edit/ve_extend.ui \
     ui/variant_edit/ve_measuringset.ui \
     ui/variant_edit/ve_unitset.ui \
+    ui/variant_edit/variant_edit.ui \
     ui/main.ui \
-    ui/variant_edit.ui \
     ui/welcome.ui
 
 # Default rules for deployment.
