@@ -35,6 +35,7 @@ HEADERS += \
     headers/mainwindow.h \
     headers/widgets/common/confirmation_dialog.h \
     headers/widgets/measurement.h \
+    headers/widgets/switch.h \
     headers/widgets/variant_edit/variant_edit.h \
     headers/widgets/variant_edit/alarmlimitset.h \
     headers/widgets/variant_edit/alarmlimitset/alarmlimitedit.h \
