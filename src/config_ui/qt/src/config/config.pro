@@ -51,6 +51,7 @@ HEADERS += \
 FORMS += \
     ui/common/confirmation_dialog.ui \
     ui/measurement.ui \
+    ui/switching.ui \
     ui/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
     ui/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/variant_edit/extend/ve_ed_selectvar.ui \
