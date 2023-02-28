@@ -8,7 +8,7 @@
 #include <QMenu>
 #include <QStandardItemModel>
 
-#include "headers/widgets/variant_edit.h"
+#include "headers/widgets/variant_edit/variant_edit.h"
 
 //QT_BEGIN_NAMESPACE
 //namespace Ui { class Welcome; }
