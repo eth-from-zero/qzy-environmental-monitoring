@@ -1,10 +1,10 @@
-#include "headers/widgets/measurement.h"
+#include "headers/widgets/switching.h"
 
 #include <QDebug>
 
-MeasuringPage::MeasuringPage(QWidget* parent)
+SwitchingPage::SwitchingPage(QWidget* parent)
     : QWidget(parent) {
-    ui_ = std::make_unique<Ui::Measuring>();
+    ui_ = std::make_unique<Ui::Switching>();
     ui_->setupUi(this);
 
     list_view_model_ = std::make_unique<QStandardItemModel>();

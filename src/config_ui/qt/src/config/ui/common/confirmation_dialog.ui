@@ -29,7 +29,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="tb_tips">
        <property name="text">
         <string>Tips:</string>
        </property>
