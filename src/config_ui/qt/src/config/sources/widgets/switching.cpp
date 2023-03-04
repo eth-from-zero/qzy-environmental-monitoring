@@ -7,13 +7,19 @@ SwitchingPage::SwitchingPage(QWidget* parent)
     ui_ = std::make_unique<Ui::Switching>();
     ui_->setupUi(this);
 
+    auto append_fn = [&](const QString& text) {
+        auto item = new QStandardItem();
+        item->setCheckable(true);
+        item->setCheckState(Qt::Unchecked);
+        item->setText(text);
+        list_view_model_->appendRow(item);
+    };
+
     list_view_model_ = std::make_unique<QStandardItemModel>();
-//    auto item = std::make_unique<QStandardItem>();
-    auto item = new QStandardItem();
-    item->setCheckable(true);
-    item->setCheckState(Qt::Unchecked);
-    item->setText("水温");
-    list_view_model_->appendRow(item);
+    append_fn("采水泵PU1");
+    append_fn("采水泵PU2");
+    append_fn("清水泵PU2");
+
     ui_->lv->setModel(list_view_model_.get());
 
     ui_->lv->setContextMenuPolicy(Qt::CustomContextMenu);

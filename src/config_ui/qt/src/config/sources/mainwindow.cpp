@@ -3,6 +3,7 @@
 
 #include "headers/widgets/welcome.h"
 #include "headers/widgets/measurement.h"
+#include "headers/widgets/switching.h"
 
 #include <QDebug>
 
@@ -40,6 +41,7 @@ void Main::initUi(QWidget *parent) {
 
     pages_.emplace_back(new WelcomePage(parent));
     pages_.emplace_back(new MeasuringPage(parent));
+    pages_.emplace_back(new SwitchingPage(parent));
 
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
