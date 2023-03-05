@@ -51,18 +51,18 @@ HEADERS += \
 FORMS += \
     ui/common/confirmation_dialog.ui \
     ui/measurement.ui \
-    ui/switching.ui \
-    ui/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
-    ui/variant_edit/extend/ve_ed_logicexpr.ui \
-    ui/variant_edit/extend/ve_ed_selectvar.ui \
-    ui/variant_edit/measuringset/ve_me_measuringedit.ui \
-    ui/variant_edit/unitset/ve_us_selectunit.ui \
-    ui/variant_edit/ve_alarmlimitset.ui \
-    ui/variant_edit/ve_basic.ui \
-    ui/variant_edit/ve_extend.ui \
-    ui/variant_edit/ve_measuringset.ui \
-    ui/variant_edit/ve_unitset.ui \
-    ui/variant_edit/variant_edit.ui \
+    ui/measurement/switching.ui \
+    ui/measurement/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
+    ui/measurement/variant_edit/extend/ve_ed_logicexpr.ui \
+    ui/measurement/variant_edit/extend/ve_ed_selectvar.ui \
+    ui/measurement/variant_edit/measuringset/ve_me_measuringedit.ui \
+    ui/measurement/variant_edit/unitset/ve_us_selectunit.ui \
+    ui/measurement/variant_edit/ve_alarmlimitset.ui \
+    ui/measurement/variant_edit/ve_basic.ui \
+    ui/measurement/variant_edit/ve_extend.ui \
+    ui/measurement/variant_edit/ve_measuringset.ui \
+    ui/measurement/variant_edit/ve_unitset.ui \
+    ui/measurement/variant_edit/variant_edit.ui \
     ui/main.ui \
     ui/welcome.ui
 
