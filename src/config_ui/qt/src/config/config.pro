@@ -50,8 +50,7 @@ HEADERS += \
 
 FORMS += \
     ui/common/confirmation_dialog.ui \
-    ui/measurement.ui \
-    ui/measurement/switching.ui \
+    ui/measurement/measurement.ui \
     ui/measurement/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
     ui/measurement/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/measurement/variant_edit/extend/ve_ed_selectvar.ui \
@@ -64,8 +63,8 @@ FORMS += \
     ui/measurement/variant_edit/ve_unitset.ui \
     ui/measurement/variant_edit/variant_edit.ui \
     ui/switching/variant_edit/variant_edit.ui \
+    ui/switching/switching.ui \
     ui/main.ui \
-    ui/variant_edit.ui \
     ui/welcome.ui
 
 # Default rules for deployment.
