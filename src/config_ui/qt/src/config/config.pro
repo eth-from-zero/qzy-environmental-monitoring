@@ -55,16 +55,16 @@ FORMS += \
     ui/measurement/variant_edit/extend/ve_ed_logicexpr.ui \
     ui/measurement/variant_edit/extend/ve_ed_selectvar.ui \
     ui/measurement/variant_edit/measuringset/ve_me_measuringedit.ui \
+    ui/measurement/variant_edit/mm_variant_edit.ui \
     ui/measurement/variant_edit/unitset/ve_us_selectunit.ui \
     ui/measurement/variant_edit/ve_alarmlimitset.ui \
     ui/measurement/variant_edit/ve_basic.ui \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
-    ui/measurement/variant_edit/variant_edit.ui \
-    ui/switching/variant_edit/variant_edit.ui \
     ui/switching/switching.ui \
     ui/main.ui \
+    ui/switching/variant_edit/si_variant_edit.ui \
     ui/welcome.ui
 
 # Default rules for deployment.

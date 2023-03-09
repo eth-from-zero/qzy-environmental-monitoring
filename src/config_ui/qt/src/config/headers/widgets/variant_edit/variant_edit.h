@@ -2,7 +2,7 @@
 #define VARIANT_EDIT_H
 
 #include <memory>
-#include "ui_variant_edit.h"
+#include "ui_mm_variant_edit.h"
 #include "ui_ve_basic.h"
 #include "ui_ve_extend.h"
 #include "ui_ve_unitset.h"
