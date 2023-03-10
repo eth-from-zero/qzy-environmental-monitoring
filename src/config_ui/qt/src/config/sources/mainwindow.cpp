@@ -43,6 +43,8 @@ void Main::initUi(QWidget *parent) {
     pages_.emplace_back(new MeasuringPage(parent));
     pages_.emplace_back(new SwitchingPage(parent));
 
+    qDebug() << "page size = " << pages_.size();
+
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
     }
@@ -83,6 +85,7 @@ void Main::switchToPrevPage() {
 }
 
 void Main::switchToNextPage() {
+    qDebug() << "index_ = " << index_;
     int last_index = index_ - 1;
     if (index_ == static_cast<int>(pages_.size())) {
         index_ = 0;
