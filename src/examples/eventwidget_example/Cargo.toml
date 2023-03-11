@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 components = { path = "../../components" }
-iced = "0.3"
+iced = "0.2"

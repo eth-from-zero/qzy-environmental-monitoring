@@ -19,9 +19,9 @@
   <widget class="QLabel" name="lb_name">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>80</x>
      <y>50</y>
-     <width>301</width>
+     <width>381</width>
      <height>51</height>
     </rect>
    </property>
@@ -32,7 +32,7 @@
     </font>
    </property>
    <property name="text">
-    <string>欢迎使用 WM3000 系统配置向导</string>
+    <string>欢迎使用 WGS-9000 系统配置向导</string>
    </property>
   </widget>
   <widget class="QTextBrowser" name="tb_welcome">
@@ -66,7 +66,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:18pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;向导将指引你完成 WM3000 系统的配置过程&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;向导将指引你完成 WGS-9000 系统的配置过程&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;在开始配置之前, 建议您先关闭其他所有应用程序，这将允许本向导更新指定的系统文件, 而不需要重新启动您的计算机&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;

@@ -24,7 +24,7 @@ void Main::initData() {
 void Main::initUi(QWidget *parent) {
     // set window
     {
-        setWindowTitle("[清泚源科技] 系统配置向导");
+        setWindowTitle("[尼诺安自控] 系统配置向导");
 
         QImage image(":/common/images/resources/window_icon.png");
         auto pix_map = QPixmap::fromImage(image);
@@ -33,7 +33,7 @@ void Main::initUi(QWidget *parent) {
     }
     // init image on left
     {
-        QImage image(":/common/images/resources/config1.png");
+        QImage image(":/common/images/resources/config_main.jpeg");
         auto pix_map = QPixmap::fromImage(image);
         pix_map = pix_map.scaled(200, 600, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         ui->lb_image->setPixmap(pix_map);
@@ -42,8 +42,6 @@ void Main::initUi(QWidget *parent) {
     pages_.emplace_back(new WelcomePage(parent));
     pages_.emplace_back(new MeasuringPage(parent));
     pages_.emplace_back(new SwitchingPage(parent));
-
-    qDebug() << "page size = " << pages_.size();
 
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
@@ -85,7 +83,6 @@ void Main::switchToPrevPage() {
 }
 
 void Main::switchToNextPage() {
-    qDebug() << "index_ = " << index_;
     int last_index = index_ - 1;
     if (index_ == static_cast<int>(pages_.size())) {
         index_ = 0;
