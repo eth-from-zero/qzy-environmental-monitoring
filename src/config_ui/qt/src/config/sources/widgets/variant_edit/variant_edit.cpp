@@ -1,4 +1,4 @@
-#include "headers/widgets/variant_edit.h"
+#include "headers/widgets/variant_edit/variant_edit.h"
 
 VariantEdit::VariantEdit(QWidget *parent)
     : QDialog(parent) {
