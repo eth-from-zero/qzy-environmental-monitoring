@@ -6,7 +6,7 @@
 
 #include "ui_ve_measuringset.h"
 
-#include "headers/widgets/variant_edit/measuringset/measuringedit.h"
+#include "headers/widgets/measurement/variant_edit/measuringset/measuringedit.h"
 #include "headers/widgets/common/confirmation_dialog.h"
 
 class Measuringset : public QWidget {

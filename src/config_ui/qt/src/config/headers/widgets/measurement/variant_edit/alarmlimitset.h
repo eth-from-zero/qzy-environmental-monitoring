@@ -6,7 +6,7 @@
 
 #include "ui_ve_alarmlimitset.h"
 
-#include "headers/widgets/variant_edit/alarmlimitset/alarmlimitedit.h"
+#include "headers/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.h"
 #include "headers/widgets/common/confirmation_dialog.h"
 
 class Alarmlimitset : public QWidget {

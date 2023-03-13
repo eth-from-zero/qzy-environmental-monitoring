@@ -1,19 +1,25 @@
-#include "headers/widgets/measurement.h"
+#include "headers/widgets/switching/switching.h"
 
 #include <QDebug>
 
-MeasuringPage::MeasuringPage(QWidget* parent)
+SwitchingPage::SwitchingPage(QWidget* parent)
     : QWidget(parent) {
-    ui_ = std::make_unique<Ui::Measuring>();
+    ui_ = std::make_unique<Ui::Switching>();
     ui_->setupUi(this);
 
+    auto append_fn = [&](const QString& text) {
+        auto item = new QStandardItem();
+        item->setCheckable(true);
+        item->setCheckState(Qt::Unchecked);
+        item->setText(text);
+        list_view_model_->appendRow(item);
+    };
+
     list_view_model_ = std::make_unique<QStandardItemModel>();
-//    auto item = std::make_unique<QStandardItem>();
-    auto item = new QStandardItem();
-    item->setCheckable(true);
-    item->setCheckState(Qt::Unchecked);
-    item->setText("水温");
-    list_view_model_->appendRow(item);
+    append_fn("采水泵PU1");
+    append_fn("采水泵PU2");
+    append_fn("清水泵PU2");
+
     ui_->lv->setModel(list_view_model_.get());
 
     ui_->lv->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -32,6 +38,6 @@ MeasuringPage::MeasuringPage(QWidget* parent)
         list_view_menu_->exec(ui_->lv->mapToGlobal(pos));
     });
 
-    variant_edit_ = std::make_unique<VariantEdit>();
+    variant_edit_ = std::make_unique<switching::VariantEdit>();
 }
 

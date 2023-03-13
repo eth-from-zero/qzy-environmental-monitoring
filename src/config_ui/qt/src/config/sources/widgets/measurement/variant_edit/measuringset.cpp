@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-#include "headers/widgets/variant_edit/measuringset.h"
+#include "headers/widgets/measurement/variant_edit/measuringset.h"
 
 Measuringset::Measuringset(QWidget* page): QWidget(nullptr) {
     ui_ = std::make_unique<Ui::VEMeasuringset>();

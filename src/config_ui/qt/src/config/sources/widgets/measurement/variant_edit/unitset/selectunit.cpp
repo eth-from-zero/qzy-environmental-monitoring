@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-#include "headers/widgets/variant_edit/unitset/selectunit.h"
+#include "headers/widgets/measurement/variant_edit/unitset/selectunit.h"
 
 Selectunit::Selectunit(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::VEUSSelectunit>();

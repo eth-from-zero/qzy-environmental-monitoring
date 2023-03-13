@@ -19,33 +19,35 @@ SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
     sources/widgets/common/confirmation_dialog.cpp \
-    sources/widgets/measurement.cpp \
-    sources/widgets/switching.cpp \
-    sources/widgets/variant_edit/variant_edit.cpp \
-    sources/widgets/variant_edit/alarmlimitset.cpp \
-    sources/widgets/variant_edit/alarmlimitset/alarmlimitedit.cpp \
-    sources/widgets/variant_edit/extend/logicexpr.cpp \
-    sources/widgets/variant_edit/extend/selectvar.cpp \
-    sources/widgets/variant_edit/measuringset.cpp \
-    sources/widgets/variant_edit/measuringset/measuringedit.cpp \
-    sources/widgets/variant_edit/unitset.cpp \
-    sources/widgets/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/measurement/measurement.cpp \
+    sources/widgets/measurement/variant_edit/variant_edit.cpp \
+    sources/widgets/measurement/variant_edit/alarmlimitset.cpp \
+    sources/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.cpp \
+    sources/widgets/measurement/variant_edit/extend/logicexpr.cpp \
+    sources/widgets/measurement/variant_edit/extend/selectvar.cpp \
+    sources/widgets/measurement/variant_edit/measuringset.cpp \
+    sources/widgets/measurement/variant_edit/measuringset/measuringedit.cpp \
+    sources/widgets/measurement/variant_edit/unitset.cpp \
+    sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/switching/switching.cpp \
+    sources/widgets/switching/variant_edit/variant_edit.cpp \
     sources/widgets/welcome.cpp
 
 HEADERS += \
     headers/mainwindow.h \
     headers/widgets/common/confirmation_dialog.h \
-    headers/widgets/measurement.h \
-    headers/widgets/switching.h \
-    headers/widgets/variant_edit/variant_edit.h \
-    headers/widgets/variant_edit/alarmlimitset.h \
-    headers/widgets/variant_edit/alarmlimitset/alarmlimitedit.h \
-    headers/widgets/variant_edit/extend/logicexpr.h \
-    headers/widgets/variant_edit/extend/selectvar.h \
-    headers/widgets/variant_edit/measuringset.h \
-    headers/widgets/variant_edit/measuringset/measuringedit.h \
-    headers/widgets/variant_edit/unitset.h \
-    headers/widgets/variant_edit/unitset/selectunit.h \
+    headers/widgets/measurement/measurement.h \
+    headers/widgets/measurement/variant_edit/variant_edit.h \
+    headers/widgets/measurement/variant_edit/alarmlimitset.h \
+    headers/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.h \
+    headers/widgets/measurement/variant_edit/extend/logicexpr.h \
+    headers/widgets/measurement/variant_edit/extend/selectvar.h \
+    headers/widgets/measurement/variant_edit/measuringset.h \
+    headers/widgets/measurement/variant_edit/measuringset/measuringedit.h \
+    headers/widgets/measurement/variant_edit/unitset.h \
+    headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/switching/switching.h \
+    headers/widgets/switching/variant_edit/variant_edit.h \
     headers/widgets/welcome.h
 
 FORMS += \
@@ -65,6 +67,7 @@ FORMS += \
     ui/switching/switching.ui \
     ui/main.ui \
     ui/switching/variant_edit/si_variant_edit.ui \
+    ui/switching/variant_edit/si_ve_type_brower.ui \
     ui/welcome.ui
 
 # Default rules for deployment.

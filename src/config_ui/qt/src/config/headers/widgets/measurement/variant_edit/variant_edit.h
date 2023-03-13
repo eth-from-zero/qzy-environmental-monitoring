@@ -7,11 +7,11 @@
 #include "ui_ve_extend.h"
 #include "ui_ve_unitset.h"
 
-#include "headers/widgets/variant_edit/unitset.h"
-#include "headers/widgets/variant_edit/measuringset.h"
-#include "headers/widgets/variant_edit/alarmlimitset.h"
+#include "headers/widgets/measurement/variant_edit/unitset.h"
+#include "headers/widgets/measurement/variant_edit/measuringset.h"
+#include "headers/widgets/measurement/variant_edit/alarmlimitset.h"
 
-#include "headers/widgets/variant_edit/extend/logicexpr.h"
+#include "headers/widgets/measurement/variant_edit/extend/logicexpr.h"
 
 #include <QDialog>
 

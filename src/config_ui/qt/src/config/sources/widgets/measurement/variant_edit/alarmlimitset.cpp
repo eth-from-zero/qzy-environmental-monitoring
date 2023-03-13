@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-#include "headers/widgets/variant_edit/alarmlimitset.h"
+#include "headers/widgets/measurement/variant_edit/alarmlimitset.h"
 
 Alarmlimitset::Alarmlimitset(QWidget* page): QWidget(nullptr) {
     ui_ = std::make_unique<Ui::VEAlarmlimitset>();

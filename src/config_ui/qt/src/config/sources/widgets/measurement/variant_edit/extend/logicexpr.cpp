@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QMouseEvent>
 
-#include "headers/widgets/variant_edit/extend/logicexpr.h"
+#include "headers/widgets/measurement/variant_edit/extend/logicexpr.h"
 
 Logicexpr::Logicexpr(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::VEEDLogicexpr>();

@@ -1,4 +1,4 @@
-#include "headers/widgets/variant_edit/alarmlimitset/alarmlimitedit.h"
+#include "headers/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.h"
 
 #include <QPushButton>
 

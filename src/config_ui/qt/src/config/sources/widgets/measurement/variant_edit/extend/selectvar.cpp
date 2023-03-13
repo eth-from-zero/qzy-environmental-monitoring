@@ -1,6 +1,6 @@
 #include <QDebug>
 
-#include "headers/widgets/variant_edit/extend/selectvar.h"
+#include "headers/widgets/measurement/variant_edit/extend/selectvar.h"
 
 Selectvar::Selectvar(QWidget*): QDialog(nullptr) {
     ui_ = std::make_unique<Ui::VEEDSelectvar>();

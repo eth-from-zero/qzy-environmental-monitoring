@@ -2,8 +2,8 @@
 #include "ui_main.h"
 
 #include "headers/widgets/welcome.h"
-#include "headers/widgets/measurement.h"
-#include "headers/widgets/switching.h"
+#include "headers/widgets/measurement/measurement.h"
+#include "headers/widgets/switching/switching.h"
 
 #include <QDebug>
 
