@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef SWITCHINT_H
 #define SWITCHING_H
 
@@ -8,7 +10,7 @@
 #include <QMenu>
 #include <QStandardItemModel>
 
-#include "headers/widgets/switching/variant_edit/variant_edit.h"
+#include "headers/widgets/switching/variant_edit/si_variant_edit.h"
 
 class SwitchingPage : public QWidget
 {

@@ -1,4 +1,6 @@
-#include "headers/widgets/measurement/variant_edit/variant_edit.h"
+#include "headers/widgets/measurement/variant_edit/mm_variant_edit.h"
+
+namespace measuringset {
 
 VariantEdit::VariantEdit(QWidget *parent)
     : QDialog(parent) {
@@ -20,4 +22,6 @@ VariantEdit::VariantEdit(QWidget *parent)
     unitset_widget_ = std::make_unique<Unitset>(ui_->tab_unit_set);
     measuringset_widget_ = std::make_unique<Measuringset>(ui_->tab_miles_set);
     alarmlimitset_widget_ = std::make_unique<Alarmlimitset>(ui_->tab_alarm_limits_set);
+}
+
 }

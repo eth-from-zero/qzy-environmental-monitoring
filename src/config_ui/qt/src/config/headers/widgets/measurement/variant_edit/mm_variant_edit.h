@@ -1,5 +1,5 @@
-#ifndef VARIANT_EDIT_H
-#define VARIANT_EDIT_H
+#ifndef MM_VARIANT_EDIT_H
+#define MM_VARIANT_EDIT_H
 
 #include <memory>
 #include "ui_mm_variant_edit.h"
@@ -14,6 +14,8 @@
 #include "headers/widgets/measurement/variant_edit/extend/logicexpr.h"
 
 #include <QDialog>
+
+namespace measuringset {
 
 class VariantEdit : public QDialog
 {
@@ -34,5 +36,6 @@ private:
     std::unique_ptr<Logicexpr> extend_logicexpr_;
 };
 
+}
 
-#endif // VARIANT_EDIT_H
+#endif // MM_VARIANT_EDIT_H

@@ -6,6 +6,9 @@
 
 #include <QDialog>
 
+#include "headers/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.h"
+
+
 namespace switching {
 
 class VariantEdit : public QDialog
@@ -18,6 +21,8 @@ public:
 
 private:
     std::unique_ptr<Ui::SIVariantEditDialog> ui_;
+    std::unique_ptr<si_ve::TypeBrower> input_brower_dialog_;
+    std::unique_ptr<si_ve::TypeBrower> output_brower_dialog_;
 };
 
 }

@@ -32,6 +32,6 @@ MeasuringPage::MeasuringPage(QWidget* parent)
         list_view_menu_->exec(ui_->lv->mapToGlobal(pos));
     });
 
-    variant_edit_ = std::make_unique<VariantEdit>();
+    variant_edit_ = std::make_unique<measuringset::VariantEdit>();
 }
 
