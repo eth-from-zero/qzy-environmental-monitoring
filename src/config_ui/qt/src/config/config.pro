@@ -19,6 +19,8 @@ SOURCES += \
     main.cpp \
     sources/mainwindow.cpp \
     sources/widgets/common/confirmation_dialog.cpp \
+    sources/widgets/device/device.cpp \
+    sources/widgets/device/params_config/dv_params_config.cpp \
     sources/widgets/measurement/measurement.cpp \
     sources/widgets/measurement/variant_edit/alarmlimitset.cpp \
     sources/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.cpp \
@@ -56,6 +58,8 @@ HEADERS += \
 
 FORMS += \
     ui/common/confirmation_dialog.ui \
+    ui/device/device.ui \
+    ui/device/params_config/dv_params_config.ui \
     ui/measurement/measurement.ui \
     ui/measurement/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
     ui/measurement/variant_edit/extend/ve_ed_logicexpr.ui \
