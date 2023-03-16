@@ -16,20 +16,20 @@ DevicePage::DevicePage(QWidget* parent)
     };
 
     list_view_model_ = std::make_unique<QStandardItemModel>();
-    append_fn("采水泵PU1");
-    append_fn("采水泵PU2");
-    append_fn("清水泵PU2");
+    append_fn("和利时PLC");
+    append_fn("NH4");
+    append_fn("TN");
 
     ui_->lv->setModel(list_view_model_.get());
 
     ui_->lv->setContextMenuPolicy(Qt::CustomContextMenu);
     list_view_menu_ = std::make_unique<QMenu>(ui_->lv);
-    auto add_action = new QAction("添加");
+    auto add_action = new QAction("编辑");
     connect(add_action, &QAction::triggered, this, [this]() {
         params_config_->exec();
     });
     list_view_menu_->addAction(add_action);
-    auto del_action = new QAction("删除");
+    auto del_action = new QAction("定义为电控设备");
     connect(del_action, &QAction::triggered, this, [this]() {
     });
     list_view_menu_->addAction(del_action);
