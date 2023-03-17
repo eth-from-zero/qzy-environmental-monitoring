@@ -21,6 +21,7 @@ SOURCES += \
     sources/widgets/common/confirmation_dialog.cpp \
     sources/widgets/device/device.cpp \
     sources/widgets/device/params_config/dv_params_config.cpp \
+    sources/widgets/device/params_config/timer/dv_pc_timer.cpp \
     sources/widgets/measurement/measurement.cpp \
     sources/widgets/measurement/variant_edit/alarmlimitset.cpp \
     sources/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     headers/widgets/common/confirmation_dialog.h \
     headers/widgets/device/device.h \
     headers/widgets/device/params_config/dv_params_config.h \
+    headers/widgets/device/params_config/timer/dv_pc_timer.h \
     headers/widgets/measurement/measurement.h \
     headers/widgets/measurement/variant_edit/alarmlimitset.h \
     headers/widgets/measurement/variant_edit/alarmlimitset/alarmlimitedit.h \
