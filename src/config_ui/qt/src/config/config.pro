@@ -62,6 +62,7 @@ FORMS += \
     ui/common/confirmation_dialog.ui \
     ui/device/device.ui \
     ui/device/params_config/dv_params_config.ui \
+    ui/device/params_config/timer/dv_pc_timer.ui \
     ui/measurement/measurement.ui \
     ui/measurement/variant_edit/alarmlimitset/ve_al_alarmlimitedit.ui \
     ui/measurement/variant_edit/extend/ve_ed_logicexpr.ui \
