@@ -5,7 +5,7 @@
 
 #include "ui_dv_params_config.h"
 
-//#include "headers/widgets/device/variant_edit/type_brower/ss_ve_type_brower.h"
+#include "headers/widgets/device/params_config/timer/dv_pc_timer.h"
 
 namespace device {
 
@@ -19,6 +19,7 @@ public:
 
 private:
     std::unique_ptr<Ui::DVParamsConfig> ui_;
+    std::unique_ptr<device::PCTimer> timer_dialog_;
 };
 
 }

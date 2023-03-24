@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>DVPCTImer</class>
+ <widget class="QWidget" name="DVPCTImer">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -160,14 +160,14 @@
       <number>50</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btn_ok">
        <property name="text">
         <string>确定</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="btn_cancel">
        <property name="text">
         <string>取消</string>
        </property>

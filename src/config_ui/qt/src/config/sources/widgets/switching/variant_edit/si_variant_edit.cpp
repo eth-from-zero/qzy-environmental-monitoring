@@ -16,6 +16,13 @@ VariantEdit::VariantEdit(QWidget *parent)
     connect(ui_->btn_output_brower, &QPushButton::clicked, this, [this]() {
         output_brower_dialog_->exec();
     });
+
+    connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
+        this->reject();
+    });
+    connect(ui_->btn_cancel, &QPushButton::clicked, this, [this]() {
+        this->reject();
+    });
 }
 
 }

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "ui_dv_pc_timer.h"
+
 namespace device {
 
 class PCTimer : public QDialog
