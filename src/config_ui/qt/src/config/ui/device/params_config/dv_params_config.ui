@@ -159,7 +159,7 @@
            </layout>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="btn_device_channel">
             <property name="text">
              <string>重建通道</string>
             </property>

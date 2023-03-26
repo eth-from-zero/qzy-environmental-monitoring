@@ -20,6 +20,7 @@ SOURCES += \
     sources/mainwindow.cpp \
     sources/widgets/common/confirmation_dialog.cpp \
     sources/widgets/device/device.cpp \
+    sources/widgets/device/params_config/channel/dv_pc_device_channel.cpp \
     sources/widgets/device/params_config/dv_params_config.cpp \
     sources/widgets/device/params_config/timer/dv_pc_timer.cpp \
     sources/widgets/measurement/measurement.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     headers/mainwindow.h \
     headers/widgets/common/confirmation_dialog.h \
     headers/widgets/device/device.h \
+    headers/widgets/device/params_config/channel/dv_pc_device_channel.h \
     headers/widgets/device/params_config/dv_params_config.h \
     headers/widgets/device/params_config/timer/dv_pc_timer.h \
     headers/widgets/measurement/measurement.h \
@@ -61,6 +63,7 @@ HEADERS += \
 FORMS += \
     ui/common/confirmation_dialog.ui \
     ui/device/device.ui \
+    ui/device/params_config/channel/dv_pc_device_channel.ui \
     ui/device/params_config/dv_params_config.ui \
     ui/device/params_config/timer/dv_pc_timer.ui \
     ui/measurement/measurement.ui \
