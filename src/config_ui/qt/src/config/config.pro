@@ -33,6 +33,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/serialport/serialport.cpp \
     sources/widgets/switching/switching.cpp \
     sources/widgets/switching/variant_edit/si_variant_edit.cpp \
     sources/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/mm_variant_edit.h \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/serialport/serialport.h \
     headers/widgets/switching/switching.h \
     headers/widgets/switching/variant_edit/si_variant_edit.h \
     headers/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.h \
@@ -78,6 +80,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
+    ui/serialport/serialport.ui \
     ui/switching/switching.ui \
     ui/main.ui \
     ui/switching/variant_edit/si_variant_edit.ui \
