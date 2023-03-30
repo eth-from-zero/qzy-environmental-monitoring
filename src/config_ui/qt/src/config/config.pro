@@ -80,6 +80,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
+    ui/other/other.ui \
     ui/serialport/serialport.ui \
     ui/switching/switching.ui \
     ui/main.ui \
