@@ -33,6 +33,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/other/other.cpp \
     sources/widgets/serialport/serialport.cpp \
     sources/widgets/switching/switching.cpp \
     sources/widgets/switching/variant_edit/si_variant_edit.cpp \
@@ -56,6 +57,7 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/mm_variant_edit.h \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/other/other.h \
     headers/widgets/serialport/serialport.h \
     headers/widgets/switching/switching.h \
     headers/widgets/switching/variant_edit/si_variant_edit.h \

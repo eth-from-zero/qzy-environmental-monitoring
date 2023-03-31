@@ -6,6 +6,7 @@
 #include "headers/widgets/switching/switching.h"
 #include "headers/widgets/device/device.h"
 #include "headers/widgets/serialport/serialport.h"
+#include "headers/widgets/other/other.h"
 
 #include <QDebug>
 
@@ -46,6 +47,7 @@ void Main::initUi(QWidget *parent) {
     pages_.emplace_back(new SwitchingPage(parent));
     pages_.emplace_back(new DevicePage(parent));
     pages_.emplace_back(new SerialportPage(parent));
+    pages_.emplace_back(new OtherPage(parent));
 
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
