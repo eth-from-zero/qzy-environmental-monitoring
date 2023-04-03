@@ -33,6 +33,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/other/operator_config/operator_config.cpp \
     sources/widgets/other/other.cpp \
     sources/widgets/serialport/serialport.cpp \
     sources/widgets/switching/switching.cpp \
@@ -62,7 +63,9 @@ HEADERS += \
     headers/widgets/switching/switching.h \
     headers/widgets/switching/variant_edit/si_variant_edit.h \
     headers/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.h \
-    headers/widgets/welcome.h
+    headers/widgets/welcome.h \
+    headers/widgets/other/operator_config/operator_config.h \
+    sources/widgets/other/operator_config/operator_config.h
 
 FORMS += \
     ui/common/confirmation_dialog.ui \
@@ -82,7 +85,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
-    ui/other/operator_config/operator_config.ui \
+    ui/other/operator_config/other_operator_config.ui \
     ui/other/other.ui \
     ui/serialport/serialport.ui \
     ui/switching/switching.ui \
