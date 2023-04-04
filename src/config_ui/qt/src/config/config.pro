@@ -33,6 +33,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/other/operator_config/atomic/ooc_atomic.cpp \
     sources/widgets/other/operator_config/operator_config.cpp \
     sources/widgets/other/other.cpp \
     sources/widgets/serialport/serialport.cpp \
@@ -58,6 +59,7 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/mm_variant_edit.h \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/other/operator_config/atomic/ooc_atomic.h \
     headers/widgets/other/other.h \
     headers/widgets/serialport/serialport.h \
     headers/widgets/switching/switching.h \
@@ -85,6 +87,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
+    ui/other/operator_config/atomic/ooc_atomic.ui \
     ui/other/operator_config/other_operator_config.ui \
     ui/other/other.ui \
     ui/serialport/serialport.ui \
