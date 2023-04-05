@@ -6,6 +6,8 @@
 
 #include <QWidget>
 
+#include "headers/widgets/other/operator_config/operator_config.h"
+
 class OtherPage : public QWidget
 {
     Q_OBJECT
@@ -16,6 +18,7 @@ public:
 
 private:
     std::unique_ptr<Ui::Other> ui_;
+    std::unique_ptr<other::operator_config::OperatorConfig> operator_config_;
 };
 
 

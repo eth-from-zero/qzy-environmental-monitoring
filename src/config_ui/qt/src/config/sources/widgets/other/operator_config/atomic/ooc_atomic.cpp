@@ -10,29 +10,23 @@ OOCAtomic::OOCAtomic(QWidget* page): QDialog(nullptr) {
 
     {
         table_view_model_ = std::make_unique<QStandardItemModel>();
-        table_view_model_->setHorizontalHeaderLabels({"通道编号", "通道名称", "对应数值变量", "源单位"});
-        {
+        table_view_model_->setHorizontalHeaderLabels({"序号", "名称", "资源", "定时模式", "允许手动", "实现模板"});
+
+        auto insert_fn = [&](int x, int y, QString content) {
             auto item = new QStandardItem();
             item->setCheckable(false);
-            item->setText("InValueChannel_1");
-            table_view_model_->setItem(0, 0, item);
-        }
+            item->setText(content);
+            table_view_model_->setItem(x, y, item);
+        };
+
         {
-            auto item = new QStandardItem();
-            item->setCheckable(false);
-            item->setText("数值输入通道1");
-            table_view_model_->setItem(0, 1, item);
+            insert_fn(0, 0, "1031");
+            insert_fn(0, 1, "TP_仪表测量");
         }
+
         ui_->tv->setModel(table_view_model_.get());
         ui_->tv->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
-
-    connect(ui_->btn_ok, &QPushButton::clicked, this, [this]() {
-        this->reject();
-    });
-    connect(ui_->btn_cancel, &QPushButton::clicked, this, [this]() {
-        this->reject();
-    });
 }
 
 }
