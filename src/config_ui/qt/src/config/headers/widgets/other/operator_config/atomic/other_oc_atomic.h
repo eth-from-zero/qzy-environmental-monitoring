@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QStandardItemModel>
 
-#include "ui_ooc_atomic.h"
+#include "ui_other_oc_atomic.h"
 
 namespace other {
 
