@@ -1,4 +1,4 @@
-#include "headers/widgets/other/operator_config/atomic/ooc_atomic.h"
+#include "headers/widgets/other/operator_config/atomic/other_oc_atomic.h"
 
 namespace other {
 
