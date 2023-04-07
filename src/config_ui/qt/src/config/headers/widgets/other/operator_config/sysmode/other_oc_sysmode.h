@@ -1,0 +1,4 @@
+#ifndef OTHER_OC_SYSMODE_H
+#define OTHER_OC_SYSMODE_H
+
+#endif // OTHER_OC_SYSMODE_H
