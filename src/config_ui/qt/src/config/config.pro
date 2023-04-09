@@ -33,6 +33,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/other/operator_config/atomic/other_oc_ac_edit.cpp \
     sources/widgets/other/operator_config/atomic/other_oc_atomic.cpp \
     sources/widgets/other/operator_config/operator_config.cpp \
     sources/widgets/other/operator_config/process/other_oc_process.cpp \
@@ -61,6 +62,7 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/mm_variant_edit.h \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/other/operator_config/atomic/other_oc_ac_edit.h \
     headers/widgets/other/operator_config/atomic/other_oc_atomic.h \
     headers/widgets/other/operator_config/process/other_oc_process.h \
     headers/widgets/other/operator_config/sysmode/other_oc_sysmode.h \
@@ -91,6 +93,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
+    ui/other/operator_config/atomic/other_oc_ac_edit.ui \
     ui/other/operator_config/atomic/other_oc_atomic.ui \
     ui/other/operator_config/other_operator_config.ui \
     ui/other/operator_config/process/other_oc_process.ui \

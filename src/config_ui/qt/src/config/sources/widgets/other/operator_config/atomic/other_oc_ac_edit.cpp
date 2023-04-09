@@ -1,17 +1,16 @@
-#include "headers/widgets/other/operator_config/operator_config.h"
+#include "headers/widgets/other/operator_config/atomic/other_oc_ac_edit.h"
 
 namespace other {
 
 namespace operator_config {
 
-OperatorConfig::OperatorConfig(QWidget *parent)
+OtherOCACEdit::OtherOCACEdit(QWidget *parent)
     : QDialog(parent) {
-    ui_ = std::make_unique<Ui::OtherOperatorConfig>();
+    ui_ = std::make_unique<Ui::OtherOCACEdit>();
     ui_->setupUi(this);
 
    atomic_widget_ = std::make_unique<OOCAtomic>(ui_->tab_atomic);
    process_widget_ = std::make_unique<OtherOCProcess>(ui_->tab_process);
-   sysmode_widget_ = std::make_unique<OtherOCSysmode>(ui_->tab_sysmode);
 }
 
 }

@@ -7,6 +7,7 @@
 
 #include "headers/widgets/other/operator_config/atomic/other_oc_atomic.h"
 #include "headers/widgets/other/operator_config/process/other_oc_process.h"
+#include "headers/widgets/other/operator_config/sysmode/other_oc_sysmode.h"
 
 namespace other {
 
@@ -23,6 +24,7 @@ private:
     std::unique_ptr<Ui::OtherOperatorConfig> ui_;
     std::unique_ptr<OOCAtomic> atomic_widget_;
     std::unique_ptr<OtherOCProcess> process_widget_;
+    std::unique_ptr<OtherOCSysmode> sysmode_widget_;
 };
 
 }
