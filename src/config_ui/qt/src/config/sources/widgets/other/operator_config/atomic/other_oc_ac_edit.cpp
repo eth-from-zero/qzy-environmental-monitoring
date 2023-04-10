@@ -9,8 +9,8 @@ OtherOCACEdit::OtherOCACEdit(QWidget *parent)
     ui_ = std::make_unique<Ui::OtherOCACEdit>();
     ui_->setupUi(this);
 
-   atomic_widget_ = std::make_unique<OOCAtomic>(ui_->tab_atomic);
-   process_widget_ = std::make_unique<OtherOCProcess>(ui_->tab_process);
+   basic_widget_ = std::make_unique<OtherOCACEditBasic>(ui_->tab_basic);
+   extend_widget_ = std::make_unique<OtherOCACEditExtend>(ui_->tab_extend);
 }
 
 }
