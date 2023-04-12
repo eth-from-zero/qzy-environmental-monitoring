@@ -3,8 +3,6 @@
 
 #include <QDialog>
 
-#include "ui_other_oc_ac_edit.h"
-
 #include "ui_other_oc_ac_edit_basic.h"
 #include "ui_other_oc_ac_edit_extend.h"
 
