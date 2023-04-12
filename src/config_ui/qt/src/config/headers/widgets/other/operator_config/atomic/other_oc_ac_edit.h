@@ -3,8 +3,12 @@
 
 #include <QDialog>
 
+#include "ui_other_oc_ac_edit.h"
 #include "ui_other_oc_ac_edit_basic.h"
 #include "ui_other_oc_ac_edit_extend.h"
+
+#include "headers/widgets/other/operator_config/atomic/other_oc_ac_edit_basic.h"
+#include "headers/widgets/other/operator_config/atomic/other_oc_ac_edit_extend.h"
 
 namespace other {
 
@@ -18,8 +22,8 @@ public:
 
 private:
     std::unique_ptr<Ui::OtherOCACEdit> ui_;
-   std::unique_ptr<OtherOCACEditBasic> basic_widget_;
-   std::unique_ptr<OtherOCACEditExtend> extend_widget_;
+    std::unique_ptr<OtherOCACEditBasic> basic_widget_;
+    std::unique_ptr<OtherOCACEditExtend> extend_widget_;
 };
 
 }
