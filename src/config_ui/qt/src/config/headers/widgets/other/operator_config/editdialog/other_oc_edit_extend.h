@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QStandardItemModel>
 
-#include "ui_other_oc_ac_edit_extend.h"
+#include "ui_other_oc_edit_extend.h"
 
 namespace other {
 

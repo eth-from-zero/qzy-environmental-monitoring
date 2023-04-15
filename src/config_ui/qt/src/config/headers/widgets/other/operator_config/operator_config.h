@@ -9,6 +9,8 @@
 #include "headers/widgets/other/operator_config/process/other_oc_process.h"
 #include "headers/widgets/other/operator_config/sysmode/other_oc_sysmode.h"
 
+#include "headers/widgets/other/operator_config/editdialog/other_oc_edit.h"
+
 namespace other {
 
 namespace operator_config {
@@ -25,6 +27,7 @@ private:
     std::unique_ptr<OOCAtomic> atomic_widget_;
     std::unique_ptr<OtherOCProcess> process_widget_;
     std::unique_ptr<OtherOCSysmode> sysmode_widget_;
+    std::unique_ptr<OtherOCACEdit> edit_dialog_;
 };
 
 }

@@ -3,12 +3,12 @@
 
 #include <QDialog>
 
-#include "ui_other_oc_ac_edit.h"
-#include "ui_other_oc_ac_edit_basic.h"
-#include "ui_other_oc_ac_edit_extend.h"
+#include "ui_other_oc_edit.h"
+#include "ui_other_oc_edit_basic.h"
+#include "ui_other_oc_edit_extend.h"
 
-#include "headers/widgets/other/operator_config/atomic/other_oc_ac_edit_basic.h"
-#include "headers/widgets/other/operator_config/atomic/other_oc_ac_edit_extend.h"
+#include "headers/widgets/other/operator_config/editdialog/other_oc_edit_basic.h"
+#include "headers/widgets/other/operator_config/editdialog/other_oc_edit_extend.h"
 
 namespace other {
 
