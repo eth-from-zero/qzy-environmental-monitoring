@@ -34,6 +34,7 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
     sources/widgets/other/operator_config/atomic/other_oc_atomic.cpp \
+    sources/widgets/other/operator_config/editdialog/other_oc_eb_timer.cpp \
     sources/widgets/other/operator_config/editdialog/other_oc_edit.cpp \
     sources/widgets/other/operator_config/editdialog/other_oc_edit_basic.cpp \
     sources/widgets/other/operator_config/editdialog/other_oc_edit_extend.cpp \
@@ -65,6 +66,7 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
     headers/widgets/other/operator_config/atomic/other_oc_atomic.h \
+    headers/widgets/other/operator_config/editdialog/other_oc_eb_timer.h \
     headers/widgets/other/operator_config/editdialog/other_oc_edit.h \
     headers/widgets/other/operator_config/editdialog/other_oc_edit_basic.h \
     headers/widgets/other/operator_config/editdialog/other_oc_edit_extend.h \
