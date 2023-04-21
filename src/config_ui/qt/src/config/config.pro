@@ -108,6 +108,7 @@ FORMS += \
     ui/other/operator_config/process/other_oc_process.ui \
     ui/other/operator_config/sysmod/other_oc_sysmode.ui \
     ui/other/other.ui \
+    ui/other/timer_config/timer_config.ui \
     ui/serialport/serialport.ui \
     ui/switching/switching.ui \
     ui/main.ui \
