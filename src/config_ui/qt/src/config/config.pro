@@ -42,6 +42,7 @@ SOURCES += \
     sources/widgets/other/operator_config/process/other_oc_process.cpp \
     sources/widgets/other/operator_config/sysmode/other_oc_sysmode.cpp \
     sources/widgets/other/other.cpp \
+    sources/widgets/other/timer_config/other_timer_config.cpp \
     sources/widgets/serialport/serialport.cpp \
     sources/widgets/switching/switching.cpp \
     sources/widgets/switching/variant_edit/si_variant_edit.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
     headers/widgets/other/operator_config/process/other_oc_process.h \
     headers/widgets/other/operator_config/sysmode/other_oc_sysmode.h \
     headers/widgets/other/other.h \
+    headers/widgets/other/timer_config/other_timer_config.h \
     headers/widgets/serialport/serialport.h \
     headers/widgets/switching/switching.h \
     headers/widgets/switching/variant_edit/si_variant_edit.h \
@@ -108,7 +110,7 @@ FORMS += \
     ui/other/operator_config/process/other_oc_process.ui \
     ui/other/operator_config/sysmod/other_oc_sysmode.ui \
     ui/other/other.ui \
-    ui/other/timer_config/timer_config.ui \
+    ui/other/timer_config/other_timer_config.ui \
     ui/serialport/serialport.ui \
     ui/switching/switching.ui \
     ui/main.ui \
