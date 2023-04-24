@@ -4,9 +4,9 @@ namespace other {
 
 namespace timer_config {
 
-TimerConfig::TimerConfig(QWidget* page): QDialog(nullptr) {
+TimerConfig::TimerConfig(QWidget* parent): QDialog(parent) {
     ui_ = std::make_unique<Ui::OtherTimerConfig>();
-    ui_->setupUi(page);
+    ui_->setupUi(this);
 
     {
         table_view_model_ = std::make_unique<QStandardItemModel>();

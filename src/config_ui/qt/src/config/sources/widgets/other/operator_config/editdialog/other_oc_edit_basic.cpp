@@ -9,7 +9,6 @@ OtherOCACEditBasic::OtherOCACEditBasic(QWidget* page): QDialog(nullptr) {
    ui_->setupUi(page);
 
    connect(ui_->btn_timer, &QPushButton::clicked, this, [this]() {
-       timer_manager->exec();
    });
 }
 
