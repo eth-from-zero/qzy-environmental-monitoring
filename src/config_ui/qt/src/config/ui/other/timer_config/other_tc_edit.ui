@@ -142,14 +142,14 @@
          <item>
           <widget class="QCheckBox" name="checkBox">
            <property name="text">
-            <string>CheckBox</string>
+            <string>启用定时器</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QCheckBox" name="checkBox_2">
            <property name="text">
-            <string>CheckBox</string>
+            <string>立即触发定时任务</string>
            </property>
           </widget>
          </item>
@@ -159,7 +159,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_5">
         <property name="title">
-         <string>GroupBox</string>
+         <string>定点任务</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -169,24 +169,32 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QComboBox" name="comboBox_3"/>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>定点模式</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_3"/>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QLabel" name="label_13">
-           <property name="text">
-            <string>定点任务</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_9"/>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>定点精度</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_9"/>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
