@@ -31,6 +31,11 @@ TimerConfig::TimerConfig(QWidget* parent): QDialog(parent) {
         ui_->tv->setModel(table_view_model_.get());
         ui_->tv->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     }
+
+    timer_edit_ = std::make_unique<Edit>();
+    connect(ui_->btn_edit, &QPushButton::clicked, this, [this]() {
+        timer_edit_->exec();
+    });
 }
 
 }

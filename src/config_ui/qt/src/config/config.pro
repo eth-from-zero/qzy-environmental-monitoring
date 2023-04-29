@@ -41,6 +41,7 @@ SOURCES += \
     sources/widgets/other/operator_config/process/other_oc_process.cpp \
     sources/widgets/other/operator_config/sysmode/other_oc_sysmode.cpp \
     sources/widgets/other/other.cpp \
+    sources/widgets/other/timer_config/other_tc_edit.cpp \
     sources/widgets/other/timer_config/other_timer_config.cpp \
     sources/widgets/serialport/serialport.cpp \
     sources/widgets/switching/switching.cpp \
@@ -72,6 +73,7 @@ HEADERS += \
     headers/widgets/other/operator_config/process/other_oc_process.h \
     headers/widgets/other/operator_config/sysmode/other_oc_sysmode.h \
     headers/widgets/other/other.h \
+    headers/widgets/other/timer_config/other_tc_edit.h \
     headers/widgets/other/timer_config/other_timer_config.h \
     headers/widgets/serialport/serialport.h \
     headers/widgets/switching/switching.h \

@@ -6,6 +6,8 @@
 
 #include "ui_other_timer_config.h"
 
+#include "other_tc_edit.h"
+
 namespace other {
 
 namespace timer_config {
@@ -20,6 +22,7 @@ public:
 private:
     std::unique_ptr<Ui::OtherTimerConfig> ui_;
     std::unique_ptr<QStandardItemModel> table_view_model_;
+    std::unique_ptr<Edit> timer_edit_;
 };
 
 }

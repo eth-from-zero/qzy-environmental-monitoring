@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>OtherTCEdit</class>
+ <widget class="QWidget" name="OtherTCEdit">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -195,6 +195,13 @@
             <widget class="QSpinBox" name="spinBox_9"/>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>定点计划</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
