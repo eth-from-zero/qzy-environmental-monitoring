@@ -101,6 +101,7 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
+    ui/other/alarmcode_config/alarmcode_config.ui \
     ui/other/operator_config/editdialog/other_oc_edit.ui \
     ui/other/operator_config/editdialog/other_oc_edit_basic.ui \
     ui/other/operator_config/editdialog/other_oc_edit_extend.ui \
