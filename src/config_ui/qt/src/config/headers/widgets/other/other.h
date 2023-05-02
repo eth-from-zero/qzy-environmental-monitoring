@@ -8,6 +8,7 @@
 
 #include "headers/widgets/other/operator_config/operator_config.h"
 #include "headers/widgets/other/timer_config/other_timer_config.h"
+#include "headers/widgets/other/alarmcode_config/alarmcode_config.h"
 
 class OtherPage : public QWidget
 {
@@ -21,6 +22,7 @@ private:
     std::unique_ptr<Ui::Other> ui_;
     std::unique_ptr<other::operator_config::OperatorConfig> operator_config_;
     std::unique_ptr<other::timer_config::TimerConfig> timer_config_;
+    std::unique_ptr<other::alarmcode_config::AlarmcodeConfig> alarmcode_config_;
 };
 
 

@@ -33,6 +33,9 @@ SOURCES += \
     sources/widgets/measurement/variant_edit/mm_variant_edit.cpp \
     sources/widgets/measurement/variant_edit/unitset.cpp \
     sources/widgets/measurement/variant_edit/unitset/selectunit.cpp \
+    sources/widgets/other/alarmcode_config/alarmcode_config.cpp \
+    sources/widgets/other/alarmcode_config/other_ac_alarmcode.cpp \
+    sources/widgets/other/alarmcode_config/other_ac_alarmgroup.cpp \
     sources/widgets/other/operator_config/atomic/other_oc_atomic.cpp \
     sources/widgets/other/operator_config/editdialog/other_oc_edit.cpp \
     sources/widgets/other/operator_config/editdialog/other_oc_edit_basic.cpp \
@@ -66,6 +69,9 @@ HEADERS += \
     headers/widgets/measurement/variant_edit/mm_variant_edit.h \
     headers/widgets/measurement/variant_edit/unitset.h \
     headers/widgets/measurement/variant_edit/unitset/selectunit.h \
+    headers/widgets/other/alarmcode_config/alarmcode_config.h \
+    headers/widgets/other/alarmcode_config/other_ac_alarmcode.h \
+    headers/widgets/other/alarmcode_config/other_ac_alarmgroup.h \
     headers/widgets/other/operator_config/atomic/other_oc_atomic.h \
     headers/widgets/other/operator_config/editdialog/other_oc_edit.h \
     headers/widgets/other/operator_config/editdialog/other_oc_edit_basic.h \
@@ -101,7 +107,10 @@ FORMS += \
     ui/measurement/variant_edit/ve_extend.ui \
     ui/measurement/variant_edit/ve_measuringset.ui \
     ui/measurement/variant_edit/ve_unitset.ui \
-    ui/other/alarmcode_config/alarmcode_config.ui \
+    ui/other/alarmcode_config/other_ac_alarmcode.ui \
+    ui/other/alarmcode_config/other_ac_alarmgroup.ui \
+    ui/other/alarmcode_config/other_ac_alarmlevel.ui \
+    ui/other/alarmcode_config/other_alarmcode_config.ui \
     ui/other/operator_config/editdialog/other_oc_edit.ui \
     ui/other/operator_config/editdialog/other_oc_edit_basic.ui \
     ui/other/operator_config/editdialog/other_oc_edit_extend.ui \
