@@ -18,6 +18,9 @@ public:
     OtherPage(QWidget *parent= nullptr);
     ~OtherPage() = default;
 
+Q_SIGNALS:
+    void signal_shower();
+
 private:
     std::unique_ptr<Ui::Other> ui_;
     std::unique_ptr<other::operator_config::OperatorConfig> operator_config_;

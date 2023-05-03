@@ -10,6 +10,10 @@
 
 #include <QDebug>
 
+namespace {
+    static constexpr auto kPageIndexOther = 5;
+}
+
 Main::Main(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -42,18 +46,21 @@ void Main::initUi(QWidget *parent) {
         ui->lb_image->setPixmap(pix_map);
     }
 
-    pages_.emplace_back(new WelcomePage(parent));
-    pages_.emplace_back(new MeasuringPage(parent));
-    pages_.emplace_back(new SwitchingPage(parent));
-    pages_.emplace_back(new DevicePage(parent));
-    pages_.emplace_back(new SerialportPage(parent));
-    pages_.emplace_back(new OtherPage(parent));
+    pages_.resize(6);
+    pages_[0].reset(new WelcomePage(parent));
+    pages_[1].reset(new MeasuringPage(parent));
+    pages_[2].reset(new SwitchingPage(parent));
+    pages_[3].reset(new DevicePage(parent));
+    pages_[4].reset(new SerialportPage(parent));
+    pages_[kPageIndexOther].reset(new OtherPage(parent));
 
     for (auto& page : pages_) {
         page->setAttribute(Qt::WA_StyledBackground);
     }
 
     ui->page->addWidget(pages_[0].get());
+
+    shower_ = std::make_unique<Shower>(parent);
 }
 
 void Main::initBind() {
@@ -69,6 +76,13 @@ void Main::initBind() {
         connect(btn_next, &QPushButton::clicked, this, [this]() {
             ++index_;
             switchToNextPage();
+        });
+    }
+
+    {
+        connect(reinterpret_cast<OtherPage*>(pages_[kPageIndexOther].get()), &OtherPage::signal_shower, this, [this]() {
+            this->hide();
+            shower_->show();
         });
     }
 }

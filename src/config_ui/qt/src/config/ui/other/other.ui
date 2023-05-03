@@ -67,6 +67,22 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="btn_finish">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(243, 102, 255);</string>
+       </property>
+       <property name="text">
+        <string>完成配置</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>

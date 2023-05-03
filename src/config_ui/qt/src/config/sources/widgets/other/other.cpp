@@ -15,7 +15,11 @@ OtherPage::OtherPage(QWidget* parent)
     connect(ui_->btn_timer, &QPushButton::clicked, this, [this]() {
         timer_config_->exec();
     });
-    connect(ui_->btn_timer, &QPushButton::clicked, this, [this]() {
+    connect(ui_->btn_alarm, &QPushButton::clicked, this, [this]() {
         alarmcode_config_->exec();
+    });
+
+    connect(ui_->btn_finish, &QPushButton::clicked, this, [this]() {
+        emit signal_shower();
     });
 }

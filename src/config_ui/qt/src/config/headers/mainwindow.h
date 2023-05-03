@@ -7,6 +7,8 @@
 #include <memory>
 #include <vector>
 
+#include "headers/widgets/shower.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -33,6 +35,7 @@ private:
     Ui::MainWindow *ui;
     std::unique_ptr<QHBoxLayout> page_layout_;
     std::vector<std::unique_ptr<QWidget>> pages_;
+    std::unique_ptr<Shower> shower_;
 };
 
 #endif // MAIN_H

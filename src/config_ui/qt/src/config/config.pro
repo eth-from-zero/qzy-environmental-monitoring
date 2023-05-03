@@ -49,6 +49,7 @@ SOURCES += \
     sources/widgets/other/timer_config/other_tc_edit.cpp \
     sources/widgets/other/timer_config/other_timer_config.cpp \
     sources/widgets/serialport/serialport.cpp \
+    sources/widgets/shower.cpp \
     sources/widgets/switching/switching.cpp \
     sources/widgets/switching/variant_edit/si_variant_edit.cpp \
     sources/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.cpp \
@@ -86,6 +87,7 @@ HEADERS += \
     headers/widgets/other/timer_config/other_tc_edit.h \
     headers/widgets/other/timer_config/other_timer_config.h \
     headers/widgets/serialport/serialport.h \
+    headers/widgets/shower.h \
     headers/widgets/switching/switching.h \
     headers/widgets/switching/variant_edit/si_variant_edit.h \
     headers/widgets/switching/variant_edit/type_brower/ss_ve_type_brower.h \
@@ -127,6 +129,7 @@ FORMS += \
     ui/other/timer_config/other_tc_edit.ui \
     ui/other/timer_config/other_timer_config.ui \
     ui/serialport/serialport.ui \
+    ui/shower.ui \
     ui/switching/switching.ui \
     ui/main.ui \
     ui/switching/variant_edit/si_variant_edit.ui \
