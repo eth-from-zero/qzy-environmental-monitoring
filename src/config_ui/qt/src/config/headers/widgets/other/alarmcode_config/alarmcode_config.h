@@ -5,6 +5,11 @@
 
 #include "ui_other_alarmcode_config.h"
 
+#include "headers/widgets/other/alarmcode_config/other_ac_alarmcode.h"
+#include "headers/widgets/other/alarmcode_config/other_ac_alarmgroup.h"
+#include "headers/widgets/other/alarmcode_config/other_ac_alarmlevel.h"
+#include "headers/widgets/other/alarmcode_config/other_ac_alarmsource.h"
+
 namespace other {
 
 namespace alarmcode_config {
@@ -18,7 +23,10 @@ public:
 
 private:
     std::unique_ptr<Ui::OtherAlarmcodeConfig> ui_;
-//    std::unique_ptr<OOCAtomic> atomic_widget_;
+    std::unique_ptr<Alarmcode> alarmcode_widget_;
+    std::unique_ptr<Alarmgroup> alarmgroup_widget_;
+    std::unique_ptr<Alarmlevel> alarmlevel_widget_;
+    std::unique_ptr<Alarmsource> alarmsource_widget_;
 };
 
 }

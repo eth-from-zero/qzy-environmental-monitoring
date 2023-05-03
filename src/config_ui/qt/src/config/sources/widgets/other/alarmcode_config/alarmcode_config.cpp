@@ -9,20 +9,16 @@ AlarmcodeConfig::AlarmcodeConfig(QWidget *parent)
     ui_ = std::make_unique<Ui::OtherAlarmcodeConfig>();
     ui_->setupUi(this);
 
-//   atomic_widget_ = std::make_unique<OOCAtomic>(ui_->tab_atomic);
-//   process_widget_ = std::make_unique<OtherOCProcess>(ui_->tab_process);
-//   sysmode_widget_ = std::make_unique<OtherOCSysmode>(ui_->tab_sysmode);
+   alarmcode_widget_ = std::make_unique<Alarmcode>(ui_->tab_alarmcode);
+   alarmgroup_widget_ = std::make_unique<Alarmgroup>(ui_->tab_alarmgroup);
+   alarmlevel_widget_ = std::make_unique<Alarmlevel>(ui_->tab_alarmlevel);
+   alarmsource_widget_ = std::make_unique<Alarmsource>(ui_->tab_alarmsource);
 
 //   edit_dialog_ = std::make_unique<OtherOCACEdit>();
 
-//   connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
-//       auto tw_index = ui_->tabWidget->currentIndex();
-//       if (tw_index == 1) {
-//       } else if (tw_index == 2) {
-//       } else {
-//       }
+   connect(ui_->btn_add, &QPushButton::clicked, this, [this]() {
 //       edit_dialog_->exec();
-//   });
+   });
 }
 
 }

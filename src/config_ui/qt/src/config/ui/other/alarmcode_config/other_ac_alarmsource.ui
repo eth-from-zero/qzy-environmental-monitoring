@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OtherACAlarmlevel</class>
- <widget class="QWidget" name="OtherACAlarmlevel">
+ <class>OtherACAlarmsource</class>
+ <widget class="QWidget" name="OtherACAlarmsource">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>458</height>
+    <width>499</width>
+    <height>456</height>
    </rect>
   </property>
   <property name="windowTitle">

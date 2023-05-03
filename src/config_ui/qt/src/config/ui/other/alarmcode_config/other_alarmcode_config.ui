@@ -17,24 +17,24 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
-     <widget class="QWidget" name="widget">
+     <widget class="QWidget" name="tab_alarmgroup">
       <attribute name="title">
        <string>报警组</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tab_alarmcode">
       <attribute name="title">
        <string>报警码</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="tab_alarmlevel">
       <attribute name="title">
        <string>报警等级</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_4">
+     <widget class="QWidget" name="tab_alarmsource">
       <attribute name="title">
        <string>报警源</string>
       </attribute>
