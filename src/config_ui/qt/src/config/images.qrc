@@ -3,5 +3,6 @@
         <file>resources/config1.png</file>
         <file>resources/window_icon.png</file>
         <file>resources/config_main.jpeg</file>
+        <file>resources/shower.jpeg</file>
     </qresource>
 </RCC>
